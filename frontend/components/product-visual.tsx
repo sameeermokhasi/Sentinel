@@ -58,60 +58,40 @@ function Turntable({
   )
 }
 
-function Shoe3DShape({ colorName }: { colorName?: string }) {
-  const mainColor = useMemo(() => {
-    if (!colorName) return '#dc2626'
+function PumaSpeedcat3DShape({ colorName }: { colorName?: string }) {
+  const mainRed = useMemo(() => {
+    if (!colorName) return '#d91b24'
     const c = colorName.toLowerCase()
-    if (c.includes('red')) return '#dc2626'
-    if (c.includes('blue') || c.includes('navy')) return '#2563eb'
+    if (c.includes('blue') || c.includes('navy')) return '#1e3a8a'
     if (c.includes('black')) return '#18181b'
     if (c.includes('white')) return '#f8fafc'
     if (c.includes('grey') || c.includes('gray')) return '#64748b'
     if (c.includes('brown')) return '#78350f'
     if (c.includes('green') || c.includes('olive')) return '#15803d'
-    return '#dc2626'
+    return '#d91b24'
   }, [colorName])
 
-  // Realistic Shoe Side Profile Extrusion
-  const shoeUpperGeo = useMemo(() => {
+  const formstripCream = '#f4eedb'
+  const outsoleBlack = '#0f172a'
+
+  // Low-Profile Puma Speedcat Extruded Profile
+  const upperGeo = useMemo(() => {
     const s = new THREE.Shape()
-    s.moveTo(-0.75, -0.15)
-    s.lineTo(0.65, -0.15)
-    s.quadraticCurveTo(0.82, -0.1, 0.78, 0.02)
-    s.lineTo(0.28, 0.08)
-    s.lineTo(-0.08, 0.32)
-    s.quadraticCurveTo(-0.35, 0.38, -0.52, 0.28)
-    s.quadraticCurveTo(-0.82, 0.12, -0.75, -0.15)
+    s.moveTo(-0.8, -0.22)
+    s.lineTo(0.72, -0.22)
+    s.quadraticCurveTo(0.88, -0.18, 0.82, -0.06) // Toe Box Low Curve
+    s.lineTo(0.32, 0.04)
+    s.lineTo(-0.12, 0.22) // Low Instep Slant
+    s.quadraticCurveTo(-0.38, 0.26, -0.54, 0.18) // Low Collar
+    s.quadraticCurveTo(-0.86, 0.05, -0.8, -0.22)
 
     const extrudeSettings = {
-      depth: 0.52,
+      depth: 0.5,
       bevelEnabled: true,
       bevelSegments: 8,
       steps: 2,
-      bevelSize: 0.07,
-      bevelThickness: 0.07,
-    }
-    const geo = new THREE.ExtrudeGeometry(s, extrudeSettings)
-    geo.center()
-    return geo
-  }, [])
-
-  // Sleek Molded Sole Extrusion
-  const shoeSoleGeo = useMemo(() => {
-    const s = new THREE.Shape()
-    s.moveTo(-0.85, -0.32)
-    s.lineTo(0.75, -0.32)
-    s.quadraticCurveTo(0.88, -0.28, 0.85, -0.15)
-    s.lineTo(-0.82, -0.15)
-    s.quadraticCurveTo(-0.88, -0.25, -0.85, -0.32)
-
-    const extrudeSettings = {
-      depth: 0.58,
-      bevelEnabled: true,
-      bevelSegments: 6,
-      steps: 1,
-      bevelSize: 0.04,
-      bevelThickness: 0.04,
+      bevelSize: 0.06,
+      bevelThickness: 0.06,
     }
     const geo = new THREE.ExtrudeGeometry(s, extrudeSettings)
     geo.center()
@@ -119,58 +99,57 @@ function Shoe3DShape({ colorName }: { colorName?: string }) {
   }, [])
 
   return (
-    <group rotation={[0.05, -0.55, 0]} position={[0, -0.05, 0]}>
-      {/* Molded Athletic Midsole / Outsole */}
-      <mesh geometry={shoeSoleGeo} position={[0, -0.28, 0]} castShadow receiveShadow>
-        <meshStandardMaterial color="#f8fafc" roughness={0.25} metalness={0.08} />
+    <group rotation={[0.06, -0.5, 0]} position={[0, -0.05, 0]}>
+      {/* Low-profile Black Driver Outsole Wrapped around Heel */}
+      <mesh position={[0, -0.25, 0]} castShadow receiveShadow>
+        <boxGeometry args={[1.72, 0.06, 0.58]} />
+        <meshStandardMaterial color={outsoleBlack} roughness={0.8} />
+      </mesh>
+      
+      {/* Curved Wrapped Heel Outsole Cap */}
+      <mesh position={[-0.78, -0.1, 0]} rotation={[0, 0, 0.3]}>
+        <sphereGeometry args={[0.26, 24, 24, 0, Math.PI, 0, Math.PI]} />
+        <meshStandardMaterial color={outsoleBlack} roughness={0.8} />
       </mesh>
 
-      {/* Rubber Outsole Tread Base */}
-      <mesh position={[0, -0.42, 0]} receiveShadow>
-        <boxGeometry args={[1.72, 0.04, 0.62]} />
-        <meshStandardMaterial color="#0f172a" roughness={0.9} />
+      {/* Main Red Suede Upper */}
+      <mesh geometry={upperGeo} position={[0, -0.05, 0]} castShadow receiveShadow>
+        <meshStandardMaterial color={mainRed} roughness={0.7} metalness={0.02} />
       </mesh>
 
-      {/* Main Extruded Shoe Upper */}
-      <mesh geometry={shoeUpperGeo} position={[0, -0.02, 0]} castShadow receiveShadow>
-        <meshStandardMaterial color={mainColor} roughness={0.35} metalness={0.1} />
+      {/* Off-White Curved Side Formstrip Ribbon */}
+      <mesh position={[-0.05, -0.08, 0.28]} rotation={[0, 0.1, -0.12]}>
+        <boxGeometry args={[0.92, 0.09, 0.02]} />
+        <meshStandardMaterial color={formstripCream} roughness={0.4} />
+      </mesh>
+      <mesh position={[-0.05, -0.08, -0.28]} rotation={[0, -0.1, -0.12]}>
+        <boxGeometry args={[0.92, 0.09, 0.02]} />
+        <meshStandardMaterial color={formstripCream} roughness={0.4} />
       </mesh>
 
-      {/* Ankle Collar Loop */}
-      <mesh position={[-0.32, 0.24, 0]} rotation={[Math.PI / 2, 0.2, 0]} castShadow>
-        <torusGeometry args={[0.21, 0.06, 16, 32]} />
-        <meshStandardMaterial color="#020617" roughness={0.5} />
+      {/* White Puma Cat Logo on Toe Box */}
+      <mesh position={[0.62, -0.12, 0]} rotation={[0, 0, -0.3]}>
+        <cylinderGeometry args={[0.06, 0.06, 0.02, 16]} />
+        <meshStandardMaterial color="#ffffff" roughness={0.2} />
       </mesh>
 
-      {/* Tongue Padding */}
-      <mesh position={[0.04, 0.24, 0]} rotation={[0, 0, -0.5]} castShadow>
-        <boxGeometry args={[0.42, 0.05, 0.34]} />
-        <meshStandardMaterial color="#020617" roughness={0.6} />
+      {/* Gold Foil Metallic Puma Logo near Eyelets */}
+      <mesh position={[0.08, 0.06, 0.28]} rotation={[0, 0.1, 0]}>
+        <boxGeometry args={[0.18, 0.08, 0.02]} />
+        <meshStandardMaterial color={GOLD} roughness={0.2} metalness={0.9} />
+      </mesh>
+      <mesh position={[0.08, 0.06, -0.28]} rotation={[0, -0.1, 0]}>
+        <boxGeometry args={[0.18, 0.08, 0.02]} />
+        <meshStandardMaterial color={GOLD} roughness={0.2} metalness={0.9} />
       </mesh>
 
-      {/* Laces across instep */}
-      {[-0.04, 0.08, 0.2].map((xPos, i) => (
-        <mesh key={i} position={[xPos, 0.09 + i * 0.045, 0]} rotation={[Math.PI / 2, 0, 0.25]} castShadow>
-          <cylinderGeometry args={[0.016, 0.016, 0.42, 12]} />
-          <meshStandardMaterial color="#f8fafc" roughness={0.2} />
+      {/* Laces */}
+      {[-0.08, 0.04, 0.16].map((xPos, i) => (
+        <mesh key={i} position={[xPos, 0.04 + i * 0.04, 0]} rotation={[Math.PI / 2, 0, 0.2]}>
+          <cylinderGeometry args={[0.014, 0.014, 0.38, 12]} />
+          <meshStandardMaterial color={mainRed} roughness={0.5} />
         </mesh>
       ))}
-
-      {/* Side Formstrip / Wave Stripe Accent */}
-      <mesh position={[-0.02, -0.04, 0.31]} rotation={[0, 0.1, -0.22]}>
-        <boxGeometry args={[0.82, 0.07, 0.02]} />
-        <meshStandardMaterial color={GOLD} roughness={0.2} metalness={0.85} />
-      </mesh>
-      <mesh position={[-0.02, -0.04, -0.31]} rotation={[0, -0.1, -0.22]}>
-        <boxGeometry args={[0.82, 0.07, 0.02]} />
-        <meshStandardMaterial color={GOLD} roughness={0.2} metalness={0.85} />
-      </mesh>
-
-      {/* Heel Tab */}
-      <mesh position={[-0.72, 0.12, 0]} rotation={[0, 0, 0.2]} castShadow>
-        <boxGeometry args={[0.08, 0.22, 0.24]} />
-        <meshStandardMaterial color={GOLD} roughness={0.3} metalness={0.7} />
-      </mesh>
     </group>
   )
 }
@@ -188,20 +167,18 @@ function Apparel3DShape({ colorName }: { colorName?: string }) {
     return '#f8fafc'
   }, [colorName])
 
-  // 3D T-Shirt / Jacket Extrusion
   const shirtGeo = useMemo(() => {
     const s = new THREE.Shape()
-    // Collar & shoulders
     s.moveTo(-0.3, 0.65)
     s.lineTo(0.3, 0.65)
-    s.lineTo(0.75, 0.45) // right sleeve
+    s.lineTo(0.75, 0.45)
     s.lineTo(0.55, 0.22)
     s.lineTo(0.42, 0.28)
-    s.lineTo(0.42, -0.65) // right hem
-    s.lineTo(-0.42, -0.65) // left hem
+    s.lineTo(0.42, -0.65)
+    s.lineTo(-0.42, -0.65)
     s.lineTo(-0.42, 0.28)
     s.lineTo(-0.55, 0.22)
-    s.lineTo(-0.75, 0.45) // left sleeve
+    s.lineTo(-0.75, 0.45)
 
     const extrudeSettings = {
       depth: 0.16,
@@ -218,11 +195,9 @@ function Apparel3DShape({ colorName }: { colorName?: string }) {
 
   return (
     <group rotation={[0.08, 0, 0]} position={[0, 0.05, 0]}>
-      {/* 3D Garment Mesh */}
       <mesh geometry={shirtGeo} castShadow receiveShadow>
         <meshStandardMaterial color={mainColor} roughness={0.6} metalness={0.05} />
       </mesh>
-      {/* Gold Hanger Bar */}
       <mesh position={[0, 0.72, 0]} rotation={[0, 0, Math.PI / 2]}>
         <cylinderGeometry args={[0.015, 0.015, 0.7, 16]} />
         <meshStandardMaterial color={GOLD} roughness={0.25} metalness={0.85} />
@@ -299,7 +274,7 @@ export function ProductVisual({
         <Lighting />
         <Turntable spin={interactive} materialize={materialize}>
           {shape === 'footwear' ? (
-            <Shoe3DShape colorName={color} />
+            <PumaSpeedcat3DShape colorName={color} />
           ) : shape === 'apparel' ? (
             <Apparel3DShape colorName={color} />
           ) : (
