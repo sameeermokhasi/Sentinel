@@ -13,8 +13,8 @@ type Shape = 'footwear' | 'apparel' | 'object'
 
 export function shapeFor(category: string, name = ''): Shape {
   const hay = `${category} ${name}`.toLowerCase()
-  if (/(shoe|sneaker|runner|trainer|boot|footwear|sandal|loafer|heel)/.test(hay)) return 'footwear'
-  if (/(shirt|tee|apparel|jacket|dress|top|hoodie|knit|coat|trouser|pant|linen)/.test(hay))
+  if (/(shoe|sneaker|runner|trainer|boot|footwear|sandal|loafer|heel|puma|nike|adidas|reebok)/.test(hay)) return 'footwear'
+  if (/(shirt|tee|apparel|jacket|dress|top|hoodie|knit|coat|trouser|pant|linen|jean)/.test(hay))
     return 'apparel'
   return 'object'
 }
@@ -35,10 +35,9 @@ function Turntable({
   const t = useRef(materialize ? 0 : 1)
 
   useFrame((_, delta) => {
-    if (group.current && spin) group.current.rotation.y += delta * 0.3
+    if (group.current && spin) group.current.rotation.y += delta * 0.6
     if (!inner.current) return
     t.current = Math.min(1, t.current + delta * 1.6)
-    // easeOutExpo
     const e = t.current >= 1 ? 1 : 1 - Math.pow(2, -9 * t.current)
     inner.current.scale.setScalar(0.62 + e * 0.38)
     inner.current.position.y = (1 - e) * 0.5
@@ -68,47 +67,101 @@ function Turntable({
   )
 }
 
-function ShoeBoxShape() {
+function Shoe3DShape({ colorName }: { colorName?: string }) {
+  const mainColor = useMemo(() => {
+    if (!colorName) return '#dc2626' // Vibrant Puma Red
+    const c = colorName.toLowerCase()
+    if (c.includes('red')) return '#dc2626'
+    if (c.includes('blue') || c.includes('navy')) return '#2563eb'
+    if (c.includes('black')) return '#18181b'
+    if (c.includes('white')) return '#f8fafc'
+    if (c.includes('grey') || c.includes('gray')) return '#64748b'
+    if (c.includes('brown')) return '#78350f'
+    if (c.includes('green') || c.includes('olive')) return '#15803d'
+    return '#dc2626'
+  }, [colorName])
+
   return (
-    <group rotation={[0, 0.5, 0]}>
-      {/* box body */}
-      <mesh castShadow receiveShadow position={[0, -0.18, 0]}>
-        <boxGeometry args={[1.5, 0.55, 0.95]} />
-        <meshStandardMaterial color={IVORY} roughness={0.72} metalness={0.03} />
+    <group rotation={[0.08, -0.3, 0.04]} position={[0, -0.05, 0]}>
+      {/* Midsole */}
+      <mesh castShadow receiveShadow position={[0, -0.28, 0]}>
+        <boxGeometry args={[1.75, 0.14, 0.65]} />
+        <meshStandardMaterial color="#f8fafc" roughness={0.25} metalness={0.1} />
       </mesh>
-      {/* lid, offset like it was just opened */}
-      <mesh castShadow position={[0.06, 0.16, -0.03]} rotation={[0, 0.06, 0.02]}>
-        <boxGeometry args={[1.56, 0.14, 1.0]} />
-        <meshStandardMaterial color="#d8d1c1" roughness={0.65} metalness={0.05} />
+      
+      {/* Outsole Grip */}
+      <mesh castShadow position={[0, -0.37, 0]}>
+        <boxGeometry args={[1.78, 0.06, 0.68]} />
+        <meshStandardMaterial color="#0f172a" roughness={0.8} />
       </mesh>
-      {/* gold band */}
-      <mesh position={[0, -0.18, 0]}>
-        <boxGeometry args={[1.53, 0.045, 0.98]} />
-        <meshStandardMaterial color={GOLD} roughness={0.32} metalness={0.75} />
+
+      {/* Main Shoe Upper */}
+      <mesh castShadow position={[-0.1, -0.08, 0]} rotation={[0, 0, -0.05]}>
+        <capsuleGeometry args={[0.26, 1.05, 12, 24]} />
+        <meshStandardMaterial color={mainColor} roughness={0.35} metalness={0.1} />
       </mesh>
-      {/* abstract low-poly shoe silhouette resting on the lid */}
-      <group position={[-0.02, 0.35, 0]} rotation={[0, 0.15, 0]}>
-        <mesh castShadow position={[0, 0.06, 0]} rotation={[0, 0, -0.06]}>
-          <capsuleGeometry args={[0.15, 0.62, 3, 8]} />
-          <meshStandardMaterial color={IVORY} roughness={0.5} />
+
+      {/* Toe Cap Contour */}
+      <mesh castShadow position={[0.42, -0.16, 0]} rotation={[0, 0, -0.2]}>
+        <sphereGeometry args={[0.27, 24, 24, 0, Math.PI * 2, 0, Math.PI * 0.6]} />
+        <meshStandardMaterial color={mainColor} roughness={0.3} />
+      </mesh>
+
+      {/* Heel Counter */}
+      <mesh castShadow position={[-0.55, 0.02, 0]} rotation={[0, 0, 0.2]}>
+        <cylinderGeometry args={[0.24, 0.28, 0.42, 24]} />
+        <meshStandardMaterial color="#0f172a" roughness={0.5} metalness={0.3} />
+      </mesh>
+
+      {/* Ankle Collar */}
+      <mesh castShadow position={[-0.25, 0.18, 0]} rotation={[0, 0, 0.1]}>
+        <torusGeometry args={[0.19, 0.07, 16, 32]} />
+        <meshStandardMaterial color="#020617" roughness={0.6} />
+      </mesh>
+
+      {/* Tongue */}
+      <mesh castShadow position={[0.05, 0.16, 0]} rotation={[0, 0, -0.35]}>
+        <boxGeometry args={[0.45, 0.06, 0.3]} />
+        <meshStandardMaterial color="#020617" roughness={0.6} />
+      </mesh>
+
+      {/* Laces */}
+      {[0.12, 0.24, 0.36].map((xOffset, i) => (
+        <mesh key={i} position={[xOffset - 0.05, 0.02 + i * 0.04, 0]} rotation={[Math.PI / 2, 0, 0.2]}>
+          <cylinderGeometry args={[0.015, 0.015, 0.36, 12]} />
+          <meshStandardMaterial color="#f8fafc" roughness={0.2} />
         </mesh>
-        <mesh castShadow position={[0.34, -0.03, 0]} rotation={[0, 0, 0.35]}>
-          <capsuleGeometry args={[0.13, 0.24, 3, 8]} />
-          <meshStandardMaterial color={IVORY} roughness={0.5} />
-        </mesh>
-        <mesh castShadow position={[0.02, -0.09, 0]}>
-          <boxGeometry args={[1.02, 0.07, 0.3]} />
-          <meshStandardMaterial color={GOLD} roughness={0.35} metalness={0.7} />
-        </mesh>
-      </group>
+      ))}
+
+      {/* Formstrip / Side Stripe Accent */}
+      <mesh position={[-0.05, -0.06, 0.28]} rotation={[0, 0.2, -0.15]}>
+        <boxGeometry args={[0.75, 0.08, 0.02]} />
+        <meshStandardMaterial color={GOLD} roughness={0.2} metalness={0.8} />
+      </mesh>
+      <mesh position={[-0.05, -0.06, -0.28]} rotation={[0, -0.2, -0.15]}>
+        <boxGeometry args={[0.75, 0.08, 0.02]} />
+        <meshStandardMaterial color={GOLD} roughness={0.2} metalness={0.8} />
+      </mesh>
     </group>
   )
 }
 
-function ClothShape() {
+function ClothShape({ colorName }: { colorName?: string }) {
   const mesh = useRef<THREE.Mesh>(null)
   const geometry = useMemo(() => new THREE.PlaneGeometry(1.85, 1.5, 40, 34), [])
   const base = useMemo(() => Float32Array.from(geometry.attributes.position.array), [geometry])
+
+  const mainColor = useMemo(() => {
+    if (!colorName) return IVORY
+    const c = colorName.toLowerCase()
+    if (c.includes('red')) return '#dc2626'
+    if (c.includes('blue') || c.includes('navy')) return '#1e3a8a'
+    if (c.includes('black')) return '#18181b'
+    if (c.includes('white')) return '#f8fafc'
+    if (c.includes('grey') || c.includes('gray')) return '#64748b'
+    if (c.includes('olive') || c.includes('green')) return '#365314'
+    return IVORY
+  }, [colorName])
 
   useEffect(() => () => geometry.dispose(), [geometry])
 
@@ -133,9 +186,9 @@ function ClothShape() {
     <group rotation={[0, 0, 0]}>
       <mesh ref={mesh} geometry={geometry} rotation={[-0.42, 0, 0.06]} castShadow receiveShadow>
         <meshStandardMaterial
-          color={IVORY}
-          roughness={0.85}
-          metalness={0.02}
+          color={mainColor}
+          roughness={0.7}
+          metalness={0.05}
           side={THREE.DoubleSide}
         />
       </mesh>
@@ -166,19 +219,16 @@ function ObjectShape() {
 function Lighting() {
   return (
     <>
-      <ambientLight intensity={0.4} color="#f5f1e8" />
-      {/* key */}
+      <ambientLight intensity={0.5} color="#f5f1e8" />
       <directionalLight
         position={[3.2, 4.4, 3]}
-        intensity={2.1}
+        intensity={2.2}
         color="#fff8ea"
         castShadow
         shadow-mapSize={[1024, 1024]}
       />
-      {/* fill */}
-      <directionalLight position={[-3.6, 1.6, 2.4]} intensity={0.55} color={GOLD} />
-      {/* rim */}
-      <directionalLight position={[0, 2.2, -4]} intensity={1.1} color="#cfd6e4" />
+      <directionalLight position={[-3.6, 1.6, 2.4]} intensity={0.65} color={GOLD} />
+      <directionalLight position={[0, 2.2, -4]} intensity={1.2} color="#cfd6e4" />
     </>
   )
 }
@@ -206,12 +256,14 @@ function useInView<T extends HTMLElement>(rootMargin = '160px') {
 export function ProductVisual({
   category,
   name,
-  interactive = false,
-  materialize = false,
+  color,
+  interactive = true,
+  materialize = true,
   className,
 }: {
   category: string
   name?: string
+  color?: string
   interactive?: boolean
   materialize?: boolean
   className?: string
@@ -223,7 +275,7 @@ export function ProductVisual({
   return (
     <div
       ref={ref}
-      className={className}
+      className={`relative min-h-[320px] w-full ${className ?? ''}`}
       onPointerEnter={() => setHovering(true)}
       onPointerLeave={() => setHovering(false)}
       aria-hidden="true"
@@ -231,38 +283,38 @@ export function ProductVisual({
       {inView ? (
         <Canvas
           shadows
-          dpr={[1, 1.75]}
+          dpr={[1, 2]}
           gl={{ antialias: true, alpha: true }}
-          camera={{ position: [0, 0.95, 3.9], fov: 34 }}
-          frameloop={inView ? 'always' : 'never'}
+          camera={{ position: [0, 0.95, 3.8], fov: 35 }}
+          frameloop="always"
           className="h-full w-full"
         >
           <Lighting />
           <Turntable spin={!hovering || !interactive} materialize={materialize}>
             {shape === 'footwear' ? (
-              <ShoeBoxShape />
+              <Shoe3DShape colorName={color} />
             ) : shape === 'apparel' ? (
-              <ClothShape />
+              <ClothShape colorName={color} />
             ) : (
               <ObjectShape />
             )}
           </Turntable>
           <ContactShadows
             position={[0, -0.66, 0]}
-            opacity={0.5}
+            opacity={0.6}
             scale={6}
-            blur={2.6}
+            blur={2.5}
             far={3}
             color="#000000"
           />
           {interactive && (
             <OrbitControls
-              enabled={hovering}
+              enabled={true}
               enablePan={false}
               enableZoom={false}
-              minPolarAngle={0.7}
+              minPolarAngle={0.6}
               maxPolarAngle={1.55}
-              rotateSpeed={0.6}
+              rotateSpeed={0.8}
             />
           )}
         </Canvas>

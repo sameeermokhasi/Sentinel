@@ -1599,5 +1599,75 @@
         "RAW-030"
       ]
     }
+  },
+  {
+    "id": "audit_1787480304259",
+    "timestamp": "2026-08-23T15:48:24.259790",
+    "agent_name": "BuyerAgent",
+    "action": "extract_filters",
+    "reasoning": "Parsed query 'find red speed runner shoes under 3000 in size 8' into filters",
+    "result": "success",
+    "details": {
+      "filters": {
+        "max_price": 3000.0,
+        "min_price": null,
+        "size": 8,
+        "color": "red",
+        "keyword": "speed runner"
+      }
+    }
+  },
+  {
+    "id": "audit_1787480304280",
+    "timestamp": "2026-08-23T15:48:24.280453",
+    "agent_name": "BuyerAgent",
+    "action": "query_catalog",
+    "reasoning": "Queried catalog with filters",
+    "result": "success",
+    "details": {
+      "match_count": 2,
+      "filters": {
+        "max_price": 3000.0,
+        "min_price": null,
+        "size": 8,
+        "color": "red",
+        "keyword": "speed runner"
+      }
+    }
+  },
+  {
+    "id": "audit_1787480305282",
+    "timestamp": "2026-08-23T15:48:25.282323",
+    "agent_name": "BuyerAgent",
+    "action": "create_order",
+    "reasoning": "Found confident product match 'Puma Speed Runner Red' (ID: RAW-004) at price INR 2890.0.",
+    "result": "success",
+    "details": {
+      "product_id": "RAW-004",
+      "product_name": "Puma Speed Runner Red",
+      "price": 2890.0,
+      "order_id": "order_test_96e839ef3adf",
+      "payment_details": {
+        "status": "success",
+        "order_id": "order_test_96e839ef3adf",
+        "amount": 2890.0,
+        "currency": "INR",
+        "receipt": "order_RAW-004",
+        "razorpay_raw": {
+          "id": "order_test_96e839ef3adf",
+          "entity": "order",
+          "amount": 289000,
+          "amount_paid": 0,
+          "amount_due": 289000,
+          "currency": "INR",
+          "receipt": "order_RAW-004",
+          "status": "created",
+          "attempts": 0,
+          "notes": [],
+          "created_at": 1700000000
+        },
+        "is_mock": true
+      }
+    }
   }
 ]

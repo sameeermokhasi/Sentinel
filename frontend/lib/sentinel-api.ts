@@ -3,7 +3,8 @@
 import useSWR from 'swr'
 
 export const API_BASE =
-  process.env.NEXT_PUBLIC_SENTINEL_API?.replace(/\/$/, '') || 'http://localhost:8000'
+  process.env.NEXT_PUBLIC_SENTINEL_API?.replace(/\/$/, '') || 'http://localhost:8005'
+
 
 /* ---------------------------------- types --------------------------------- */
 
