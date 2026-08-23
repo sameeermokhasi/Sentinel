@@ -5,9 +5,8 @@ import { ContactShadows, OrbitControls } from '@react-three/drei'
 import { useEffect, useMemo, useRef, useState } from 'react'
 import * as THREE from 'three'
 
-const IVORY = '#e9e3d5'
 const GOLD = '#c9a15a'
-const GRAPHITE = '#1b1b1e'
+const GRAPHITE = '#121214'
 
 type Shape = 'footwear' | 'apparel' | 'object'
 
@@ -19,7 +18,7 @@ export function shapeFor(category: string, name = ''): Shape {
   return 'object'
 }
 
-/* ------------------------------ scene pieces ------------------------------ */
+/* ------------------------------ 3D Geometries ------------------------------ */
 
 function Turntable({
   children,
@@ -35,33 +34,25 @@ function Turntable({
   const t = useRef(materialize ? 0 : 1)
 
   useFrame((_, delta) => {
-    if (group.current && spin) group.current.rotation.y += delta * 0.6
+    if (group.current && spin) group.current.rotation.y += delta * 0.5
     if (!inner.current) return
     t.current = Math.min(1, t.current + delta * 1.6)
     const e = t.current >= 1 ? 1 : 1 - Math.pow(2, -9 * t.current)
-    inner.current.scale.setScalar(0.62 + e * 0.38)
-    inner.current.position.y = (1 - e) * 0.5
-    inner.current.traverse((child) => {
-      const mesh = child as THREE.Mesh
-      const mat = mesh.material as THREE.Material | undefined
-      if (mat && 'opacity' in mat) {
-        mat.transparent = e < 1
-        ;(mat as THREE.MeshStandardMaterial).opacity = e
-      }
-    })
+    inner.current.scale.setScalar(0.7 + e * 0.3)
+    inner.current.position.y = (1 - e) * 0.4
   })
 
   return (
     <group ref={group}>
       <group ref={inner}>{children}</group>
-      {/* stage disc */}
-      <mesh position={[0, -0.62, 0]} receiveShadow>
-        <cylinderGeometry args={[1.35, 1.42, 0.07, 64]} />
-        <meshStandardMaterial color={GRAPHITE} roughness={0.55} metalness={0.15} />
+      {/* Polished Turntable Stage */}
+      <mesh position={[0, -0.65, 0]} receiveShadow>
+        <cylinderGeometry args={[1.4, 1.48, 0.08, 64]} />
+        <meshStandardMaterial color={GRAPHITE} roughness={0.4} metalness={0.2} />
       </mesh>
-      <mesh position={[0, -0.575, 0]}>
-        <torusGeometry args={[1.34, 0.006, 8, 96]} />
-        <meshStandardMaterial color={GOLD} roughness={0.3} metalness={0.8} />
+      <mesh position={[0, -0.605, 0]}>
+        <torusGeometry args={[1.39, 0.008, 12, 96]} />
+        <meshStandardMaterial color={GOLD} roughness={0.25} metalness={0.85} />
       </mesh>
     </group>
   )
@@ -69,7 +60,7 @@ function Turntable({
 
 function Shoe3DShape({ colorName }: { colorName?: string }) {
   const mainColor = useMemo(() => {
-    if (!colorName) return '#dc2626' // Vibrant Puma Red
+    if (!colorName) return '#dc2626'
     const c = colorName.toLowerCase()
     if (c.includes('red')) return '#dc2626'
     if (c.includes('blue') || c.includes('navy')) return '#2563eb'
@@ -81,136 +72,179 @@ function Shoe3DShape({ colorName }: { colorName?: string }) {
     return '#dc2626'
   }, [colorName])
 
+  // Realistic Shoe Side Profile Extrusion
+  const shoeUpperGeo = useMemo(() => {
+    const s = new THREE.Shape()
+    s.moveTo(-0.75, -0.15)
+    s.lineTo(0.65, -0.15)
+    s.quadraticCurveTo(0.82, -0.1, 0.78, 0.02)
+    s.lineTo(0.28, 0.08)
+    s.lineTo(-0.08, 0.32)
+    s.quadraticCurveTo(-0.35, 0.38, -0.52, 0.28)
+    s.quadraticCurveTo(-0.82, 0.12, -0.75, -0.15)
+
+    const extrudeSettings = {
+      depth: 0.52,
+      bevelEnabled: true,
+      bevelSegments: 8,
+      steps: 2,
+      bevelSize: 0.07,
+      bevelThickness: 0.07,
+    }
+    const geo = new THREE.ExtrudeGeometry(s, extrudeSettings)
+    geo.center()
+    return geo
+  }, [])
+
+  // Sleek Molded Sole Extrusion
+  const shoeSoleGeo = useMemo(() => {
+    const s = new THREE.Shape()
+    s.moveTo(-0.85, -0.32)
+    s.lineTo(0.75, -0.32)
+    s.quadraticCurveTo(0.88, -0.28, 0.85, -0.15)
+    s.lineTo(-0.82, -0.15)
+    s.quadraticCurveTo(-0.88, -0.25, -0.85, -0.32)
+
+    const extrudeSettings = {
+      depth: 0.58,
+      bevelEnabled: true,
+      bevelSegments: 6,
+      steps: 1,
+      bevelSize: 0.04,
+      bevelThickness: 0.04,
+    }
+    const geo = new THREE.ExtrudeGeometry(s, extrudeSettings)
+    geo.center()
+    return geo
+  }, [])
+
   return (
-    <group rotation={[0.08, -0.3, 0.04]} position={[0, -0.05, 0]}>
-      {/* Midsole */}
-      <mesh castShadow receiveShadow position={[0, -0.28, 0]}>
-        <boxGeometry args={[1.75, 0.14, 0.65]} />
-        <meshStandardMaterial color="#f8fafc" roughness={0.25} metalness={0.1} />
-      </mesh>
-      
-      {/* Outsole Grip */}
-      <mesh castShadow position={[0, -0.37, 0]}>
-        <boxGeometry args={[1.78, 0.06, 0.68]} />
-        <meshStandardMaterial color="#0f172a" roughness={0.8} />
+    <group rotation={[0.05, -0.55, 0]} position={[0, -0.05, 0]}>
+      {/* Molded Athletic Midsole / Outsole */}
+      <mesh geometry={shoeSoleGeo} position={[0, -0.28, 0]} castShadow receiveShadow>
+        <meshStandardMaterial color="#f8fafc" roughness={0.25} metalness={0.08} />
       </mesh>
 
-      {/* Main Shoe Upper */}
-      <mesh castShadow position={[-0.1, -0.08, 0]} rotation={[0, 0, -0.05]}>
-        <capsuleGeometry args={[0.26, 1.05, 12, 24]} />
+      {/* Rubber Outsole Tread Base */}
+      <mesh position={[0, -0.42, 0]} receiveShadow>
+        <boxGeometry args={[1.72, 0.04, 0.62]} />
+        <meshStandardMaterial color="#0f172a" roughness={0.9} />
+      </mesh>
+
+      {/* Main Extruded Shoe Upper */}
+      <mesh geometry={shoeUpperGeo} position={[0, -0.02, 0]} castShadow receiveShadow>
         <meshStandardMaterial color={mainColor} roughness={0.35} metalness={0.1} />
       </mesh>
 
-      {/* Toe Cap Contour */}
-      <mesh castShadow position={[0.42, -0.16, 0]} rotation={[0, 0, -0.2]}>
-        <sphereGeometry args={[0.27, 24, 24, 0, Math.PI * 2, 0, Math.PI * 0.6]} />
-        <meshStandardMaterial color={mainColor} roughness={0.3} />
+      {/* Ankle Collar Loop */}
+      <mesh position={[-0.32, 0.24, 0]} rotation={[Math.PI / 2, 0.2, 0]} castShadow>
+        <torusGeometry args={[0.21, 0.06, 16, 32]} />
+        <meshStandardMaterial color="#020617" roughness={0.5} />
       </mesh>
 
-      {/* Heel Counter */}
-      <mesh castShadow position={[-0.55, 0.02, 0]} rotation={[0, 0, 0.2]}>
-        <cylinderGeometry args={[0.24, 0.28, 0.42, 24]} />
-        <meshStandardMaterial color="#0f172a" roughness={0.5} metalness={0.3} />
-      </mesh>
-
-      {/* Ankle Collar */}
-      <mesh castShadow position={[-0.25, 0.18, 0]} rotation={[0, 0, 0.1]}>
-        <torusGeometry args={[0.19, 0.07, 16, 32]} />
+      {/* Tongue Padding */}
+      <mesh position={[0.04, 0.24, 0]} rotation={[0, 0, -0.5]} castShadow>
+        <boxGeometry args={[0.42, 0.05, 0.34]} />
         <meshStandardMaterial color="#020617" roughness={0.6} />
       </mesh>
 
-      {/* Tongue */}
-      <mesh castShadow position={[0.05, 0.16, 0]} rotation={[0, 0, -0.35]}>
-        <boxGeometry args={[0.45, 0.06, 0.3]} />
-        <meshStandardMaterial color="#020617" roughness={0.6} />
-      </mesh>
-
-      {/* Laces */}
-      {[0.12, 0.24, 0.36].map((xOffset, i) => (
-        <mesh key={i} position={[xOffset - 0.05, 0.02 + i * 0.04, 0]} rotation={[Math.PI / 2, 0, 0.2]}>
-          <cylinderGeometry args={[0.015, 0.015, 0.36, 12]} />
+      {/* Laces across instep */}
+      {[-0.04, 0.08, 0.2].map((xPos, i) => (
+        <mesh key={i} position={[xPos, 0.09 + i * 0.045, 0]} rotation={[Math.PI / 2, 0, 0.25]} castShadow>
+          <cylinderGeometry args={[0.016, 0.016, 0.42, 12]} />
           <meshStandardMaterial color="#f8fafc" roughness={0.2} />
         </mesh>
       ))}
 
-      {/* Formstrip / Side Stripe Accent */}
-      <mesh position={[-0.05, -0.06, 0.28]} rotation={[0, 0.2, -0.15]}>
-        <boxGeometry args={[0.75, 0.08, 0.02]} />
-        <meshStandardMaterial color={GOLD} roughness={0.2} metalness={0.8} />
+      {/* Side Formstrip / Wave Stripe Accent */}
+      <mesh position={[-0.02, -0.04, 0.31]} rotation={[0, 0.1, -0.22]}>
+        <boxGeometry args={[0.82, 0.07, 0.02]} />
+        <meshStandardMaterial color={GOLD} roughness={0.2} metalness={0.85} />
       </mesh>
-      <mesh position={[-0.05, -0.06, -0.28]} rotation={[0, -0.2, -0.15]}>
-        <boxGeometry args={[0.75, 0.08, 0.02]} />
-        <meshStandardMaterial color={GOLD} roughness={0.2} metalness={0.8} />
+      <mesh position={[-0.02, -0.04, -0.31]} rotation={[0, -0.1, -0.22]}>
+        <boxGeometry args={[0.82, 0.07, 0.02]} />
+        <meshStandardMaterial color={GOLD} roughness={0.2} metalness={0.85} />
+      </mesh>
+
+      {/* Heel Tab */}
+      <mesh position={[-0.72, 0.12, 0]} rotation={[0, 0, 0.2]} castShadow>
+        <boxGeometry args={[0.08, 0.22, 0.24]} />
+        <meshStandardMaterial color={GOLD} roughness={0.3} metalness={0.7} />
       </mesh>
     </group>
   )
 }
 
-function ClothShape({ colorName }: { colorName?: string }) {
-  const mesh = useRef<THREE.Mesh>(null)
-  const geometry = useMemo(() => new THREE.PlaneGeometry(1.85, 1.5, 40, 34), [])
-  const base = useMemo(() => Float32Array.from(geometry.attributes.position.array), [geometry])
-
+function Apparel3DShape({ colorName }: { colorName?: string }) {
   const mainColor = useMemo(() => {
-    if (!colorName) return IVORY
+    if (!colorName) return '#f8fafc'
     const c = colorName.toLowerCase()
     if (c.includes('red')) return '#dc2626'
-    if (c.includes('blue') || c.includes('navy')) return '#1e3a8a'
+    if (c.includes('blue') || c.includes('navy')) return '#1d4ed8'
     if (c.includes('black')) return '#18181b'
     if (c.includes('white')) return '#f8fafc'
     if (c.includes('grey') || c.includes('gray')) return '#64748b'
     if (c.includes('olive') || c.includes('green')) return '#365314'
-    return IVORY
+    return '#f8fafc'
   }, [colorName])
 
-  useEffect(() => () => geometry.dispose(), [geometry])
+  // 3D T-Shirt / Jacket Extrusion
+  const shirtGeo = useMemo(() => {
+    const s = new THREE.Shape()
+    // Collar & shoulders
+    s.moveTo(-0.3, 0.65)
+    s.lineTo(0.3, 0.65)
+    s.lineTo(0.75, 0.45) // right sleeve
+    s.lineTo(0.55, 0.22)
+    s.lineTo(0.42, 0.28)
+    s.lineTo(0.42, -0.65) // right hem
+    s.lineTo(-0.42, -0.65) // left hem
+    s.lineTo(-0.42, 0.28)
+    s.lineTo(-0.55, 0.22)
+    s.lineTo(-0.75, 0.45) // left sleeve
 
-  useFrame(({ clock }) => {
-    if (!mesh.current) return
-    const time = clock.elapsedTime
-    const attr = mesh.current.geometry.attributes.position as THREE.BufferAttribute
-    for (let i = 0; i < attr.count; i++) {
-      const x = base[i * 3]
-      const y = base[i * 3 + 1]
-      const z =
-        Math.sin(x * 2.2 + time * 0.9) * 0.11 +
-        Math.cos(y * 2.6 - time * 0.65) * 0.07 +
-        Math.sin((x + y) * 1.4 + time * 0.4) * 0.05
-      attr.setZ(i, z)
+    const extrudeSettings = {
+      depth: 0.16,
+      bevelEnabled: true,
+      bevelSegments: 5,
+      steps: 1,
+      bevelSize: 0.04,
+      bevelThickness: 0.04,
     }
-    attr.needsUpdate = true
-    mesh.current.geometry.computeVertexNormals()
-  })
+    const geo = new THREE.ExtrudeGeometry(s, extrudeSettings)
+    geo.center()
+    return geo
+  }, [])
 
   return (
-    <group rotation={[0, 0, 0]}>
-      <mesh ref={mesh} geometry={geometry} rotation={[-0.42, 0, 0.06]} castShadow receiveShadow>
-        <meshStandardMaterial
-          color={mainColor}
-          roughness={0.7}
-          metalness={0.05}
-          side={THREE.DoubleSide}
-        />
+    <group rotation={[0.08, 0, 0]} position={[0, 0.05, 0]}>
+      {/* 3D Garment Mesh */}
+      <mesh geometry={shirtGeo} castShadow receiveShadow>
+        <meshStandardMaterial color={mainColor} roughness={0.6} metalness={0.05} />
       </mesh>
-      {/* hanging rail */}
-      <mesh position={[0, 0.74, -0.1]} rotation={[0, 0, Math.PI / 2]}>
-        <cylinderGeometry args={[0.018, 0.018, 2.05, 16]} />
-        <meshStandardMaterial color={GOLD} roughness={0.3} metalness={0.8} />
+      {/* Gold Hanger Bar */}
+      <mesh position={[0, 0.72, 0]} rotation={[0, 0, Math.PI / 2]}>
+        <cylinderGeometry args={[0.015, 0.015, 0.7, 16]} />
+        <meshStandardMaterial color={GOLD} roughness={0.25} metalness={0.85} />
+      </mesh>
+      <mesh position={[0, 0.82, 0]} rotation={[0, 0, 0]}>
+        <torusGeometry args={[0.08, 0.012, 8, 24, Math.PI * 1.2]} />
+        <meshStandardMaterial color={GOLD} roughness={0.25} metalness={0.85} />
       </mesh>
     </group>
   )
 }
 
-function ObjectShape() {
+function Object3DShape() {
   return (
     <group rotation={[0.2, 0.4, 0]}>
       <mesh castShadow receiveShadow>
-        <icosahedronGeometry args={[0.72, 0]} />
-        <meshStandardMaterial color={IVORY} roughness={0.55} metalness={0.1} flatShading />
+        <dodecahedronGeometry args={[0.65, 0]} />
+        <meshStandardMaterial color="#f8fafc" roughness={0.4} metalness={0.2} />
       </mesh>
       <mesh rotation={[Math.PI / 2.4, 0.3, 0]}>
-        <torusGeometry args={[1.02, 0.012, 8, 96]} />
-        <meshStandardMaterial color={GOLD} roughness={0.3} metalness={0.85} />
+        <torusGeometry args={[1.05, 0.015, 12, 96]} />
+        <meshStandardMaterial color={GOLD} roughness={0.2} metalness={0.9} />
       </mesh>
     </group>
   )
@@ -219,39 +253,21 @@ function ObjectShape() {
 function Lighting() {
   return (
     <>
-      <ambientLight intensity={0.5} color="#f5f1e8" />
+      <ambientLight intensity={0.65} color="#ffffff" />
       <directionalLight
-        position={[3.2, 4.4, 3]}
+        position={[4, 5, 4]}
         intensity={2.2}
-        color="#fff8ea"
+        color="#ffffff"
         castShadow
         shadow-mapSize={[1024, 1024]}
       />
-      <directionalLight position={[-3.6, 1.6, 2.4]} intensity={0.65} color={GOLD} />
-      <directionalLight position={[0, 2.2, -4]} intensity={1.2} color="#cfd6e4" />
+      <directionalLight position={[-4, 2, 2]} intensity={0.7} color={GOLD} />
+      <directionalLight position={[0, 2, -4]} intensity={1.2} color="#cbd5e1" />
     </>
   )
 }
 
 /* ------------------------------ public surface ---------------------------- */
-
-function useInView<T extends HTMLElement>(rootMargin = '160px') {
-  const ref = useRef<T>(null)
-  const [inView, setInView] = useState(false)
-
-  useEffect(() => {
-    const node = ref.current
-    if (!node) return
-    const io = new IntersectionObserver(
-      ([entry]) => setInView(entry.isIntersecting),
-      { rootMargin },
-    )
-    io.observe(node)
-    return () => io.disconnect()
-  }, [rootMargin])
-
-  return { ref, inView }
-}
 
 export function ProductVisual({
   category,
@@ -268,59 +284,47 @@ export function ProductVisual({
   materialize?: boolean
   className?: string
 }) {
-  const { ref, inView } = useInView<HTMLDivElement>()
-  const [hovering, setHovering] = useState(false)
   const shape = shapeFor(category, name)
 
   return (
-    <div
-      ref={ref}
-      className={`relative min-h-[320px] w-full ${className ?? ''}`}
-      onPointerEnter={() => setHovering(true)}
-      onPointerLeave={() => setHovering(false)}
-      aria-hidden="true"
-    >
-      {inView ? (
-        <Canvas
-          shadows
-          dpr={[1, 2]}
-          gl={{ antialias: true, alpha: true }}
-          camera={{ position: [0, 0.95, 3.8], fov: 35 }}
-          frameloop="always"
-          className="h-full w-full"
-        >
-          <Lighting />
-          <Turntable spin={!hovering || !interactive} materialize={materialize}>
-            {shape === 'footwear' ? (
-              <Shoe3DShape colorName={color} />
-            ) : shape === 'apparel' ? (
-              <ClothShape colorName={color} />
-            ) : (
-              <ObjectShape />
-            )}
-          </Turntable>
-          <ContactShadows
-            position={[0, -0.66, 0]}
-            opacity={0.6}
-            scale={6}
-            blur={2.5}
-            far={3}
-            color="#000000"
-          />
-          {interactive && (
-            <OrbitControls
-              enabled={true}
-              enablePan={false}
-              enableZoom={false}
-              minPolarAngle={0.6}
-              maxPolarAngle={1.55}
-              rotateSpeed={0.8}
-            />
+    <div className={`relative min-h-[340px] w-full bg-[#0d0d0f] ${className ?? ''}`} aria-hidden="true">
+      <Canvas
+        shadows
+        dpr={[1, 2]}
+        gl={{ antialias: true, alpha: true }}
+        camera={{ position: [0, 0.85, 3.4], fov: 36 }}
+        frameloop="always"
+        className="h-full w-full"
+      >
+        <Lighting />
+        <Turntable spin={interactive} materialize={materialize}>
+          {shape === 'footwear' ? (
+            <Shoe3DShape colorName={color} />
+          ) : shape === 'apparel' ? (
+            <Apparel3DShape colorName={color} />
+          ) : (
+            <Object3DShape />
           )}
-        </Canvas>
-      ) : (
-        <div className="h-full w-full" />
-      )}
+        </Turntable>
+        <ContactShadows
+          position={[0, -0.66, 0]}
+          opacity={0.65}
+          scale={5.5}
+          blur={2.4}
+          far={3}
+          color="#000000"
+        />
+        {interactive && (
+          <OrbitControls
+            enabled={true}
+            enablePan={false}
+            enableZoom={false}
+            minPolarAngle={0.5}
+            maxPolarAngle={1.5}
+            rotateSpeed={0.8}
+          />
+        )}
+      </Canvas>
     </div>
   )
 }
