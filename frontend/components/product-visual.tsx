@@ -1,8 +1,8 @@
 'use client'
 
 import { Canvas, useFrame } from '@react-three/fiber'
-import { ContactShadows, OrbitControls } from '@react-three/drei'
-import { useEffect, useMemo, useRef, useState } from 'react'
+import { ContactShadows, OrbitControls, useTexture } from '@react-three/drei'
+import { Suspense, useMemo, useRef } from 'react'
 import * as THREE from 'three'
 
 const GOLD = '#c9a15a'
@@ -23,28 +23,19 @@ export function shapeFor(category: string, name = ''): Shape {
 function Turntable({
   children,
   spin,
-  materialize,
 }: {
   children: React.ReactNode
   spin: boolean
-  materialize: boolean
 }) {
   const group = useRef<THREE.Group>(null)
-  const inner = useRef<THREE.Group>(null)
-  const t = useRef(materialize ? 0 : 1)
 
   useFrame((_, delta) => {
     if (group.current && spin) group.current.rotation.y += delta * 0.5
-    if (!inner.current) return
-    t.current = Math.min(1, t.current + delta * 1.6)
-    const e = t.current >= 1 ? 1 : 1 - Math.pow(2, -9 * t.current)
-    inner.current.scale.setScalar(0.7 + e * 0.3)
-    inner.current.position.y = (1 - e) * 0.4
   })
 
   return (
     <group ref={group}>
-      <group ref={inner}>{children}</group>
+      {children}
       {/* Polished Turntable Stage */}
       <mesh position={[0, -0.65, 0]} receiveShadow>
         <cylinderGeometry args={[1.4, 1.48, 0.08, 64]} />
@@ -58,153 +49,48 @@ function Turntable({
   )
 }
 
-function PumaSpeedcat3DShape({ colorName }: { colorName?: string }) {
-  const mainRed = useMemo(() => {
-    if (!colorName) return '#d91b24'
-    const c = colorName.toLowerCase()
-    if (c.includes('blue') || c.includes('navy')) return '#1e3a8a'
-    if (c.includes('black')) return '#18181b'
-    if (c.includes('white')) return '#f8fafc'
-    if (c.includes('grey') || c.includes('gray')) return '#64748b'
-    if (c.includes('brown')) return '#78350f'
-    if (c.includes('green') || c.includes('olive')) return '#15803d'
-    return '#d91b24'
-  }, [colorName])
-
-  const formstripCream = '#f4eedb'
-  const outsoleBlack = '#0f172a'
-
-  // Low-Profile Puma Speedcat Extruded Profile
-  const upperGeo = useMemo(() => {
-    const s = new THREE.Shape()
-    s.moveTo(-0.8, -0.22)
-    s.lineTo(0.72, -0.22)
-    s.quadraticCurveTo(0.88, -0.18, 0.82, -0.06) // Toe Box Low Curve
-    s.lineTo(0.32, 0.04)
-    s.lineTo(-0.12, 0.22) // Low Instep Slant
-    s.quadraticCurveTo(-0.38, 0.26, -0.54, 0.18) // Low Collar
-    s.quadraticCurveTo(-0.86, 0.05, -0.8, -0.22)
-
-    const extrudeSettings = {
-      depth: 0.5,
-      bevelEnabled: true,
-      bevelSegments: 8,
-      steps: 2,
-      bevelSize: 0.06,
-      bevelThickness: 0.06,
-    }
-    const geo = new THREE.ExtrudeGeometry(s, extrudeSettings)
-    geo.center()
-    return geo
-  }, [])
+function Shoe3DShowcase({ colorName }: { colorName?: string }) {
+  const texture = useTexture('/products/puma-speed-runner.jpg')
 
   return (
-    <group rotation={[0.06, -0.5, 0]} position={[0, -0.05, 0]}>
-      {/* Low-profile Black Driver Outsole Wrapped around Heel */}
-      <mesh position={[0, -0.25, 0]} castShadow receiveShadow>
-        <boxGeometry args={[1.72, 0.06, 0.58]} />
-        <meshStandardMaterial color={outsoleBlack} roughness={0.8} />
-      </mesh>
-      
-      {/* Curved Wrapped Heel Outsole Cap */}
-      <mesh position={[-0.78, -0.1, 0]} rotation={[0, 0, 0.3]}>
-        <sphereGeometry args={[0.26, 24, 24, 0, Math.PI, 0, Math.PI]} />
-        <meshStandardMaterial color={outsoleBlack} roughness={0.8} />
+    <group position={[0, 0.05, 0]}>
+      {/* Front 3D Textured Product Panel */}
+      <mesh position={[0, 0.05, 0.02]} castShadow receiveShadow>
+        <boxGeometry args={[1.9, 1.15, 0.04]} />
+        <meshStandardMaterial map={texture} roughness={0.25} metalness={0.05} />
       </mesh>
 
-      {/* Main Red Suede Upper */}
-      <mesh geometry={upperGeo} position={[0, -0.05, 0]} castShadow receiveShadow>
-        <meshStandardMaterial color={mainRed} roughness={0.7} metalness={0.02} />
+      {/* Back 3D Textured Product Panel */}
+      <mesh position={[0, 0.05, -0.02]} rotation={[0, Math.PI, 0]} castShadow receiveShadow>
+        <boxGeometry args={[1.9, 1.15, 0.04]} />
+        <meshStandardMaterial map={texture} roughness={0.25} metalness={0.05} />
       </mesh>
 
-      {/* Off-White Curved Side Formstrip Ribbon */}
-      <mesh position={[-0.05, -0.08, 0.28]} rotation={[0, 0.1, -0.12]}>
-        <boxGeometry args={[0.92, 0.09, 0.02]} />
-        <meshStandardMaterial color={formstripCream} roughness={0.4} />
+      {/* 3D Metallic Gold Frame Bevel */}
+      <mesh position={[0, 0.05, 0]}>
+        <boxGeometry args={[1.96, 1.21, 0.06]} />
+        <meshStandardMaterial color={GOLD} roughness={0.2} metalness={0.88} />
       </mesh>
-      <mesh position={[-0.05, -0.08, -0.28]} rotation={[0, -0.1, -0.12]}>
-        <boxGeometry args={[0.92, 0.09, 0.02]} />
-        <meshStandardMaterial color={formstripCream} roughness={0.4} />
-      </mesh>
-
-      {/* White Puma Cat Logo on Toe Box */}
-      <mesh position={[0.62, -0.12, 0]} rotation={[0, 0, -0.3]}>
-        <cylinderGeometry args={[0.06, 0.06, 0.02, 16]} />
-        <meshStandardMaterial color="#ffffff" roughness={0.2} />
-      </mesh>
-
-      {/* Gold Foil Metallic Puma Logo near Eyelets */}
-      <mesh position={[0.08, 0.06, 0.28]} rotation={[0, 0.1, 0]}>
-        <boxGeometry args={[0.18, 0.08, 0.02]} />
-        <meshStandardMaterial color={GOLD} roughness={0.2} metalness={0.9} />
-      </mesh>
-      <mesh position={[0.08, 0.06, -0.28]} rotation={[0, -0.1, 0]}>
-        <boxGeometry args={[0.18, 0.08, 0.02]} />
-        <meshStandardMaterial color={GOLD} roughness={0.2} metalness={0.9} />
-      </mesh>
-
-      {/* Laces */}
-      {[-0.08, 0.04, 0.16].map((xPos, i) => (
-        <mesh key={i} position={[xPos, 0.04 + i * 0.04, 0]} rotation={[Math.PI / 2, 0, 0.2]}>
-          <cylinderGeometry args={[0.014, 0.014, 0.38, 12]} />
-          <meshStandardMaterial color={mainRed} roughness={0.5} />
-        </mesh>
-      ))}
     </group>
   )
 }
 
-function Apparel3DShape({ colorName }: { colorName?: string }) {
-  const mainColor = useMemo(() => {
-    if (!colorName) return '#f8fafc'
-    const c = colorName.toLowerCase()
-    if (c.includes('red')) return '#dc2626'
-    if (c.includes('blue') || c.includes('navy')) return '#1d4ed8'
-    if (c.includes('black')) return '#18181b'
-    if (c.includes('white')) return '#f8fafc'
-    if (c.includes('grey') || c.includes('gray')) return '#64748b'
-    if (c.includes('olive') || c.includes('green')) return '#365314'
-    return '#f8fafc'
-  }, [colorName])
-
-  const shirtGeo = useMemo(() => {
-    const s = new THREE.Shape()
-    s.moveTo(-0.3, 0.65)
-    s.lineTo(0.3, 0.65)
-    s.lineTo(0.75, 0.45)
-    s.lineTo(0.55, 0.22)
-    s.lineTo(0.42, 0.28)
-    s.lineTo(0.42, -0.65)
-    s.lineTo(-0.42, -0.65)
-    s.lineTo(-0.42, 0.28)
-    s.lineTo(-0.55, 0.22)
-    s.lineTo(-0.75, 0.45)
-
-    const extrudeSettings = {
-      depth: 0.16,
-      bevelEnabled: true,
-      bevelSegments: 5,
-      steps: 1,
-      bevelSize: 0.04,
-      bevelThickness: 0.04,
-    }
-    const geo = new THREE.ExtrudeGeometry(s, extrudeSettings)
-    geo.center()
-    return geo
-  }, [])
+function Apparel3DShowcase({ colorName }: { colorName?: string }) {
+  const texture = useTexture('/products/oxford-shirt.png')
 
   return (
-    <group rotation={[0.08, 0, 0]} position={[0, 0.05, 0]}>
-      <mesh geometry={shirtGeo} castShadow receiveShadow>
-        <meshStandardMaterial color={mainColor} roughness={0.6} metalness={0.05} />
+    <group position={[0, 0.05, 0]}>
+      <mesh position={[0, 0.05, 0.02]} castShadow receiveShadow>
+        <boxGeometry args={[1.7, 1.25, 0.04]} />
+        <meshStandardMaterial map={texture} roughness={0.3} metalness={0.05} />
       </mesh>
-      <mesh position={[0, 0.72, 0]} rotation={[0, 0, Math.PI / 2]}>
-        <cylinderGeometry args={[0.015, 0.015, 0.7, 16]} />
-        <meshStandardMaterial color={GOLD} roughness={0.25} metalness={0.85} />
+      <mesh position={[0, 0.05, -0.02]} rotation={[0, Math.PI, 0]} castShadow receiveShadow>
+        <boxGeometry args={[1.7, 1.25, 0.04]} />
+        <meshStandardMaterial map={texture} roughness={0.3} metalness={0.05} />
       </mesh>
-      <mesh position={[0, 0.82, 0]} rotation={[0, 0, 0]}>
-        <torusGeometry args={[0.08, 0.012, 8, 24, Math.PI * 1.2]} />
-        <meshStandardMaterial color={GOLD} roughness={0.25} metalness={0.85} />
+      <mesh position={[0, 0.05, 0]}>
+        <boxGeometry args={[1.76, 1.31, 0.06]} />
+        <meshStandardMaterial color={GOLD} roughness={0.2} metalness={0.88} />
       </mesh>
     </group>
   )
@@ -228,7 +114,7 @@ function Object3DShape() {
 function Lighting() {
   return (
     <>
-      <ambientLight intensity={0.65} color="#ffffff" />
+      <ambientLight intensity={0.7} color="#ffffff" />
       <directionalLight
         position={[4, 5, 4]}
         intensity={2.2}
@@ -236,7 +122,7 @@ function Lighting() {
         castShadow
         shadow-mapSize={[1024, 1024]}
       />
-      <directionalLight position={[-4, 2, 2]} intensity={0.7} color={GOLD} />
+      <directionalLight position={[-4, 2, 2]} intensity={0.8} color={GOLD} />
       <directionalLight position={[0, 2, -4]} intensity={1.2} color="#cbd5e1" />
     </>
   )
@@ -249,7 +135,6 @@ export function ProductVisual({
   name,
   color,
   interactive = true,
-  materialize = true,
   className,
 }: {
   category: string
@@ -272,14 +157,16 @@ export function ProductVisual({
         className="h-full w-full"
       >
         <Lighting />
-        <Turntable spin={interactive} materialize={materialize}>
-          {shape === 'footwear' ? (
-            <PumaSpeedcat3DShape colorName={color} />
-          ) : shape === 'apparel' ? (
-            <Apparel3DShape colorName={color} />
-          ) : (
-            <Object3DShape />
-          )}
+        <Turntable spin={interactive}>
+          <Suspense fallback={<Object3DShape />}>
+            {shape === 'footwear' ? (
+              <Shoe3DShowcase colorName={color} />
+            ) : shape === 'apparel' ? (
+              <Apparel3DShowcase colorName={color} />
+            ) : (
+              <Object3DShape />
+            )}
+          </Suspense>
         </Turntable>
         <ContactShadows
           position={[0, -0.66, 0]}
