@@ -45,7 +45,7 @@ def extract_filters_with_llm(user_request: str) -> dict:
             json_match = re.search(r'\{.*\}', content, re.DOTALL)
             if json_match:
                 return json.loads(json_match.group(0))
-        except Exception as e:
+        except Exception:
             pass
 
     # Rule-based fallback parser
@@ -89,7 +89,7 @@ def extract_filters_rule_based(text: str) -> dict:
     if sz:
         kw_text = kw_text.replace(sz.group(0), "")
     for c in colors:
-        kw_text = re.sub(r'\b' + c + r'\b', '', kw_text, flags=i if 'i' in locals() else re.IGNORECASE)
+        kw_text = re.sub(r'\b' + c + r'\b', '', kw_text, flags=re.IGNORECASE)
 
     # Clean words
     cleaned_words = [w for w in kw_text.split() if w.lower() not in ["find", "looking", "for", "shoes", "shoe", "under", "in", "with", "a", "an", "the", "rs", "inr"]]
@@ -176,11 +176,12 @@ def process_shopping_request(query: str) -> dict:
             "failure_record": fail_record
         }
 
-    # Success match! Create Razorpay order
+    # Success match! Create Razorpay order with full checkout config
     payment_order = create_order(
         amount=price,
         currency="INR",
-        receipt_id=f"order_{best_candidate['product_id']}"
+        receipt_id=f"order_{best_candidate['product_id']}",
+        item_name=best_candidate["name"]
     )
 
     log_action(
@@ -202,5 +203,10 @@ def process_shopping_request(query: str) -> dict:
         "message": f"Successfully matched product and created Razorpay order!",
         "product": best_candidate,
         "order": payment_order,
+        "checkout_config": payment_order.get("checkout_config"),
         "filters_applied": filters
     }
+
+
+# Alias for compatibility
+process_buyer_request = process_shopping_request

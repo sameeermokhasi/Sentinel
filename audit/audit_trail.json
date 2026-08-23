@@ -1809,5 +1809,2347 @@
         "is_mock": true
       }
     }
+  },
+  {
+    "id": "audit_1787482264799",
+    "timestamp": "2026-08-23T16:21:04.799047",
+    "agent_name": "BuyerAgent",
+    "action": "extract_filters",
+    "reasoning": "Parsed query 'find Jack & Jones Graphic Tee White under 3000 in size M' into filters",
+    "result": "success",
+    "details": {
+      "filters": {
+        "max_price": 3000.0,
+        "min_price": null,
+        "size": "M",
+        "color": "white",
+        "keyword": "Jack & Jones Graphic Tee"
+      }
+    }
+  },
+  {
+    "id": "audit_1787482264824",
+    "timestamp": "2026-08-23T16:21:04.824253",
+    "agent_name": "BuyerAgent",
+    "action": "query_catalog",
+    "reasoning": "Queried catalog with filters",
+    "result": "success",
+    "details": {
+      "match_count": 1,
+      "filters": {
+        "max_price": 3000.0,
+        "min_price": null,
+        "size": "M",
+        "color": "white",
+        "keyword": "Jack & Jones Graphic Tee"
+      }
+    }
+  },
+  {
+    "id": "audit_1787482264854",
+    "timestamp": "2026-08-23T16:21:04.854429",
+    "agent_name": "BuyerAgent",
+    "action": "match_flagged_for_review",
+    "reasoning": "Candidate RAW-0002 requires review (price_unparseable)",
+    "result": "failed",
+    "details": {
+      "failure_id": "FAIL-1787482264851"
+    }
+  },
+  {
+    "id": "audit_1787482265730",
+    "timestamp": "2026-08-23T16:21:05.730867",
+    "agent_name": "BuyerAgent",
+    "action": "extract_filters",
+    "reasoning": "Parsed query 'find PUMA SPEED RUNNER RED under 2890 in size 8' into filters",
+    "result": "success",
+    "details": {
+      "filters": {
+        "max_price": 2890.0,
+        "min_price": null,
+        "size": 8,
+        "color": "red",
+        "keyword": "PUMA SPEED RUNNER"
+      }
+    }
+  },
+  {
+    "id": "audit_1787482265745",
+    "timestamp": "2026-08-23T16:21:05.745808",
+    "agent_name": "BuyerAgent",
+    "action": "query_catalog",
+    "reasoning": "Queried catalog with filters",
+    "result": "success",
+    "details": {
+      "match_count": 1,
+      "filters": {
+        "max_price": 2890.0,
+        "min_price": null,
+        "size": 8,
+        "color": "red",
+        "keyword": "PUMA SPEED RUNNER"
+      }
+    }
+  },
+  {
+    "id": "audit_1787482266661",
+    "timestamp": "2026-08-23T16:21:06.661675",
+    "agent_name": "BuyerAgent",
+    "action": "create_order",
+    "reasoning": "Found confident product match 'Puma Speed Runner Red' (ID: RAW-0001) at price INR 2890.0.",
+    "result": "success",
+    "details": {
+      "product_id": "RAW-0001",
+      "product_name": "Puma Speed Runner Red",
+      "price": 2890.0,
+      "order_id": "order_test_6d0913142487",
+      "payment_details": {
+        "status": "success",
+        "order_id": "order_test_6d0913142487",
+        "amount": 2890.0,
+        "currency": "INR",
+        "receipt": "order_RAW-0001",
+        "checkout_config": {
+          "key": "rzp_test_TT51dTL52PVtiZ",
+          "amount": 289000,
+          "currency": "INR",
+          "order_id": "order_test_6d0913142487",
+          "name": "Sentinel AI Commerce",
+          "description": "Purchase of Puma Speed Runner Red",
+          "prefill": {
+            "name": "Sentinel Buyer",
+            "email": "buyer@sentinel.ai",
+            "contact": "9999999999"
+          },
+          "theme": {
+            "color": "#c9a15a"
+          }
+        },
+        "razorpay_raw": {
+          "id": "order_test_6d0913142487",
+          "entity": "order",
+          "amount": 289000,
+          "amount_paid": 0,
+          "amount_due": 289000,
+          "currency": "INR",
+          "receipt": "order_RAW-0001",
+          "status": "created",
+          "created_at": 1700000000
+        },
+        "is_mock": true
+      }
+    }
+  },
+  {
+    "id": "audit_1787482267388",
+    "timestamp": "2026-08-23T16:21:07.388957",
+    "agent_name": "BuyerAgent",
+    "action": "extract_filters",
+    "reasoning": "Parsed query 'find Nike Running Shoes Mens in size XX-LARGE' into filters",
+    "result": "success",
+    "details": {
+      "filters": {
+        "max_price": null,
+        "min_price": null,
+        "size": "XX",
+        "color": null,
+        "keyword": "Nike Running Mens -LARGE"
+      }
+    }
+  },
+  {
+    "id": "audit_1787482267430",
+    "timestamp": "2026-08-23T16:21:07.430938",
+    "agent_name": "BuyerAgent",
+    "action": "query_catalog",
+    "reasoning": "Queried catalog with filters",
+    "result": "success",
+    "details": {
+      "match_count": 0,
+      "filters": {
+        "max_price": null,
+        "min_price": null,
+        "size": "XX",
+        "color": null,
+        "keyword": "Nike Running Mens -LARGE"
+      }
+    }
+  },
+  {
+    "id": "audit_1787482267485",
+    "timestamp": "2026-08-23T16:21:07.485510",
+    "agent_name": "BuyerAgent",
+    "action": "match_failed",
+    "reasoning": "No products matched query filters",
+    "result": "failed",
+    "details": {
+      "failure_id": "FAIL-1787482267481"
+    }
+  },
+  {
+    "id": "audit_1787482268240",
+    "timestamp": "2026-08-23T16:21:08.240867",
+    "agent_name": "BuyerAgent",
+    "action": "extract_filters",
+    "reasoning": "Parsed query 'find Levi's Slim Fit Jeans Blue under 1500' into filters",
+    "result": "success",
+    "details": {
+      "filters": {
+        "max_price": 1500.0,
+        "min_price": null,
+        "size": null,
+        "color": "blue",
+        "keyword": "Levi's Slim Fit Jeans"
+      }
+    }
+  },
+  {
+    "id": "audit_1787482268253",
+    "timestamp": "2026-08-23T16:21:08.253869",
+    "agent_name": "BuyerAgent",
+    "action": "query_catalog",
+    "reasoning": "Queried catalog with filters",
+    "result": "success",
+    "details": {
+      "match_count": 0,
+      "filters": {
+        "max_price": 1500.0,
+        "min_price": null,
+        "size": null,
+        "color": "blue",
+        "keyword": "Levi's Slim Fit Jeans"
+      }
+    }
+  },
+  {
+    "id": "audit_1787482268275",
+    "timestamp": "2026-08-23T16:21:08.275442",
+    "agent_name": "BuyerAgent",
+    "action": "match_failed",
+    "reasoning": "No products matched query filters",
+    "result": "failed",
+    "details": {
+      "failure_id": "FAIL-1787482268273"
+    }
+  },
+  {
+    "id": "audit_1787482268962",
+    "timestamp": "2026-08-23T16:21:08.962142",
+    "agent_name": "BuyerAgent",
+    "action": "extract_filters",
+    "reasoning": "Parsed query 'find Puma Speed Runner - Special Edition in red' into filters",
+    "result": "success",
+    "details": {
+      "filters": {
+        "max_price": null,
+        "min_price": null,
+        "size": null,
+        "color": "red",
+        "keyword": "Puma Speed Runner - Special Edition"
+      }
+    }
+  },
+  {
+    "id": "audit_1787482268975",
+    "timestamp": "2026-08-23T16:21:08.975190",
+    "agent_name": "BuyerAgent",
+    "action": "query_catalog",
+    "reasoning": "Queried catalog with filters",
+    "result": "success",
+    "details": {
+      "match_count": 0,
+      "filters": {
+        "max_price": null,
+        "min_price": null,
+        "size": null,
+        "color": "red",
+        "keyword": "Puma Speed Runner - Special Edition"
+      }
+    }
+  },
+  {
+    "id": "audit_1787482268994",
+    "timestamp": "2026-08-23T16:21:08.995002",
+    "agent_name": "BuyerAgent",
+    "action": "match_failed",
+    "reasoning": "No products matched query filters",
+    "result": "failed",
+    "details": {
+      "failure_id": "FAIL-1787482268993"
+    }
+  },
+  {
+    "id": "audit_1787482269679",
+    "timestamp": "2026-08-23T16:21:09.679100",
+    "agent_name": "BuyerAgent",
+    "action": "extract_filters",
+    "reasoning": "Parsed query 'find Adidas Ultraboost Sneaker Black under 2000 in size 10' into filters",
+    "result": "success",
+    "details": {
+      "filters": {
+        "max_price": 2000.0,
+        "min_price": null,
+        "size": 10,
+        "color": "black",
+        "keyword": "Adidas Ultraboost Sneaker"
+      }
+    }
+  },
+  {
+    "id": "audit_1787482269696",
+    "timestamp": "2026-08-23T16:21:09.696690",
+    "agent_name": "BuyerAgent",
+    "action": "query_catalog",
+    "reasoning": "Queried catalog with filters",
+    "result": "success",
+    "details": {
+      "match_count": 0,
+      "filters": {
+        "max_price": 2000.0,
+        "min_price": null,
+        "size": 10,
+        "color": "black",
+        "keyword": "Adidas Ultraboost Sneaker"
+      }
+    }
+  },
+  {
+    "id": "audit_1787482269725",
+    "timestamp": "2026-08-23T16:21:09.725249",
+    "agent_name": "BuyerAgent",
+    "action": "match_failed",
+    "reasoning": "No products matched query filters",
+    "result": "failed",
+    "details": {
+      "failure_id": "FAIL-1787482269721"
+    }
+  },
+  {
+    "id": "audit_1787482270522",
+    "timestamp": "2026-08-23T16:21:10.522313",
+    "agent_name": "BuyerAgent",
+    "action": "extract_filters",
+    "reasoning": "Parsed query 'find Van Heusen Formal Shirt White in size 42' into filters",
+    "result": "success",
+    "details": {
+      "filters": {
+        "max_price": null,
+        "min_price": null,
+        "size": 42,
+        "color": "white",
+        "keyword": "Van Heusen Formal Shirt"
+      }
+    }
+  },
+  {
+    "id": "audit_1787482270543",
+    "timestamp": "2026-08-23T16:21:10.543300",
+    "agent_name": "BuyerAgent",
+    "action": "query_catalog",
+    "reasoning": "Queried catalog with filters",
+    "result": "success",
+    "details": {
+      "match_count": 0,
+      "filters": {
+        "max_price": null,
+        "min_price": null,
+        "size": 42,
+        "color": "white",
+        "keyword": "Van Heusen Formal Shirt"
+      }
+    }
+  },
+  {
+    "id": "audit_1787482270572",
+    "timestamp": "2026-08-23T16:21:10.572354",
+    "agent_name": "BuyerAgent",
+    "action": "match_failed",
+    "reasoning": "No products matched query filters",
+    "result": "failed",
+    "details": {
+      "failure_id": "FAIL-1787482270569"
+    }
+  },
+  {
+    "id": "audit_1787482271484",
+    "timestamp": "2026-08-23T16:21:11.484819",
+    "agent_name": "BuyerAgent",
+    "action": "extract_filters",
+    "reasoning": "Parsed query 'find Superdry Puffer Jacket Red under 4000' into filters",
+    "result": "success",
+    "details": {
+      "filters": {
+        "max_price": 4000.0,
+        "min_price": null,
+        "size": null,
+        "color": "red",
+        "keyword": "Superdry Puffer Jacket"
+      }
+    }
+  },
+  {
+    "id": "audit_1787482271502",
+    "timestamp": "2026-08-23T16:21:11.502603",
+    "agent_name": "BuyerAgent",
+    "action": "query_catalog",
+    "reasoning": "Queried catalog with filters",
+    "result": "success",
+    "details": {
+      "match_count": 0,
+      "filters": {
+        "max_price": 4000.0,
+        "min_price": null,
+        "size": null,
+        "color": "red",
+        "keyword": "Superdry Puffer Jacket"
+      }
+    }
+  },
+  {
+    "id": "audit_1787482271527",
+    "timestamp": "2026-08-23T16:21:11.527455",
+    "agent_name": "BuyerAgent",
+    "action": "match_failed",
+    "reasoning": "No products matched query filters",
+    "result": "failed",
+    "details": {
+      "failure_id": "FAIL-1787482271525"
+    }
+  },
+  {
+    "id": "audit_1787482272433",
+    "timestamp": "2026-08-23T16:21:12.433939",
+    "agent_name": "BuyerAgent",
+    "action": "extract_filters",
+    "reasoning": "Parsed query 'find Woodland Leather Boots Brown in size 9' into filters",
+    "result": "success",
+    "details": {
+      "filters": {
+        "max_price": null,
+        "min_price": null,
+        "size": 9,
+        "color": "brown",
+        "keyword": "Woodland Leather Boots"
+      }
+    }
+  },
+  {
+    "id": "audit_1787482272450",
+    "timestamp": "2026-08-23T16:21:12.450471",
+    "agent_name": "BuyerAgent",
+    "action": "query_catalog",
+    "reasoning": "Queried catalog with filters",
+    "result": "success",
+    "details": {
+      "match_count": 0,
+      "filters": {
+        "max_price": null,
+        "min_price": null,
+        "size": 9,
+        "color": "brown",
+        "keyword": "Woodland Leather Boots"
+      }
+    }
+  },
+  {
+    "id": "audit_1787482272476",
+    "timestamp": "2026-08-23T16:21:12.476186",
+    "agent_name": "BuyerAgent",
+    "action": "match_failed",
+    "reasoning": "No products matched query filters",
+    "result": "failed",
+    "details": {
+      "failure_id": "FAIL-1787482272473"
+    }
+  },
+  {
+    "id": "audit_1787482273150",
+    "timestamp": "2026-08-23T16:21:13.150556",
+    "agent_name": "BuyerAgent",
+    "action": "extract_filters",
+    "reasoning": "Parsed query 'find Red Tape Casual Sneakers White under 1000 in size 7' into filters",
+    "result": "success",
+    "details": {
+      "filters": {
+        "max_price": 1000.0,
+        "min_price": null,
+        "size": 7,
+        "color": "white",
+        "keyword": "Tape Casual Sneakers"
+      }
+    }
+  },
+  {
+    "id": "audit_1787482273168",
+    "timestamp": "2026-08-23T16:21:13.168910",
+    "agent_name": "BuyerAgent",
+    "action": "query_catalog",
+    "reasoning": "Queried catalog with filters",
+    "result": "success",
+    "details": {
+      "match_count": 0,
+      "filters": {
+        "max_price": 1000.0,
+        "min_price": null,
+        "size": 7,
+        "color": "white",
+        "keyword": "Tape Casual Sneakers"
+      }
+    }
+  },
+  {
+    "id": "audit_1787482273196",
+    "timestamp": "2026-08-23T16:21:13.196336",
+    "agent_name": "BuyerAgent",
+    "action": "match_failed",
+    "reasoning": "No products matched query filters",
+    "result": "failed",
+    "details": {
+      "failure_id": "FAIL-1787482273193"
+    }
+  },
+  {
+    "id": "audit_1787482389881",
+    "timestamp": "2026-08-23T16:23:09.881468",
+    "agent_name": "AnomalyModel",
+    "action": "run_anomaly_scan",
+    "reasoning": "Ran IsolationForest outlier detection over 1000 products",
+    "result": "success",
+    "details": {
+      "scanned": 1000,
+      "outliers_detected": 100,
+      "outlier_ids": [
+        "RAW-0001",
+        "RAW-0002",
+        "RAW-0012",
+        "RAW-0013",
+        "RAW-0015",
+        "RAW-0019",
+        "RAW-0023",
+        "RAW-0034",
+        "RAW-0051",
+        "RAW-0056",
+        "RAW-0067",
+        "RAW-0071",
+        "RAW-0072",
+        "RAW-0079",
+        "RAW-0080",
+        "RAW-0082",
+        "RAW-0090",
+        "RAW-0096",
+        "RAW-0110",
+        "RAW-0113",
+        "RAW-0128",
+        "RAW-0129",
+        "RAW-0131",
+        "RAW-0161",
+        "RAW-0183",
+        "RAW-0191",
+        "RAW-0192",
+        "RAW-0217",
+        "RAW-0236",
+        "RAW-0243",
+        "RAW-0279",
+        "RAW-0280",
+        "RAW-0327",
+        "RAW-0340",
+        "RAW-0345",
+        "RAW-0347",
+        "RAW-0358",
+        "RAW-0368",
+        "RAW-0381",
+        "RAW-0385",
+        "RAW-0391",
+        "RAW-0394",
+        "RAW-0398",
+        "RAW-0411",
+        "RAW-0416",
+        "RAW-0425",
+        "RAW-0458",
+        "RAW-0469",
+        "RAW-0478",
+        "RAW-0484",
+        "RAW-0497",
+        "RAW-0514",
+        "RAW-0520",
+        "RAW-0524",
+        "RAW-0525",
+        "RAW-0530",
+        "RAW-0533",
+        "RAW-0552",
+        "RAW-0555",
+        "RAW-0560",
+        "RAW-0569",
+        "RAW-0581",
+        "RAW-0594",
+        "RAW-0626",
+        "RAW-0656",
+        "RAW-0682",
+        "RAW-0685",
+        "RAW-0692",
+        "RAW-0695",
+        "RAW-0714",
+        "RAW-0726",
+        "RAW-0759",
+        "RAW-0767",
+        "RAW-0770",
+        "RAW-0771",
+        "RAW-0776",
+        "RAW-0781",
+        "RAW-0786",
+        "RAW-0789",
+        "RAW-0804",
+        "RAW-0829",
+        "RAW-0830",
+        "RAW-0831",
+        "RAW-0857",
+        "RAW-0864",
+        "RAW-0880",
+        "RAW-0883",
+        "RAW-0889",
+        "RAW-0892",
+        "RAW-0918",
+        "RAW-0919",
+        "RAW-0930",
+        "RAW-0937",
+        "RAW-0940",
+        "RAW-0945",
+        "RAW-0949",
+        "RAW-0950",
+        "RAW-0961",
+        "RAW-0982",
+        "RAW-0987"
+      ]
+    }
+  },
+  {
+    "id": "audit_1787482471325",
+    "timestamp": "2026-08-23T16:24:31.325911",
+    "agent_name": "AnomalyModel",
+    "action": "run_anomaly_scan",
+    "reasoning": "Ran IsolationForest outlier detection over 1000 products",
+    "result": "success",
+    "details": {
+      "scanned": 1000,
+      "outliers_detected": 100,
+      "outlier_ids": [
+        "RAW-0001",
+        "RAW-0002",
+        "RAW-0012",
+        "RAW-0013",
+        "RAW-0015",
+        "RAW-0019",
+        "RAW-0023",
+        "RAW-0034",
+        "RAW-0051",
+        "RAW-0056",
+        "RAW-0067",
+        "RAW-0071",
+        "RAW-0072",
+        "RAW-0079",
+        "RAW-0080",
+        "RAW-0082",
+        "RAW-0090",
+        "RAW-0096",
+        "RAW-0110",
+        "RAW-0113",
+        "RAW-0128",
+        "RAW-0129",
+        "RAW-0131",
+        "RAW-0161",
+        "RAW-0183",
+        "RAW-0191",
+        "RAW-0192",
+        "RAW-0217",
+        "RAW-0236",
+        "RAW-0243",
+        "RAW-0279",
+        "RAW-0280",
+        "RAW-0327",
+        "RAW-0340",
+        "RAW-0345",
+        "RAW-0347",
+        "RAW-0358",
+        "RAW-0368",
+        "RAW-0381",
+        "RAW-0385",
+        "RAW-0391",
+        "RAW-0394",
+        "RAW-0398",
+        "RAW-0411",
+        "RAW-0416",
+        "RAW-0425",
+        "RAW-0458",
+        "RAW-0469",
+        "RAW-0478",
+        "RAW-0484",
+        "RAW-0497",
+        "RAW-0514",
+        "RAW-0520",
+        "RAW-0524",
+        "RAW-0525",
+        "RAW-0530",
+        "RAW-0533",
+        "RAW-0552",
+        "RAW-0555",
+        "RAW-0560",
+        "RAW-0569",
+        "RAW-0581",
+        "RAW-0594",
+        "RAW-0626",
+        "RAW-0656",
+        "RAW-0682",
+        "RAW-0685",
+        "RAW-0692",
+        "RAW-0695",
+        "RAW-0714",
+        "RAW-0726",
+        "RAW-0759",
+        "RAW-0767",
+        "RAW-0770",
+        "RAW-0771",
+        "RAW-0776",
+        "RAW-0781",
+        "RAW-0786",
+        "RAW-0789",
+        "RAW-0804",
+        "RAW-0829",
+        "RAW-0830",
+        "RAW-0831",
+        "RAW-0857",
+        "RAW-0864",
+        "RAW-0880",
+        "RAW-0883",
+        "RAW-0889",
+        "RAW-0892",
+        "RAW-0918",
+        "RAW-0919",
+        "RAW-0930",
+        "RAW-0937",
+        "RAW-0940",
+        "RAW-0945",
+        "RAW-0949",
+        "RAW-0950",
+        "RAW-0961",
+        "RAW-0982",
+        "RAW-0987"
+      ]
+    }
+  },
+  {
+    "id": "audit_1787482578146",
+    "timestamp": "2026-08-23T16:26:18.146195",
+    "agent_name": "AdversaryAgent",
+    "action": "stress_test_started",
+    "reasoning": "Initiating 10-query stress test suite",
+    "result": "success",
+    "details": {
+      "stage": "initiation"
+    }
+  },
+  {
+    "id": "audit_1787482578155",
+    "timestamp": "2026-08-23T16:26:18.155610",
+    "agent_name": "BuyerAgent",
+    "action": "extract_filters",
+    "reasoning": "Parsed query 'find Jack & Jones Graphic Tee White under 3000 in size M' into filters",
+    "result": "success",
+    "details": {
+      "filters": {
+        "max_price": 3000.0,
+        "min_price": null,
+        "size": "M",
+        "color": "white",
+        "keyword": "Jack & Jones Graphic Tee"
+      }
+    }
+  },
+  {
+    "id": "audit_1787482578188",
+    "timestamp": "2026-08-23T16:26:18.188649",
+    "agent_name": "BuyerAgent",
+    "action": "query_catalog",
+    "reasoning": "Queried catalog with filters",
+    "result": "success",
+    "details": {
+      "match_count": 1,
+      "filters": {
+        "max_price": 3000.0,
+        "min_price": null,
+        "size": "M",
+        "color": "white",
+        "keyword": "Jack & Jones Graphic Tee"
+      }
+    }
+  },
+  {
+    "id": "audit_1787482578215",
+    "timestamp": "2026-08-23T16:26:18.215470",
+    "agent_name": "BuyerAgent",
+    "action": "match_flagged_for_review",
+    "reasoning": "Candidate RAW-0002 requires review (price_unparseable)",
+    "result": "failed",
+    "details": {
+      "failure_id": "FAIL-1787482578212"
+    }
+  },
+  {
+    "id": "audit_1787482578238",
+    "timestamp": "2026-08-23T16:26:18.238785",
+    "agent_name": "BuyerAgent",
+    "action": "extract_filters",
+    "reasoning": "Parsed query 'find PUMA SPEED RUNNER RED under 2890 in size 8' into filters",
+    "result": "success",
+    "details": {
+      "filters": {
+        "max_price": 2890.0,
+        "min_price": null,
+        "size": 8,
+        "color": "red",
+        "keyword": "PUMA SPEED RUNNER"
+      }
+    }
+  },
+  {
+    "id": "audit_1787482578272",
+    "timestamp": "2026-08-23T16:26:18.272578",
+    "agent_name": "BuyerAgent",
+    "action": "query_catalog",
+    "reasoning": "Queried catalog with filters",
+    "result": "success",
+    "details": {
+      "match_count": 1,
+      "filters": {
+        "max_price": 2890.0,
+        "min_price": null,
+        "size": 8,
+        "color": "red",
+        "keyword": "PUMA SPEED RUNNER"
+      }
+    }
+  },
+  {
+    "id": "audit_1787482578300",
+    "timestamp": "2026-08-23T16:26:18.300983",
+    "agent_name": "BuyerAgent",
+    "action": "create_order",
+    "reasoning": "Found confident product match 'Puma Speed Runner Red' (ID: RAW-0001) at price INR 2890.0.",
+    "result": "success",
+    "details": {
+      "product_id": "RAW-0001",
+      "product_name": "Puma Speed Runner Red",
+      "price": 2890.0,
+      "order_id": "order_test_caa8f8911cdb",
+      "payment_details": {
+        "status": "success",
+        "order_id": "order_test_caa8f8911cdb",
+        "amount": 2890.0,
+        "currency": "INR",
+        "receipt": "order_RAW-0001",
+        "checkout_config": {
+          "key": "rzp_test_TT51dTL52PVtiZ",
+          "amount": 289000,
+          "currency": "INR",
+          "order_id": "order_test_caa8f8911cdb",
+          "name": "Sentinel AI Commerce",
+          "description": "Purchase of Puma Speed Runner Red",
+          "prefill": {
+            "name": "Sentinel Buyer",
+            "email": "buyer@sentinel.ai",
+            "contact": "9999999999"
+          },
+          "theme": {
+            "color": "#c9a15a"
+          }
+        },
+        "razorpay_raw": {
+          "id": "order_test_caa8f8911cdb",
+          "entity": "order",
+          "amount": 289000,
+          "amount_paid": 0,
+          "amount_due": 289000,
+          "currency": "INR",
+          "receipt": "order_RAW-0001",
+          "status": "created",
+          "created_at": 1700000000
+        },
+        "is_mock": true
+      }
+    }
+  },
+  {
+    "id": "audit_1787482578323",
+    "timestamp": "2026-08-23T16:26:18.323178",
+    "agent_name": "BuyerAgent",
+    "action": "extract_filters",
+    "reasoning": "Parsed query 'find Nike Running Shoes Mens in size XX-LARGE' into filters",
+    "result": "success",
+    "details": {
+      "filters": {
+        "max_price": null,
+        "min_price": null,
+        "size": "XX",
+        "color": null,
+        "keyword": "Nike Running Mens -LARGE"
+      }
+    }
+  },
+  {
+    "id": "audit_1787482578359",
+    "timestamp": "2026-08-23T16:26:18.359527",
+    "agent_name": "BuyerAgent",
+    "action": "query_catalog",
+    "reasoning": "Queried catalog with filters",
+    "result": "success",
+    "details": {
+      "match_count": 0,
+      "filters": {
+        "max_price": null,
+        "min_price": null,
+        "size": "XX",
+        "color": null,
+        "keyword": "Nike Running Mens -LARGE"
+      }
+    }
+  },
+  {
+    "id": "audit_1787482578402",
+    "timestamp": "2026-08-23T16:26:18.402439",
+    "agent_name": "BuyerAgent",
+    "action": "match_failed",
+    "reasoning": "No products matched query filters",
+    "result": "failed",
+    "details": {
+      "failure_id": "FAIL-1787482578380"
+    }
+  },
+  {
+    "id": "audit_1787482578438",
+    "timestamp": "2026-08-23T16:26:18.438620",
+    "agent_name": "BuyerAgent",
+    "action": "extract_filters",
+    "reasoning": "Parsed query 'find Levi's Slim Fit Jeans Blue under 1500' into filters",
+    "result": "success",
+    "details": {
+      "filters": {
+        "max_price": 1500.0,
+        "min_price": null,
+        "size": null,
+        "color": "blue",
+        "keyword": "Levi's Slim Fit Jeans"
+      }
+    }
+  },
+  {
+    "id": "audit_1787482578478",
+    "timestamp": "2026-08-23T16:26:18.478857",
+    "agent_name": "BuyerAgent",
+    "action": "query_catalog",
+    "reasoning": "Queried catalog with filters",
+    "result": "success",
+    "details": {
+      "match_count": 0,
+      "filters": {
+        "max_price": 1500.0,
+        "min_price": null,
+        "size": null,
+        "color": "blue",
+        "keyword": "Levi's Slim Fit Jeans"
+      }
+    }
+  },
+  {
+    "id": "audit_1787482578538",
+    "timestamp": "2026-08-23T16:26:18.538794",
+    "agent_name": "BuyerAgent",
+    "action": "match_failed",
+    "reasoning": "No products matched query filters",
+    "result": "failed",
+    "details": {
+      "failure_id": "FAIL-1787482578518"
+    }
+  },
+  {
+    "id": "audit_1787482578574",
+    "timestamp": "2026-08-23T16:26:18.574020",
+    "agent_name": "BuyerAgent",
+    "action": "extract_filters",
+    "reasoning": "Parsed query 'find Puma Speed Runner - Special Edition in red' into filters",
+    "result": "success",
+    "details": {
+      "filters": {
+        "max_price": null,
+        "min_price": null,
+        "size": null,
+        "color": "red",
+        "keyword": "Puma Speed Runner - Special Edition"
+      }
+    }
+  },
+  {
+    "id": "audit_1787482578617",
+    "timestamp": "2026-08-23T16:26:18.617959",
+    "agent_name": "BuyerAgent",
+    "action": "query_catalog",
+    "reasoning": "Queried catalog with filters",
+    "result": "success",
+    "details": {
+      "match_count": 0,
+      "filters": {
+        "max_price": null,
+        "min_price": null,
+        "size": null,
+        "color": "red",
+        "keyword": "Puma Speed Runner - Special Edition"
+      }
+    }
+  },
+  {
+    "id": "audit_1787482578665",
+    "timestamp": "2026-08-23T16:26:18.665885",
+    "agent_name": "BuyerAgent",
+    "action": "match_failed",
+    "reasoning": "No products matched query filters",
+    "result": "failed",
+    "details": {
+      "failure_id": "FAIL-1787482578645"
+    }
+  },
+  {
+    "id": "audit_1787482578691",
+    "timestamp": "2026-08-23T16:26:18.691878",
+    "agent_name": "BuyerAgent",
+    "action": "extract_filters",
+    "reasoning": "Parsed query 'find Adidas Ultraboost Sneaker Black under 2000 in size 10' into filters",
+    "result": "success",
+    "details": {
+      "filters": {
+        "max_price": 2000.0,
+        "min_price": null,
+        "size": 10,
+        "color": "black",
+        "keyword": "Adidas Ultraboost Sneaker"
+      }
+    }
+  },
+  {
+    "id": "audit_1787482578728",
+    "timestamp": "2026-08-23T16:26:18.728508",
+    "agent_name": "BuyerAgent",
+    "action": "query_catalog",
+    "reasoning": "Queried catalog with filters",
+    "result": "success",
+    "details": {
+      "match_count": 0,
+      "filters": {
+        "max_price": 2000.0,
+        "min_price": null,
+        "size": 10,
+        "color": "black",
+        "keyword": "Adidas Ultraboost Sneaker"
+      }
+    }
+  },
+  {
+    "id": "audit_1787482578776",
+    "timestamp": "2026-08-23T16:26:18.776363",
+    "agent_name": "BuyerAgent",
+    "action": "match_failed",
+    "reasoning": "No products matched query filters",
+    "result": "failed",
+    "details": {
+      "failure_id": "FAIL-1787482578757"
+    }
+  },
+  {
+    "id": "audit_1787482578798",
+    "timestamp": "2026-08-23T16:26:18.798954",
+    "agent_name": "BuyerAgent",
+    "action": "extract_filters",
+    "reasoning": "Parsed query 'find Van Heusen Formal Shirt White in size 42' into filters",
+    "result": "success",
+    "details": {
+      "filters": {
+        "max_price": null,
+        "min_price": null,
+        "size": 42,
+        "color": "white",
+        "keyword": "Van Heusen Formal Shirt"
+      }
+    }
+  },
+  {
+    "id": "audit_1787482578837",
+    "timestamp": "2026-08-23T16:26:18.837308",
+    "agent_name": "BuyerAgent",
+    "action": "query_catalog",
+    "reasoning": "Queried catalog with filters",
+    "result": "success",
+    "details": {
+      "match_count": 0,
+      "filters": {
+        "max_price": null,
+        "min_price": null,
+        "size": 42,
+        "color": "white",
+        "keyword": "Van Heusen Formal Shirt"
+      }
+    }
+  },
+  {
+    "id": "audit_1787482578894",
+    "timestamp": "2026-08-23T16:26:18.894109",
+    "agent_name": "BuyerAgent",
+    "action": "match_failed",
+    "reasoning": "No products matched query filters",
+    "result": "failed",
+    "details": {
+      "failure_id": "FAIL-1787482578872"
+    }
+  },
+  {
+    "id": "audit_1787482578934",
+    "timestamp": "2026-08-23T16:26:18.934745",
+    "agent_name": "BuyerAgent",
+    "action": "extract_filters",
+    "reasoning": "Parsed query 'find Superdry Puffer Jacket Red under 4000' into filters",
+    "result": "success",
+    "details": {
+      "filters": {
+        "max_price": 4000.0,
+        "min_price": null,
+        "size": null,
+        "color": "red",
+        "keyword": "Superdry Puffer Jacket"
+      }
+    }
+  },
+  {
+    "id": "audit_1787482579018",
+    "timestamp": "2026-08-23T16:26:19.018903",
+    "agent_name": "BuyerAgent",
+    "action": "query_catalog",
+    "reasoning": "Queried catalog with filters",
+    "result": "success",
+    "details": {
+      "match_count": 0,
+      "filters": {
+        "max_price": 4000.0,
+        "min_price": null,
+        "size": null,
+        "color": "red",
+        "keyword": "Superdry Puffer Jacket"
+      }
+    }
+  },
+  {
+    "id": "audit_1787482579053",
+    "timestamp": "2026-08-23T16:26:19.054003",
+    "agent_name": "BuyerAgent",
+    "action": "match_failed",
+    "reasoning": "No products matched query filters",
+    "result": "failed",
+    "details": {
+      "failure_id": "FAIL-1787482579049"
+    }
+  },
+  {
+    "id": "audit_1787482579084",
+    "timestamp": "2026-08-23T16:26:19.084829",
+    "agent_name": "BuyerAgent",
+    "action": "extract_filters",
+    "reasoning": "Parsed query 'find Woodland Leather Boots Brown in size 9' into filters",
+    "result": "success",
+    "details": {
+      "filters": {
+        "max_price": null,
+        "min_price": null,
+        "size": 9,
+        "color": "brown",
+        "keyword": "Woodland Leather Boots"
+      }
+    }
+  },
+  {
+    "id": "audit_1787482579153",
+    "timestamp": "2026-08-23T16:26:19.153345",
+    "agent_name": "BuyerAgent",
+    "action": "query_catalog",
+    "reasoning": "Queried catalog with filters",
+    "result": "success",
+    "details": {
+      "match_count": 0,
+      "filters": {
+        "max_price": null,
+        "min_price": null,
+        "size": 9,
+        "color": "brown",
+        "keyword": "Woodland Leather Boots"
+      }
+    }
+  },
+  {
+    "id": "audit_1787482579268",
+    "timestamp": "2026-08-23T16:26:19.268066",
+    "agent_name": "BuyerAgent",
+    "action": "match_failed",
+    "reasoning": "No products matched query filters",
+    "result": "failed",
+    "details": {
+      "failure_id": "FAIL-1787482579209"
+    }
+  },
+  {
+    "id": "audit_1787482579356",
+    "timestamp": "2026-08-23T16:26:19.356660",
+    "agent_name": "BuyerAgent",
+    "action": "extract_filters",
+    "reasoning": "Parsed query 'find Red Tape Casual Sneakers White under 1000 in size 7' into filters",
+    "result": "success",
+    "details": {
+      "filters": {
+        "max_price": 1000.0,
+        "min_price": null,
+        "size": 7,
+        "color": "white",
+        "keyword": "Tape Casual Sneakers"
+      }
+    }
+  },
+  {
+    "id": "audit_1787482579396",
+    "timestamp": "2026-08-23T16:26:19.396556",
+    "agent_name": "BuyerAgent",
+    "action": "query_catalog",
+    "reasoning": "Queried catalog with filters",
+    "result": "success",
+    "details": {
+      "match_count": 0,
+      "filters": {
+        "max_price": 1000.0,
+        "min_price": null,
+        "size": 7,
+        "color": "white",
+        "keyword": "Tape Casual Sneakers"
+      }
+    }
+  },
+  {
+    "id": "audit_1787482579441",
+    "timestamp": "2026-08-23T16:26:19.441725",
+    "agent_name": "BuyerAgent",
+    "action": "match_failed",
+    "reasoning": "No products matched query filters",
+    "result": "failed",
+    "details": {
+      "failure_id": "FAIL-1787482579423"
+    }
+  },
+  {
+    "id": "audit_1787482579467",
+    "timestamp": "2026-08-23T16:26:19.467620",
+    "agent_name": "AdversaryAgent",
+    "action": "stress_test_before_completed",
+    "reasoning": "Completed before-healing stress test suite",
+    "result": "success",
+    "details": {
+      "succeeded": 1,
+      "failed": 9
+    }
+  },
+  {
+    "id": "audit_1787482579494",
+    "timestamp": "2026-08-23T16:26:19.494482",
+    "agent_name": "CatalogHealer",
+    "action": "stress_test_healing_triggered",
+    "reasoning": "Triggering autonomous catalog healing cycle during stress test",
+    "result": "success",
+    "details": {}
+  },
+  {
+    "id": "audit_1787482579595",
+    "timestamp": "2026-08-23T16:26:19.595511",
+    "agent_name": "CatalogHealer",
+    "action": "heal_catalog_entry",
+    "reasoning": "Resolved failure 'FAIL-1787482264851' for product 'RAW-0002' by patching missing/invalid fields.",
+    "result": "success",
+    "details": {
+      "failure_id": "FAIL-1787482264851",
+      "product_id": "RAW-0002",
+      "product_name": "Jack & Jones Graphic Tee White",
+      "fixed_fields": {
+        "needs_review": false,
+        "resolved_reasons": [
+          "price_unparseable",
+          "price_unparseable",
+          "size_missing",
+          "stock_missing"
+        ],
+        "notes": "Inferred price_unparseable from raw entry heuristics",
+        "price": 2499.0,
+        "size": "M",
+        "color": "White",
+        "stock": 15,
+        "flagged_duplicate": false
+      },
+      "resolution": "Fixed fields: ['needs_review', 'resolved_reasons', 'notes', 'price', 'size', 'color', 'stock', 'flagged_duplicate']. Updated price=2499.0, size=M. Notes: Inferred price_unparseable from raw entry heuristics"
+    }
+  },
+  {
+    "id": "audit_1787482579655",
+    "timestamp": "2026-08-23T16:26:19.655516",
+    "agent_name": "CatalogHealer",
+    "action": "flag_unfixable_failure",
+    "reasoning": "Failure 'FAIL-1787482267481' has no associated catalog entry (query: 'find Nike Running Shoes Mens in size XX-LARGE'). Marked as no_match_unfixable.",
+    "result": "unfixable",
+    "details": {
+      "failure_id": "FAIL-1787482267481",
+      "query": "find Nike Running Shoes Mens in size XX-LARGE",
+      "reason": "No products found matching criteria",
+      "status": "no_match_unfixable",
+      "notes": "No matching catalog entry exists to satisfy this query; query is unfixable via catalog patching."
+    }
+  },
+  {
+    "id": "audit_1787482579707",
+    "timestamp": "2026-08-23T16:26:19.707267",
+    "agent_name": "CatalogHealer",
+    "action": "flag_unfixable_failure",
+    "reasoning": "Failure 'FAIL-1787482268273' has no associated catalog entry (query: 'find Levi's Slim Fit Jeans Blue under 1500'). Marked as no_match_unfixable.",
+    "result": "unfixable",
+    "details": {
+      "failure_id": "FAIL-1787482268273",
+      "query": "find Levi's Slim Fit Jeans Blue under 1500",
+      "reason": "No products found matching criteria",
+      "status": "no_match_unfixable",
+      "notes": "No matching catalog entry exists to satisfy this query; query is unfixable via catalog patching."
+    }
+  },
+  {
+    "id": "audit_1787482579742",
+    "timestamp": "2026-08-23T16:26:19.742813",
+    "agent_name": "CatalogHealer",
+    "action": "flag_unfixable_failure",
+    "reasoning": "Failure 'FAIL-1787482268993' has no associated catalog entry (query: 'find Puma Speed Runner - Special Edition in red'). Marked as no_match_unfixable.",
+    "result": "unfixable",
+    "details": {
+      "failure_id": "FAIL-1787482268993",
+      "query": "find Puma Speed Runner - Special Edition in red",
+      "reason": "No products found matching criteria",
+      "status": "no_match_unfixable",
+      "notes": "No matching catalog entry exists to satisfy this query; query is unfixable via catalog patching."
+    }
+  },
+  {
+    "id": "audit_1787482579832",
+    "timestamp": "2026-08-23T16:26:19.832945",
+    "agent_name": "CatalogHealer",
+    "action": "flag_unfixable_failure",
+    "reasoning": "Failure 'FAIL-1787482269721' has no associated catalog entry (query: 'find Adidas Ultraboost Sneaker Black under 2000 in size 10'). Marked as no_match_unfixable.",
+    "result": "unfixable",
+    "details": {
+      "failure_id": "FAIL-1787482269721",
+      "query": "find Adidas Ultraboost Sneaker Black under 2000 in size 10",
+      "reason": "No products found matching criteria",
+      "status": "no_match_unfixable",
+      "notes": "No matching catalog entry exists to satisfy this query; query is unfixable via catalog patching."
+    }
+  },
+  {
+    "id": "audit_1787482579900",
+    "timestamp": "2026-08-23T16:26:19.900307",
+    "agent_name": "CatalogHealer",
+    "action": "flag_unfixable_failure",
+    "reasoning": "Failure 'FAIL-1787482270569' has no associated catalog entry (query: 'find Van Heusen Formal Shirt White in size 42'). Marked as no_match_unfixable.",
+    "result": "unfixable",
+    "details": {
+      "failure_id": "FAIL-1787482270569",
+      "query": "find Van Heusen Formal Shirt White in size 42",
+      "reason": "No products found matching criteria",
+      "status": "no_match_unfixable",
+      "notes": "No matching catalog entry exists to satisfy this query; query is unfixable via catalog patching."
+    }
+  },
+  {
+    "id": "audit_1787482579960",
+    "timestamp": "2026-08-23T16:26:19.960491",
+    "agent_name": "CatalogHealer",
+    "action": "flag_unfixable_failure",
+    "reasoning": "Failure 'FAIL-1787482271525' has no associated catalog entry (query: 'find Superdry Puffer Jacket Red under 4000'). Marked as no_match_unfixable.",
+    "result": "unfixable",
+    "details": {
+      "failure_id": "FAIL-1787482271525",
+      "query": "find Superdry Puffer Jacket Red under 4000",
+      "reason": "No products found matching criteria",
+      "status": "no_match_unfixable",
+      "notes": "No matching catalog entry exists to satisfy this query; query is unfixable via catalog patching."
+    }
+  },
+  {
+    "id": "audit_1787482580029",
+    "timestamp": "2026-08-23T16:26:20.029597",
+    "agent_name": "CatalogHealer",
+    "action": "flag_unfixable_failure",
+    "reasoning": "Failure 'FAIL-1787482272473' has no associated catalog entry (query: 'find Woodland Leather Boots Brown in size 9'). Marked as no_match_unfixable.",
+    "result": "unfixable",
+    "details": {
+      "failure_id": "FAIL-1787482272473",
+      "query": "find Woodland Leather Boots Brown in size 9",
+      "reason": "No products found matching criteria",
+      "status": "no_match_unfixable",
+      "notes": "No matching catalog entry exists to satisfy this query; query is unfixable via catalog patching."
+    }
+  },
+  {
+    "id": "audit_1787482580103",
+    "timestamp": "2026-08-23T16:26:20.103077",
+    "agent_name": "CatalogHealer",
+    "action": "flag_unfixable_failure",
+    "reasoning": "Failure 'FAIL-1787482273193' has no associated catalog entry (query: 'find Red Tape Casual Sneakers White under 1000 in size 7'). Marked as no_match_unfixable.",
+    "result": "unfixable",
+    "details": {
+      "failure_id": "FAIL-1787482273193",
+      "query": "find Red Tape Casual Sneakers White under 1000 in size 7",
+      "reason": "No products found matching criteria",
+      "status": "no_match_unfixable",
+      "notes": "No matching catalog entry exists to satisfy this query; query is unfixable via catalog patching."
+    }
+  },
+  {
+    "id": "audit_1787482580315",
+    "timestamp": "2026-08-23T16:26:20.315470",
+    "agent_name": "CatalogHealer",
+    "action": "heal_catalog_entry",
+    "reasoning": "Resolved failure 'FAIL-1787482578212' for product 'RAW-0002' by patching missing/invalid fields.",
+    "result": "success",
+    "details": {
+      "failure_id": "FAIL-1787482578212",
+      "product_id": "RAW-0002",
+      "product_name": "Jack & Jones Graphic Tee White",
+      "fixed_fields": {
+        "needs_review": false,
+        "resolved_reasons": [
+          "price_unparseable",
+          "price_unparseable",
+          "size_missing",
+          "stock_missing"
+        ],
+        "notes": "Inferred price_unparseable from raw entry heuristics",
+        "price": 2499.0,
+        "size": "M",
+        "color": "White",
+        "stock": 15,
+        "flagged_duplicate": false
+      },
+      "resolution": "Fixed fields: ['needs_review', 'resolved_reasons', 'notes', 'price', 'size', 'color', 'stock', 'flagged_duplicate']. Updated price=2499.0, size=M. Notes: Inferred price_unparseable from raw entry heuristics"
+    }
+  },
+  {
+    "id": "audit_1787482580358",
+    "timestamp": "2026-08-23T16:26:20.358526",
+    "agent_name": "CatalogHealer",
+    "action": "flag_unfixable_failure",
+    "reasoning": "Failure 'FAIL-1787482578380' has no associated catalog entry (query: 'find Nike Running Shoes Mens in size XX-LARGE'). Marked as no_match_unfixable.",
+    "result": "unfixable",
+    "details": {
+      "failure_id": "FAIL-1787482578380",
+      "query": "find Nike Running Shoes Mens in size XX-LARGE",
+      "reason": "No products found matching criteria",
+      "status": "no_match_unfixable",
+      "notes": "No matching catalog entry exists to satisfy this query; query is unfixable via catalog patching."
+    }
+  },
+  {
+    "id": "audit_1787482580414",
+    "timestamp": "2026-08-23T16:26:20.414857",
+    "agent_name": "CatalogHealer",
+    "action": "flag_unfixable_failure",
+    "reasoning": "Failure 'FAIL-1787482578518' has no associated catalog entry (query: 'find Levi's Slim Fit Jeans Blue under 1500'). Marked as no_match_unfixable.",
+    "result": "unfixable",
+    "details": {
+      "failure_id": "FAIL-1787482578518",
+      "query": "find Levi's Slim Fit Jeans Blue under 1500",
+      "reason": "No products found matching criteria",
+      "status": "no_match_unfixable",
+      "notes": "No matching catalog entry exists to satisfy this query; query is unfixable via catalog patching."
+    }
+  },
+  {
+    "id": "audit_1787482580459",
+    "timestamp": "2026-08-23T16:26:20.459567",
+    "agent_name": "CatalogHealer",
+    "action": "flag_unfixable_failure",
+    "reasoning": "Failure 'FAIL-1787482578645' has no associated catalog entry (query: 'find Puma Speed Runner - Special Edition in red'). Marked as no_match_unfixable.",
+    "result": "unfixable",
+    "details": {
+      "failure_id": "FAIL-1787482578645",
+      "query": "find Puma Speed Runner - Special Edition in red",
+      "reason": "No products found matching criteria",
+      "status": "no_match_unfixable",
+      "notes": "No matching catalog entry exists to satisfy this query; query is unfixable via catalog patching."
+    }
+  },
+  {
+    "id": "audit_1787482580505",
+    "timestamp": "2026-08-23T16:26:20.505333",
+    "agent_name": "CatalogHealer",
+    "action": "flag_unfixable_failure",
+    "reasoning": "Failure 'FAIL-1787482578757' has no associated catalog entry (query: 'find Adidas Ultraboost Sneaker Black under 2000 in size 10'). Marked as no_match_unfixable.",
+    "result": "unfixable",
+    "details": {
+      "failure_id": "FAIL-1787482578757",
+      "query": "find Adidas Ultraboost Sneaker Black under 2000 in size 10",
+      "reason": "No products found matching criteria",
+      "status": "no_match_unfixable",
+      "notes": "No matching catalog entry exists to satisfy this query; query is unfixable via catalog patching."
+    }
+  },
+  {
+    "id": "audit_1787482580548",
+    "timestamp": "2026-08-23T16:26:20.548241",
+    "agent_name": "CatalogHealer",
+    "action": "flag_unfixable_failure",
+    "reasoning": "Failure 'FAIL-1787482578872' has no associated catalog entry (query: 'find Van Heusen Formal Shirt White in size 42'). Marked as no_match_unfixable.",
+    "result": "unfixable",
+    "details": {
+      "failure_id": "FAIL-1787482578872",
+      "query": "find Van Heusen Formal Shirt White in size 42",
+      "reason": "No products found matching criteria",
+      "status": "no_match_unfixable",
+      "notes": "No matching catalog entry exists to satisfy this query; query is unfixable via catalog patching."
+    }
+  },
+  {
+    "id": "audit_1787482580595",
+    "timestamp": "2026-08-23T16:26:20.595302",
+    "agent_name": "CatalogHealer",
+    "action": "flag_unfixable_failure",
+    "reasoning": "Failure 'FAIL-1787482579049' has no associated catalog entry (query: 'find Superdry Puffer Jacket Red under 4000'). Marked as no_match_unfixable.",
+    "result": "unfixable",
+    "details": {
+      "failure_id": "FAIL-1787482579049",
+      "query": "find Superdry Puffer Jacket Red under 4000",
+      "reason": "No products found matching criteria",
+      "status": "no_match_unfixable",
+      "notes": "No matching catalog entry exists to satisfy this query; query is unfixable via catalog patching."
+    }
+  },
+  {
+    "id": "audit_1787482580639",
+    "timestamp": "2026-08-23T16:26:20.639040",
+    "agent_name": "CatalogHealer",
+    "action": "flag_unfixable_failure",
+    "reasoning": "Failure 'FAIL-1787482579209' has no associated catalog entry (query: 'find Woodland Leather Boots Brown in size 9'). Marked as no_match_unfixable.",
+    "result": "unfixable",
+    "details": {
+      "failure_id": "FAIL-1787482579209",
+      "query": "find Woodland Leather Boots Brown in size 9",
+      "reason": "No products found matching criteria",
+      "status": "no_match_unfixable",
+      "notes": "No matching catalog entry exists to satisfy this query; query is unfixable via catalog patching."
+    }
+  },
+  {
+    "id": "audit_1787482580681",
+    "timestamp": "2026-08-23T16:26:20.681374",
+    "agent_name": "CatalogHealer",
+    "action": "flag_unfixable_failure",
+    "reasoning": "Failure 'FAIL-1787482579423' has no associated catalog entry (query: 'find Red Tape Casual Sneakers White under 1000 in size 7'). Marked as no_match_unfixable.",
+    "result": "unfixable",
+    "details": {
+      "failure_id": "FAIL-1787482579423",
+      "query": "find Red Tape Casual Sneakers White under 1000 in size 7",
+      "reason": "No products found matching criteria",
+      "status": "no_match_unfixable",
+      "notes": "No matching catalog entry exists to satisfy this query; query is unfixable via catalog patching."
+    }
+  },
+  {
+    "id": "audit_1787482588360",
+    "timestamp": "2026-08-23T16:26:28.360106",
+    "agent_name": "AnomalyModel",
+    "action": "run_anomaly_scan",
+    "reasoning": "Ran IsolationForest outlier detection over 1000 products",
+    "result": "success",
+    "details": {
+      "scanned": 1000,
+      "outliers_detected": 100,
+      "outlier_ids": [
+        "RAW-0001",
+        "RAW-0002",
+        "RAW-0012",
+        "RAW-0013",
+        "RAW-0015",
+        "RAW-0019",
+        "RAW-0023",
+        "RAW-0034",
+        "RAW-0051",
+        "RAW-0056",
+        "RAW-0067",
+        "RAW-0071",
+        "RAW-0072",
+        "RAW-0079",
+        "RAW-0080",
+        "RAW-0082",
+        "RAW-0090",
+        "RAW-0096",
+        "RAW-0110",
+        "RAW-0113",
+        "RAW-0128",
+        "RAW-0131",
+        "RAW-0161",
+        "RAW-0183",
+        "RAW-0191",
+        "RAW-0192",
+        "RAW-0217",
+        "RAW-0236",
+        "RAW-0243",
+        "RAW-0279",
+        "RAW-0280",
+        "RAW-0283",
+        "RAW-0327",
+        "RAW-0340",
+        "RAW-0345",
+        "RAW-0347",
+        "RAW-0358",
+        "RAW-0368",
+        "RAW-0381",
+        "RAW-0385",
+        "RAW-0391",
+        "RAW-0394",
+        "RAW-0398",
+        "RAW-0411",
+        "RAW-0416",
+        "RAW-0425",
+        "RAW-0458",
+        "RAW-0469",
+        "RAW-0478",
+        "RAW-0484",
+        "RAW-0497",
+        "RAW-0514",
+        "RAW-0520",
+        "RAW-0524",
+        "RAW-0525",
+        "RAW-0530",
+        "RAW-0533",
+        "RAW-0552",
+        "RAW-0555",
+        "RAW-0560",
+        "RAW-0569",
+        "RAW-0581",
+        "RAW-0594",
+        "RAW-0626",
+        "RAW-0656",
+        "RAW-0682",
+        "RAW-0685",
+        "RAW-0692",
+        "RAW-0695",
+        "RAW-0714",
+        "RAW-0726",
+        "RAW-0759",
+        "RAW-0767",
+        "RAW-0770",
+        "RAW-0771",
+        "RAW-0776",
+        "RAW-0781",
+        "RAW-0786",
+        "RAW-0789",
+        "RAW-0804",
+        "RAW-0829",
+        "RAW-0830",
+        "RAW-0831",
+        "RAW-0857",
+        "RAW-0864",
+        "RAW-0880",
+        "RAW-0883",
+        "RAW-0889",
+        "RAW-0892",
+        "RAW-0918",
+        "RAW-0919",
+        "RAW-0930",
+        "RAW-0937",
+        "RAW-0940",
+        "RAW-0945",
+        "RAW-0949",
+        "RAW-0950",
+        "RAW-0961",
+        "RAW-0982",
+        "RAW-0987"
+      ]
+    }
+  },
+  {
+    "id": "audit_1787482588373",
+    "timestamp": "2026-08-23T16:26:28.373167",
+    "agent_name": "BuyerAgent",
+    "action": "extract_filters",
+    "reasoning": "Parsed query 'find Jack & Jones Graphic Tee White under 3000 in size M' into filters",
+    "result": "success",
+    "details": {
+      "filters": {
+        "max_price": 3000.0,
+        "min_price": null,
+        "size": "M",
+        "color": "white",
+        "keyword": "Jack & Jones Graphic Tee"
+      }
+    }
+  },
+  {
+    "id": "audit_1787482588428",
+    "timestamp": "2026-08-23T16:26:28.428861",
+    "agent_name": "BuyerAgent",
+    "action": "query_catalog",
+    "reasoning": "Queried catalog with filters",
+    "result": "success",
+    "details": {
+      "match_count": 1,
+      "filters": {
+        "max_price": 3000.0,
+        "min_price": null,
+        "size": "M",
+        "color": "white",
+        "keyword": "Jack & Jones Graphic Tee"
+      }
+    }
+  },
+  {
+    "id": "audit_1787482588459",
+    "timestamp": "2026-08-23T16:26:28.459894",
+    "agent_name": "BuyerAgent",
+    "action": "create_order",
+    "reasoning": "Found confident product match 'Jack & Jones Graphic Tee White' (ID: RAW-0002) at price INR 2499.0.",
+    "result": "success",
+    "details": {
+      "product_id": "RAW-0002",
+      "product_name": "Jack & Jones Graphic Tee White",
+      "price": 2499.0,
+      "order_id": "order_test_6c8f04222c61",
+      "payment_details": {
+        "status": "success",
+        "order_id": "order_test_6c8f04222c61",
+        "amount": 2499.0,
+        "currency": "INR",
+        "receipt": "order_RAW-0002",
+        "checkout_config": {
+          "key": "rzp_test_TT51dTL52PVtiZ",
+          "amount": 249900,
+          "currency": "INR",
+          "order_id": "order_test_6c8f04222c61",
+          "name": "Sentinel AI Commerce",
+          "description": "Purchase of Jack & Jones Graphic Tee White",
+          "prefill": {
+            "name": "Sentinel Buyer",
+            "email": "buyer@sentinel.ai",
+            "contact": "9999999999"
+          },
+          "theme": {
+            "color": "#c9a15a"
+          }
+        },
+        "razorpay_raw": {
+          "id": "order_test_6c8f04222c61",
+          "entity": "order",
+          "amount": 249900,
+          "amount_paid": 0,
+          "amount_due": 249900,
+          "currency": "INR",
+          "receipt": "order_RAW-0002",
+          "status": "created",
+          "created_at": 1700000000
+        },
+        "is_mock": true
+      }
+    }
+  },
+  {
+    "id": "audit_1787482588489",
+    "timestamp": "2026-08-23T16:26:28.489914",
+    "agent_name": "BuyerAgent",
+    "action": "extract_filters",
+    "reasoning": "Parsed query 'find PUMA SPEED RUNNER RED under 2890 in size 8' into filters",
+    "result": "success",
+    "details": {
+      "filters": {
+        "max_price": 2890.0,
+        "min_price": null,
+        "size": 8,
+        "color": "red",
+        "keyword": "PUMA SPEED RUNNER"
+      }
+    }
+  },
+  {
+    "id": "audit_1787482588537",
+    "timestamp": "2026-08-23T16:26:28.537729",
+    "agent_name": "BuyerAgent",
+    "action": "query_catalog",
+    "reasoning": "Queried catalog with filters",
+    "result": "success",
+    "details": {
+      "match_count": 1,
+      "filters": {
+        "max_price": 2890.0,
+        "min_price": null,
+        "size": 8,
+        "color": "red",
+        "keyword": "PUMA SPEED RUNNER"
+      }
+    }
+  },
+  {
+    "id": "audit_1787482588576",
+    "timestamp": "2026-08-23T16:26:28.576779",
+    "agent_name": "BuyerAgent",
+    "action": "create_order",
+    "reasoning": "Found confident product match 'Puma Speed Runner Red' (ID: RAW-0001) at price INR 2890.0.",
+    "result": "success",
+    "details": {
+      "product_id": "RAW-0001",
+      "product_name": "Puma Speed Runner Red",
+      "price": 2890.0,
+      "order_id": "order_test_46aa1032f405",
+      "payment_details": {
+        "status": "success",
+        "order_id": "order_test_46aa1032f405",
+        "amount": 2890.0,
+        "currency": "INR",
+        "receipt": "order_RAW-0001",
+        "checkout_config": {
+          "key": "rzp_test_TT51dTL52PVtiZ",
+          "amount": 289000,
+          "currency": "INR",
+          "order_id": "order_test_46aa1032f405",
+          "name": "Sentinel AI Commerce",
+          "description": "Purchase of Puma Speed Runner Red",
+          "prefill": {
+            "name": "Sentinel Buyer",
+            "email": "buyer@sentinel.ai",
+            "contact": "9999999999"
+          },
+          "theme": {
+            "color": "#c9a15a"
+          }
+        },
+        "razorpay_raw": {
+          "id": "order_test_46aa1032f405",
+          "entity": "order",
+          "amount": 289000,
+          "amount_paid": 0,
+          "amount_due": 289000,
+          "currency": "INR",
+          "receipt": "order_RAW-0001",
+          "status": "created",
+          "created_at": 1700000000
+        },
+        "is_mock": true
+      }
+    }
+  },
+  {
+    "id": "audit_1787482588608",
+    "timestamp": "2026-08-23T16:26:28.608456",
+    "agent_name": "BuyerAgent",
+    "action": "extract_filters",
+    "reasoning": "Parsed query 'find Nike Running Shoes Mens in size XX-LARGE' into filters",
+    "result": "success",
+    "details": {
+      "filters": {
+        "max_price": null,
+        "min_price": null,
+        "size": "XX",
+        "color": null,
+        "keyword": "Nike Running Mens -LARGE"
+      }
+    }
+  },
+  {
+    "id": "audit_1787482588657",
+    "timestamp": "2026-08-23T16:26:28.657293",
+    "agent_name": "BuyerAgent",
+    "action": "query_catalog",
+    "reasoning": "Queried catalog with filters",
+    "result": "success",
+    "details": {
+      "match_count": 0,
+      "filters": {
+        "max_price": null,
+        "min_price": null,
+        "size": "XX",
+        "color": null,
+        "keyword": "Nike Running Mens -LARGE"
+      }
+    }
+  },
+  {
+    "id": "audit_1787482588688",
+    "timestamp": "2026-08-23T16:26:28.688536",
+    "agent_name": "BuyerAgent",
+    "action": "match_failed",
+    "reasoning": "No products matched query filters",
+    "result": "failed",
+    "details": {
+      "failure_id": "FAIL-1787482588685"
+    }
+  },
+  {
+    "id": "audit_1787482588718",
+    "timestamp": "2026-08-23T16:26:28.718881",
+    "agent_name": "BuyerAgent",
+    "action": "extract_filters",
+    "reasoning": "Parsed query 'find Levi's Slim Fit Jeans Blue under 1500' into filters",
+    "result": "success",
+    "details": {
+      "filters": {
+        "max_price": 1500.0,
+        "min_price": null,
+        "size": null,
+        "color": "blue",
+        "keyword": "Levi's Slim Fit Jeans"
+      }
+    }
+  },
+  {
+    "id": "audit_1787482588761",
+    "timestamp": "2026-08-23T16:26:28.761143",
+    "agent_name": "BuyerAgent",
+    "action": "query_catalog",
+    "reasoning": "Queried catalog with filters",
+    "result": "success",
+    "details": {
+      "match_count": 0,
+      "filters": {
+        "max_price": 1500.0,
+        "min_price": null,
+        "size": null,
+        "color": "blue",
+        "keyword": "Levi's Slim Fit Jeans"
+      }
+    }
+  },
+  {
+    "id": "audit_1787482588840",
+    "timestamp": "2026-08-23T16:26:28.840661",
+    "agent_name": "BuyerAgent",
+    "action": "match_failed",
+    "reasoning": "No products matched query filters",
+    "result": "failed",
+    "details": {
+      "failure_id": "FAIL-1787482588808"
+    }
+  },
+  {
+    "id": "audit_1787482588869",
+    "timestamp": "2026-08-23T16:26:28.869286",
+    "agent_name": "BuyerAgent",
+    "action": "extract_filters",
+    "reasoning": "Parsed query 'find Puma Speed Runner - Special Edition in red' into filters",
+    "result": "success",
+    "details": {
+      "filters": {
+        "max_price": null,
+        "min_price": null,
+        "size": null,
+        "color": "red",
+        "keyword": "Puma Speed Runner - Special Edition"
+      }
+    }
+  },
+  {
+    "id": "audit_1787482588900",
+    "timestamp": "2026-08-23T16:26:28.900193",
+    "agent_name": "BuyerAgent",
+    "action": "query_catalog",
+    "reasoning": "Queried catalog with filters",
+    "result": "success",
+    "details": {
+      "match_count": 0,
+      "filters": {
+        "max_price": null,
+        "min_price": null,
+        "size": null,
+        "color": "red",
+        "keyword": "Puma Speed Runner - Special Edition"
+      }
+    }
+  },
+  {
+    "id": "audit_1787482588939",
+    "timestamp": "2026-08-23T16:26:28.939841",
+    "agent_name": "BuyerAgent",
+    "action": "match_failed",
+    "reasoning": "No products matched query filters",
+    "result": "failed",
+    "details": {
+      "failure_id": "FAIL-1787482588924"
+    }
+  },
+  {
+    "id": "audit_1787482588963",
+    "timestamp": "2026-08-23T16:26:28.963970",
+    "agent_name": "BuyerAgent",
+    "action": "extract_filters",
+    "reasoning": "Parsed query 'find Adidas Ultraboost Sneaker Black under 2000 in size 10' into filters",
+    "result": "success",
+    "details": {
+      "filters": {
+        "max_price": 2000.0,
+        "min_price": null,
+        "size": 10,
+        "color": "black",
+        "keyword": "Adidas Ultraboost Sneaker"
+      }
+    }
+  },
+  {
+    "id": "audit_1787482588992",
+    "timestamp": "2026-08-23T16:26:28.992118",
+    "agent_name": "BuyerAgent",
+    "action": "query_catalog",
+    "reasoning": "Queried catalog with filters",
+    "result": "success",
+    "details": {
+      "match_count": 0,
+      "filters": {
+        "max_price": 2000.0,
+        "min_price": null,
+        "size": 10,
+        "color": "black",
+        "keyword": "Adidas Ultraboost Sneaker"
+      }
+    }
+  },
+  {
+    "id": "audit_1787482589034",
+    "timestamp": "2026-08-23T16:26:29.034132",
+    "agent_name": "BuyerAgent",
+    "action": "match_failed",
+    "reasoning": "No products matched query filters",
+    "result": "failed",
+    "details": {
+      "failure_id": "FAIL-1787482589017"
+    }
+  },
+  {
+    "id": "audit_1787482589061",
+    "timestamp": "2026-08-23T16:26:29.061629",
+    "agent_name": "BuyerAgent",
+    "action": "extract_filters",
+    "reasoning": "Parsed query 'find Van Heusen Formal Shirt White in size 42' into filters",
+    "result": "success",
+    "details": {
+      "filters": {
+        "max_price": null,
+        "min_price": null,
+        "size": 42,
+        "color": "white",
+        "keyword": "Van Heusen Formal Shirt"
+      }
+    }
+  },
+  {
+    "id": "audit_1787482589175",
+    "timestamp": "2026-08-23T16:26:29.175696",
+    "agent_name": "BuyerAgent",
+    "action": "query_catalog",
+    "reasoning": "Queried catalog with filters",
+    "result": "success",
+    "details": {
+      "match_count": 0,
+      "filters": {
+        "max_price": null,
+        "min_price": null,
+        "size": 42,
+        "color": "white",
+        "keyword": "Van Heusen Formal Shirt"
+      }
+    }
+  },
+  {
+    "id": "audit_1787482589214",
+    "timestamp": "2026-08-23T16:26:29.214542",
+    "agent_name": "BuyerAgent",
+    "action": "match_failed",
+    "reasoning": "No products matched query filters",
+    "result": "failed",
+    "details": {
+      "failure_id": "FAIL-1787482589200"
+    }
+  },
+  {
+    "id": "audit_1787482589238",
+    "timestamp": "2026-08-23T16:26:29.238391",
+    "agent_name": "BuyerAgent",
+    "action": "extract_filters",
+    "reasoning": "Parsed query 'find Superdry Puffer Jacket Red under 4000' into filters",
+    "result": "success",
+    "details": {
+      "filters": {
+        "max_price": 4000.0,
+        "min_price": null,
+        "size": null,
+        "color": "red",
+        "keyword": "Superdry Puffer Jacket"
+      }
+    }
+  },
+  {
+    "id": "audit_1787482589268",
+    "timestamp": "2026-08-23T16:26:29.268714",
+    "agent_name": "BuyerAgent",
+    "action": "query_catalog",
+    "reasoning": "Queried catalog with filters",
+    "result": "success",
+    "details": {
+      "match_count": 0,
+      "filters": {
+        "max_price": 4000.0,
+        "min_price": null,
+        "size": null,
+        "color": "red",
+        "keyword": "Superdry Puffer Jacket"
+      }
+    }
+  },
+  {
+    "id": "audit_1787482589306",
+    "timestamp": "2026-08-23T16:26:29.307004",
+    "agent_name": "BuyerAgent",
+    "action": "match_failed",
+    "reasoning": "No products matched query filters",
+    "result": "failed",
+    "details": {
+      "failure_id": "FAIL-1787482589292"
+    }
+  },
+  {
+    "id": "audit_1787482589329",
+    "timestamp": "2026-08-23T16:26:29.329329",
+    "agent_name": "BuyerAgent",
+    "action": "extract_filters",
+    "reasoning": "Parsed query 'find Woodland Leather Boots Brown in size 9' into filters",
+    "result": "success",
+    "details": {
+      "filters": {
+        "max_price": null,
+        "min_price": null,
+        "size": 9,
+        "color": "brown",
+        "keyword": "Woodland Leather Boots"
+      }
+    }
+  },
+  {
+    "id": "audit_1787482589361",
+    "timestamp": "2026-08-23T16:26:29.361199",
+    "agent_name": "BuyerAgent",
+    "action": "query_catalog",
+    "reasoning": "Queried catalog with filters",
+    "result": "success",
+    "details": {
+      "match_count": 0,
+      "filters": {
+        "max_price": null,
+        "min_price": null,
+        "size": 9,
+        "color": "brown",
+        "keyword": "Woodland Leather Boots"
+      }
+    }
+  },
+  {
+    "id": "audit_1787482589397",
+    "timestamp": "2026-08-23T16:26:29.397473",
+    "agent_name": "BuyerAgent",
+    "action": "match_failed",
+    "reasoning": "No products matched query filters",
+    "result": "failed",
+    "details": {
+      "failure_id": "FAIL-1787482589383"
+    }
+  },
+  {
+    "id": "audit_1787482589431",
+    "timestamp": "2026-08-23T16:26:29.431999",
+    "agent_name": "BuyerAgent",
+    "action": "extract_filters",
+    "reasoning": "Parsed query 'find Red Tape Casual Sneakers White under 1000 in size 7' into filters",
+    "result": "success",
+    "details": {
+      "filters": {
+        "max_price": 1000.0,
+        "min_price": null,
+        "size": 7,
+        "color": "white",
+        "keyword": "Tape Casual Sneakers"
+      }
+    }
+  },
+  {
+    "id": "audit_1787482589479",
+    "timestamp": "2026-08-23T16:26:29.479995",
+    "agent_name": "BuyerAgent",
+    "action": "query_catalog",
+    "reasoning": "Queried catalog with filters",
+    "result": "success",
+    "details": {
+      "match_count": 0,
+      "filters": {
+        "max_price": 1000.0,
+        "min_price": null,
+        "size": 7,
+        "color": "white",
+        "keyword": "Tape Casual Sneakers"
+      }
+    }
+  },
+  {
+    "id": "audit_1787482589511",
+    "timestamp": "2026-08-23T16:26:29.511125",
+    "agent_name": "BuyerAgent",
+    "action": "match_failed",
+    "reasoning": "No products matched query filters",
+    "result": "failed",
+    "details": {
+      "failure_id": "FAIL-1787482589505"
+    }
+  },
+  {
+    "id": "audit_1787482589540",
+    "timestamp": "2026-08-23T16:26:29.540210",
+    "agent_name": "AdversaryAgent",
+    "action": "stress_test_after_completed",
+    "reasoning": "Completed after-healing stress test suite",
+    "result": "success",
+    "details": {
+      "succeeded": 2,
+      "failed": 8
+    }
+  },
+  {
+    "id": "audit_1787482596365",
+    "timestamp": "2026-08-23T16:26:36.365355",
+    "agent_name": "AnomalyModel",
+    "action": "run_anomaly_scan",
+    "reasoning": "Ran IsolationForest outlier detection over 1000 products",
+    "result": "success",
+    "details": {
+      "scanned": 1000,
+      "outliers_detected": 100,
+      "outlier_ids": [
+        "RAW-0001",
+        "RAW-0002",
+        "RAW-0012",
+        "RAW-0013",
+        "RAW-0015",
+        "RAW-0019",
+        "RAW-0023",
+        "RAW-0034",
+        "RAW-0051",
+        "RAW-0056",
+        "RAW-0067",
+        "RAW-0071",
+        "RAW-0072",
+        "RAW-0079",
+        "RAW-0080",
+        "RAW-0082",
+        "RAW-0090",
+        "RAW-0096",
+        "RAW-0110",
+        "RAW-0113",
+        "RAW-0128",
+        "RAW-0131",
+        "RAW-0161",
+        "RAW-0183",
+        "RAW-0191",
+        "RAW-0192",
+        "RAW-0217",
+        "RAW-0236",
+        "RAW-0243",
+        "RAW-0279",
+        "RAW-0280",
+        "RAW-0283",
+        "RAW-0327",
+        "RAW-0340",
+        "RAW-0345",
+        "RAW-0347",
+        "RAW-0358",
+        "RAW-0368",
+        "RAW-0381",
+        "RAW-0385",
+        "RAW-0391",
+        "RAW-0394",
+        "RAW-0398",
+        "RAW-0411",
+        "RAW-0416",
+        "RAW-0425",
+        "RAW-0458",
+        "RAW-0469",
+        "RAW-0478",
+        "RAW-0484",
+        "RAW-0497",
+        "RAW-0514",
+        "RAW-0520",
+        "RAW-0524",
+        "RAW-0525",
+        "RAW-0530",
+        "RAW-0533",
+        "RAW-0552",
+        "RAW-0555",
+        "RAW-0560",
+        "RAW-0569",
+        "RAW-0581",
+        "RAW-0594",
+        "RAW-0626",
+        "RAW-0656",
+        "RAW-0682",
+        "RAW-0685",
+        "RAW-0692",
+        "RAW-0695",
+        "RAW-0714",
+        "RAW-0726",
+        "RAW-0759",
+        "RAW-0767",
+        "RAW-0770",
+        "RAW-0771",
+        "RAW-0776",
+        "RAW-0781",
+        "RAW-0786",
+        "RAW-0789",
+        "RAW-0804",
+        "RAW-0829",
+        "RAW-0830",
+        "RAW-0831",
+        "RAW-0857",
+        "RAW-0864",
+        "RAW-0880",
+        "RAW-0883",
+        "RAW-0889",
+        "RAW-0892",
+        "RAW-0918",
+        "RAW-0919",
+        "RAW-0930",
+        "RAW-0937",
+        "RAW-0940",
+        "RAW-0945",
+        "RAW-0949",
+        "RAW-0950",
+        "RAW-0961",
+        "RAW-0982",
+        "RAW-0987"
+      ]
+    }
+  },
+  {
+    "id": "audit_1787482596395",
+    "timestamp": "2026-08-23T16:26:36.395185",
+    "agent_name": "AdversaryAgent",
+    "action": "stress_test_completed",
+    "reasoning": "Stress test complete with readiness score 70.8",
+    "result": "success",
+    "details": {
+      "queries_fixed_count": 1,
+      "final_readiness_score": 70.8
+    }
   }
 ]

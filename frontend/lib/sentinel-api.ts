@@ -29,6 +29,7 @@ export type ShopResult =
       amount: number | null
       currency: string
       message: string | null
+      checkoutConfig?: Record<string, unknown>
     }
   | {
       ok: false
@@ -63,6 +64,34 @@ export type HealSummary = {
   unresolvedAfter: number
   changes: { id: string; field: string; from: string; to: string; product?: string }[]
   message: string | null
+  readinessScore?: number
+}
+
+export type ReadinessData = {
+  score: number
+  breakdown: {
+    cleanliness_score: number
+    clean_products: number
+    total_products: number
+    healing_score: number
+    resolved_failures: number
+    total_failures: number
+    fitness_score: number
+    outliers_detected: number
+    scanned_products: number
+  }
+  timestamp: string
+}
+
+export type StressTestResult = {
+  status: string
+  before: { succeeded: number; failed: number }
+  after: { succeeded: number; failed: number }
+  queriesFixedCount: number
+  queriesFixed: { query: string; matched_product?: string }[]
+  readinessScore: number
+  detailsBefore: Record<string, unknown>[]
+  detailsAfter: Record<string, unknown>[]
 }
 
 /* -------------------------------- utilities ------------------------------- */
@@ -82,7 +111,6 @@ const num = (v: unknown): number | null => {
   return null
 }
 
-/** Pull the first array found in a response body, whatever the wrapper key is. */
 const asList = (body: unknown): Record<string, unknown>[] => {
   if (Array.isArray(body)) return body.map(asRecord)
   const rec = asRecord(body)
@@ -176,54 +204,6 @@ export const DEMO_CATALOG: Product[] = [
     description: 'Missing width attribute — flagged by the healer.',
     raw: {},
   },
-  {
-    id: 'SKU-8843',
-    name: 'Weightless Oxford Shirt',
-    price: 3950,
-    currency: 'INR',
-    category: 'apparel',
-    size: 'M',
-    color: 'Ivory',
-    needsReview: false,
-    description: 'Long staple cotton, unstructured collar.',
-    raw: {},
-  },
-  {
-    id: 'SKU-8844',
-    name: 'Terrace Linen Overshirt',
-    price: 5400,
-    currency: 'INR',
-    category: 'apparel',
-    size: 'L',
-    color: 'Sand',
-    needsReview: true,
-    description: 'Colour synonym set incomplete for agent queries.',
-    raw: {},
-  },
-  {
-    id: 'SKU-8845',
-    name: 'Field Canvas Weekender',
-    price: 8900,
-    currency: 'INR',
-    category: 'accessories',
-    size: '38L',
-    color: 'Olive',
-    needsReview: false,
-    description: 'Waxed canvas duffel with brass hardware.',
-    raw: {},
-  },
-  {
-    id: 'SKU-8846',
-    name: 'Court Trainer — Mid',
-    price: 7250,
-    currency: 'INR',
-    category: 'footwear',
-    size: 'UK 8',
-    color: 'Chalk',
-    needsReview: false,
-    description: 'Suede overlays, gum outsole.',
-    raw: {},
-  },
 ]
 
 export const DEMO_FAILURES: FailureEntry[] = [
@@ -235,30 +215,6 @@ export const DEMO_FAILURES: FailureEntry[] = [
     timestamp: '2026-08-22T09:14:00Z',
     filters: { color: 'white', max_price: 7000, size: '9' },
   },
-  {
-    id: 'F-1043',
-    query: 'wide fit trail boots size 10',
-    status: 'unresolved',
-    reason: 'Width attribute absent on SKU-8842. Awaiting merchant confirmation.',
-    timestamp: '2026-08-22T11:02:00Z',
-    filters: { width: 'wide', size: '10' },
-  },
-  {
-    id: 'F-1044',
-    query: 'merino wool overcoat',
-    status: 'no_match_unfixable',
-    reason: 'No product in this catalog belongs to the outerwear category.',
-    timestamp: '2026-08-22T14:41:00Z',
-    filters: { material: 'merino wool', category: 'outerwear' },
-  },
-  {
-    id: 'F-1045',
-    query: 'beige linen shirt large',
-    status: 'resolved',
-    reason: 'Mapped "beige" to "sand" and normalised size token L. Matches SKU-8844.',
-    timestamp: '2026-08-23T07:20:00Z',
-    filters: { color: 'beige', size: 'large' },
-  },
 ]
 
 export const DEMO_AUDIT: AuditEntry[] = [
@@ -269,30 +225,6 @@ export const DEMO_AUDIT: AuditEntry[] = [
     reasoning: 'Extracted colour, fabric and size tokens from natural language request.',
     actor: 'buyer-agent',
     refs: ['F-1045'],
-  },
-  {
-    id: 'A-2202',
-    timestamp: '2026-08-23T07:20:13Z',
-    action: 'catalog.match_failed',
-    reasoning: 'Zero candidates. Colour token "beige" unresolved against catalog vocabulary.',
-    actor: 'matcher',
-    refs: ['F-1045'],
-  },
-  {
-    id: 'A-2203',
-    timestamp: '2026-08-23T07:21:44Z',
-    action: 'healer.attribute_written',
-    reasoning: 'Added colour synonym beige → sand after reviewing merchant colour chart.',
-    actor: 'healer',
-    refs: ['SKU-8844'],
-  },
-  {
-    id: 'A-2204',
-    timestamp: '2026-08-23T07:21:59Z',
-    action: 'buyer_agent.order_created',
-    reasoning: 'Re-ran the failed query post-heal. Match found, Razorpay order created.',
-    actor: 'buyer-agent',
-    refs: ['SKU-8844', 'order_QhT8vLm2Xd'],
   },
 ]
 
@@ -324,6 +256,7 @@ export async function shop(query: string): Promise<ShopResult> {
   const productSource = body.product ?? body.match ?? body.item
   const order = asRecord(body.order ?? body.razorpay_order ?? body.razorpay)
   const orderId = str(body.order_id ?? order.id ?? order.order_id ?? body.razorpay_order_id)
+  const checkoutConfig = asRecord(body.checkout_config ?? order.checkout_config)
   const explicitFailure =
     body.success === false || body.ok === false || body.status === 'failure' || !productSource
 
@@ -346,73 +279,7 @@ export async function shop(query: string): Promise<ShopResult> {
     amount: amount === null ? product.price : amount > 100000 ? amount / 100 : amount,
     currency: str(order.currency ?? body.currency) ?? product.currency,
     message: str(body.message),
-  }
-}
-
-/**
- * Offline stand-in used only when the FastAPI service cannot be reached, so the
- * interface can still be demonstrated end to end. Marked as sample in the UI.
- */
-export function simulateShop(query: string): ShopResult {
-  const q = query.toLowerCase()
-  const budget = num(q.match(/(\d{3,6})/)?.[1])
-  const scored = DEMO_CATALOG.map((product) => {
-    const hay = `${product.name} ${product.category} ${product.color} ${product.size}`.toLowerCase()
-    const hits = q
-      .split(/[^a-z0-9]+/)
-      .filter((t) => t.length > 2 && !/^\d+$/.test(t))
-      .filter((t) => hay.includes(t)).length
-    const withinBudget = budget === null || (product.price ?? 0) <= budget
-    return { product, score: hits + (withinBudget ? 0.5 : -2) }
-  }).sort((a, b) => b.score - a.score)
-
-  const best = scored[0]
-  if (!best || best.score < 1) {
-    return {
-      ok: false,
-      message:
-        'No catalog entry satisfies every constraint. The request has been written to the failure log for the healer to review.',
-      filters: {
-        query,
-        max_price: budget,
-        resolved_attributes: 0,
-      },
-    }
-  }
-
-  return {
-    ok: true,
-    product: best.product,
-    orderId: `order_${Math.random().toString(36).slice(2, 12)}`,
-    amount: best.product.price,
-    currency: best.product.currency,
-    message: 'Sample response — FastAPI service unreachable.',
-  }
-}
-
-export function simulateHeal(): HealSummary {
-  return {
-    scanned: DEMO_CATALOG.length,
-    fixed: 2,
-    unresolvedBefore: 3,
-    unresolvedAfter: 1,
-    changes: [
-      {
-        id: 'SKU-8842',
-        field: 'width',
-        from: '∅',
-        to: 'wide',
-        product: 'Atlas Trail Boot',
-      },
-      {
-        id: 'SKU-8844',
-        field: 'color_synonyms',
-        from: 'sand',
-        to: 'sand, beige, oat',
-        product: 'Terrace Linen Overshirt',
-      },
-    ],
-    message: 'Sample response — FastAPI service unreachable.',
+    checkoutConfig: Object.keys(checkoutConfig).length > 0 ? checkoutConfig : undefined,
   }
 }
 
@@ -441,7 +308,30 @@ export async function heal(): Promise<HealSummary> {
       }
     }),
     message: str(body.message ?? body.summary),
+    readinessScore: num(body.readiness_score) ?? undefined,
   }
+}
+
+export async function stressTest(): Promise<StressTestResult> {
+  const body = asRecord(await request('/stress-test', { method: 'POST' }))
+  return {
+    status: str(body.status) ?? 'success',
+    before: asRecord(body.before) as { succeeded: number; failed: number },
+    after: asRecord(body.after) as { succeeded: number; failed: number },
+    queriesFixedCount: num(body.queries_fixed_count) ?? 0,
+    queriesFixed: Array.isArray(body.queries_fixed) ? (body.queries_fixed as any[]) : [],
+    readinessScore: num(body.readiness_score) ?? 0,
+    detailsBefore: Array.isArray(body.details_before) ? (body.details_before as Record<string, unknown>[]) : [],
+    detailsAfter: Array.isArray(body.details_after) ? (body.details_after as Record<string, unknown>[]) : [],
+  }
+}
+
+export async function getReadiness(): Promise<ReadinessData> {
+  return (await request('/readiness')) as ReadinessData
+}
+
+export async function getReadinessHistory(): Promise<unknown> {
+  return await request('/readiness/history')
 }
 
 /* ---------------------------------- hooks --------------------------------- */

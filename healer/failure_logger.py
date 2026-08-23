@@ -33,7 +33,7 @@ def log_failure(query: str, reason: str, missing_field: str, catalog_entry_id: s
 
 def get_failures(status_filter: str = None) -> list:
     """
-    Returns all failure records, optionally filtered by status ('unresolved', 'resolved').
+    Returns all failure records, optionally filtered by status ('unresolved', 'resolved', 'no_match_unfixable').
     """
     if os.path.exists(FAILURE_LOGS_FILE):
         try:
@@ -45,6 +45,10 @@ def get_failures(status_filter: str = None) -> list:
         except Exception:
             return []
     return []
+
+
+# Alias for compatibility
+get_all_failures = get_failures
 
 
 def mark_failure_status(failure_id: str, status: str, resolution_notes: str) -> dict:
@@ -74,4 +78,3 @@ def mark_failure_resolved(failure_id: str, resolution_notes: str) -> dict:
     Marks a failure log record as 'resolved' with details of what was fixed.
     """
     return mark_failure_status(failure_id, "resolved", resolution_notes)
-

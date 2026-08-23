@@ -241,5 +241,574 @@
     },
     "resolution_notes": "No matching catalog entry exists to satisfy this query; query is unfixable via catalog patching.",
     "resolved_at": "2026-08-23T10:12:34.706712"
+  },
+  {
+    "failure_id": "FAIL-1787482264851",
+    "timestamp": "2026-08-23T16:21:04.851619",
+    "query": "find Jack & Jones Graphic Tee White under 3000 in size M",
+    "reason": "Candidate product RAW-0002 has incomplete or ambiguous data (price_unparseable)",
+    "missing_field": "price_unparseable",
+    "catalog_entry_id": "RAW-0002",
+    "status": "resolved",
+    "details": {
+      "candidate": {
+        "product_id": "RAW-0002",
+        "name": "Jack & Jones Graphic Tee White",
+        "price": null,
+        "category": "Apparel",
+        "size": "M",
+        "color": "White",
+        "stock": 15,
+        "description": "Printed casual cotton t-shirt.",
+        "needs_review": true,
+        "review_reasons": [
+          "price_unparseable"
+        ],
+        "original_raw": {
+          "raw_id": "RAW-0002",
+          "item_title": "Jack & Jones Graphic Tee White",
+          "raw_price": "Price on Request",
+          "size": "M",
+          "color": "White",
+          "stock_qty": 15,
+          "category": "apparel",
+          "details": "Printed casual cotton t-shirt."
+        }
+      },
+      "filters": {
+        "max_price": 3000.0,
+        "min_price": null,
+        "size": "M",
+        "color": "white",
+        "keyword": "Jack & Jones Graphic Tee"
+      }
+    },
+    "resolution_notes": "Fixed fields: ['needs_review', 'resolved_reasons', 'notes', 'price', 'size', 'color', 'stock', 'flagged_duplicate']. Updated price=2499.0, size=M. Notes: Inferred price_unparseable from raw entry heuristics",
+    "resolved_at": "2026-08-23T16:26:19.592376"
+  },
+  {
+    "failure_id": "FAIL-1787482267481",
+    "timestamp": "2026-08-23T16:21:07.481899",
+    "query": "find Nike Running Shoes Mens in size XX-LARGE",
+    "reason": "No products found matching criteria",
+    "missing_field": "product",
+    "catalog_entry_id": null,
+    "status": "no_match_unfixable",
+    "details": {
+      "filters": {
+        "max_price": null,
+        "min_price": null,
+        "size": "XX",
+        "color": null,
+        "keyword": "Nike Running Mens -LARGE"
+      }
+    },
+    "resolution_notes": "No matching catalog entry exists to satisfy this query; query is unfixable via catalog patching.",
+    "resolved_at": "2026-08-23T16:26:19.651117"
+  },
+  {
+    "failure_id": "FAIL-1787482268273",
+    "timestamp": "2026-08-23T16:21:08.273077",
+    "query": "find Levi's Slim Fit Jeans Blue under 1500",
+    "reason": "No products found matching criteria",
+    "missing_field": "product",
+    "catalog_entry_id": null,
+    "status": "no_match_unfixable",
+    "details": {
+      "filters": {
+        "max_price": 1500.0,
+        "min_price": null,
+        "size": null,
+        "color": "blue",
+        "keyword": "Levi's Slim Fit Jeans"
+      }
+    },
+    "resolution_notes": "No matching catalog entry exists to satisfy this query; query is unfixable via catalog patching.",
+    "resolved_at": "2026-08-23T16:26:19.704925"
+  },
+  {
+    "failure_id": "FAIL-1787482268993",
+    "timestamp": "2026-08-23T16:21:08.993488",
+    "query": "find Puma Speed Runner - Special Edition in red",
+    "reason": "No products found matching criteria",
+    "missing_field": "product",
+    "catalog_entry_id": null,
+    "status": "no_match_unfixable",
+    "details": {
+      "filters": {
+        "max_price": null,
+        "min_price": null,
+        "size": null,
+        "color": "red",
+        "keyword": "Puma Speed Runner - Special Edition"
+      }
+    },
+    "resolution_notes": "No matching catalog entry exists to satisfy this query; query is unfixable via catalog patching.",
+    "resolved_at": "2026-08-23T16:26:19.740840"
+  },
+  {
+    "failure_id": "FAIL-1787482269721",
+    "timestamp": "2026-08-23T16:21:09.721720",
+    "query": "find Adidas Ultraboost Sneaker Black under 2000 in size 10",
+    "reason": "No products found matching criteria",
+    "missing_field": "product",
+    "catalog_entry_id": null,
+    "status": "no_match_unfixable",
+    "details": {
+      "filters": {
+        "max_price": 2000.0,
+        "min_price": null,
+        "size": 10,
+        "color": "black",
+        "keyword": "Adidas Ultraboost Sneaker"
+      }
+    },
+    "resolution_notes": "No matching catalog entry exists to satisfy this query; query is unfixable via catalog patching.",
+    "resolved_at": "2026-08-23T16:26:19.826289"
+  },
+  {
+    "failure_id": "FAIL-1787482270569",
+    "timestamp": "2026-08-23T16:21:10.569236",
+    "query": "find Van Heusen Formal Shirt White in size 42",
+    "reason": "No products found matching criteria",
+    "missing_field": "product",
+    "catalog_entry_id": null,
+    "status": "no_match_unfixable",
+    "details": {
+      "filters": {
+        "max_price": null,
+        "min_price": null,
+        "size": 42,
+        "color": "white",
+        "keyword": "Van Heusen Formal Shirt"
+      }
+    },
+    "resolution_notes": "No matching catalog entry exists to satisfy this query; query is unfixable via catalog patching.",
+    "resolved_at": "2026-08-23T16:26:19.896660"
+  },
+  {
+    "failure_id": "FAIL-1787482271525",
+    "timestamp": "2026-08-23T16:21:11.525596",
+    "query": "find Superdry Puffer Jacket Red under 4000",
+    "reason": "No products found matching criteria",
+    "missing_field": "product",
+    "catalog_entry_id": null,
+    "status": "no_match_unfixable",
+    "details": {
+      "filters": {
+        "max_price": 4000.0,
+        "min_price": null,
+        "size": null,
+        "color": "red",
+        "keyword": "Superdry Puffer Jacket"
+      }
+    },
+    "resolution_notes": "No matching catalog entry exists to satisfy this query; query is unfixable via catalog patching.",
+    "resolved_at": "2026-08-23T16:26:19.956724"
+  },
+  {
+    "failure_id": "FAIL-1787482272473",
+    "timestamp": "2026-08-23T16:21:12.473506",
+    "query": "find Woodland Leather Boots Brown in size 9",
+    "reason": "No products found matching criteria",
+    "missing_field": "product",
+    "catalog_entry_id": null,
+    "status": "no_match_unfixable",
+    "details": {
+      "filters": {
+        "max_price": null,
+        "min_price": null,
+        "size": 9,
+        "color": "brown",
+        "keyword": "Woodland Leather Boots"
+      }
+    },
+    "resolution_notes": "No matching catalog entry exists to satisfy this query; query is unfixable via catalog patching.",
+    "resolved_at": "2026-08-23T16:26:20.022795"
+  },
+  {
+    "failure_id": "FAIL-1787482273193",
+    "timestamp": "2026-08-23T16:21:13.193962",
+    "query": "find Red Tape Casual Sneakers White under 1000 in size 7",
+    "reason": "No products found matching criteria",
+    "missing_field": "product",
+    "catalog_entry_id": null,
+    "status": "no_match_unfixable",
+    "details": {
+      "filters": {
+        "max_price": 1000.0,
+        "min_price": null,
+        "size": 7,
+        "color": "white",
+        "keyword": "Tape Casual Sneakers"
+      }
+    },
+    "resolution_notes": "No matching catalog entry exists to satisfy this query; query is unfixable via catalog patching.",
+    "resolved_at": "2026-08-23T16:26:20.098858"
+  },
+  {
+    "failure_id": "FAIL-1787482578212",
+    "timestamp": "2026-08-23T16:26:18.212455",
+    "query": "find Jack & Jones Graphic Tee White under 3000 in size M",
+    "reason": "Candidate product RAW-0002 has incomplete or ambiguous data (price_unparseable)",
+    "missing_field": "price_unparseable",
+    "catalog_entry_id": "RAW-0002",
+    "status": "resolved",
+    "details": {
+      "candidate": {
+        "product_id": "RAW-0002",
+        "name": "Jack & Jones Graphic Tee White",
+        "price": null,
+        "category": "Apparel",
+        "size": "M",
+        "color": "White",
+        "stock": 15,
+        "description": "Printed casual cotton t-shirt.",
+        "needs_review": true,
+        "review_reasons": [
+          "price_unparseable"
+        ],
+        "original_raw": {
+          "raw_id": "RAW-0002",
+          "item_title": "Jack & Jones Graphic Tee White",
+          "raw_price": "Price on Request",
+          "size": "M",
+          "color": "White",
+          "stock_qty": 15,
+          "category": "apparel",
+          "details": "Printed casual cotton t-shirt."
+        },
+        "flagged_outlier": true
+      },
+      "filters": {
+        "max_price": 3000.0,
+        "min_price": null,
+        "size": "M",
+        "color": "white",
+        "keyword": "Jack & Jones Graphic Tee"
+      }
+    },
+    "resolution_notes": "Fixed fields: ['needs_review', 'resolved_reasons', 'notes', 'price', 'size', 'color', 'stock', 'flagged_duplicate']. Updated price=2499.0, size=M. Notes: Inferred price_unparseable from raw entry heuristics",
+    "resolved_at": "2026-08-23T16:26:20.311972"
+  },
+  {
+    "failure_id": "FAIL-1787482578380",
+    "timestamp": "2026-08-23T16:26:18.380358",
+    "query": "find Nike Running Shoes Mens in size XX-LARGE",
+    "reason": "No products found matching criteria",
+    "missing_field": "product",
+    "catalog_entry_id": null,
+    "status": "no_match_unfixable",
+    "details": {
+      "filters": {
+        "max_price": null,
+        "min_price": null,
+        "size": "XX",
+        "color": null,
+        "keyword": "Nike Running Mens -LARGE"
+      }
+    },
+    "resolution_notes": "No matching catalog entry exists to satisfy this query; query is unfixable via catalog patching.",
+    "resolved_at": "2026-08-23T16:26:20.353247"
+  },
+  {
+    "failure_id": "FAIL-1787482578518",
+    "timestamp": "2026-08-23T16:26:18.518829",
+    "query": "find Levi's Slim Fit Jeans Blue under 1500",
+    "reason": "No products found matching criteria",
+    "missing_field": "product",
+    "catalog_entry_id": null,
+    "status": "no_match_unfixable",
+    "details": {
+      "filters": {
+        "max_price": 1500.0,
+        "min_price": null,
+        "size": null,
+        "color": "blue",
+        "keyword": "Levi's Slim Fit Jeans"
+      }
+    },
+    "resolution_notes": "No matching catalog entry exists to satisfy this query; query is unfixable via catalog patching.",
+    "resolved_at": "2026-08-23T16:26:20.411997"
+  },
+  {
+    "failure_id": "FAIL-1787482578645",
+    "timestamp": "2026-08-23T16:26:18.645274",
+    "query": "find Puma Speed Runner - Special Edition in red",
+    "reason": "No products found matching criteria",
+    "missing_field": "product",
+    "catalog_entry_id": null,
+    "status": "no_match_unfixable",
+    "details": {
+      "filters": {
+        "max_price": null,
+        "min_price": null,
+        "size": null,
+        "color": "red",
+        "keyword": "Puma Speed Runner - Special Edition"
+      }
+    },
+    "resolution_notes": "No matching catalog entry exists to satisfy this query; query is unfixable via catalog patching.",
+    "resolved_at": "2026-08-23T16:26:20.456731"
+  },
+  {
+    "failure_id": "FAIL-1787482578757",
+    "timestamp": "2026-08-23T16:26:18.757291",
+    "query": "find Adidas Ultraboost Sneaker Black under 2000 in size 10",
+    "reason": "No products found matching criteria",
+    "missing_field": "product",
+    "catalog_entry_id": null,
+    "status": "no_match_unfixable",
+    "details": {
+      "filters": {
+        "max_price": 2000.0,
+        "min_price": null,
+        "size": 10,
+        "color": "black",
+        "keyword": "Adidas Ultraboost Sneaker"
+      }
+    },
+    "resolution_notes": "No matching catalog entry exists to satisfy this query; query is unfixable via catalog patching.",
+    "resolved_at": "2026-08-23T16:26:20.503050"
+  },
+  {
+    "failure_id": "FAIL-1787482578872",
+    "timestamp": "2026-08-23T16:26:18.872033",
+    "query": "find Van Heusen Formal Shirt White in size 42",
+    "reason": "No products found matching criteria",
+    "missing_field": "product",
+    "catalog_entry_id": null,
+    "status": "no_match_unfixable",
+    "details": {
+      "filters": {
+        "max_price": null,
+        "min_price": null,
+        "size": 42,
+        "color": "white",
+        "keyword": "Van Heusen Formal Shirt"
+      }
+    },
+    "resolution_notes": "No matching catalog entry exists to satisfy this query; query is unfixable via catalog patching.",
+    "resolved_at": "2026-08-23T16:26:20.546156"
+  },
+  {
+    "failure_id": "FAIL-1787482579049",
+    "timestamp": "2026-08-23T16:26:19.049495",
+    "query": "find Superdry Puffer Jacket Red under 4000",
+    "reason": "No products found matching criteria",
+    "missing_field": "product",
+    "catalog_entry_id": null,
+    "status": "no_match_unfixable",
+    "details": {
+      "filters": {
+        "max_price": 4000.0,
+        "min_price": null,
+        "size": null,
+        "color": "red",
+        "keyword": "Superdry Puffer Jacket"
+      }
+    },
+    "resolution_notes": "No matching catalog entry exists to satisfy this query; query is unfixable via catalog patching.",
+    "resolved_at": "2026-08-23T16:26:20.593351"
+  },
+  {
+    "failure_id": "FAIL-1787482579209",
+    "timestamp": "2026-08-23T16:26:19.209383",
+    "query": "find Woodland Leather Boots Brown in size 9",
+    "reason": "No products found matching criteria",
+    "missing_field": "product",
+    "catalog_entry_id": null,
+    "status": "no_match_unfixable",
+    "details": {
+      "filters": {
+        "max_price": null,
+        "min_price": null,
+        "size": 9,
+        "color": "brown",
+        "keyword": "Woodland Leather Boots"
+      }
+    },
+    "resolution_notes": "No matching catalog entry exists to satisfy this query; query is unfixable via catalog patching.",
+    "resolved_at": "2026-08-23T16:26:20.637106"
+  },
+  {
+    "failure_id": "FAIL-1787482579423",
+    "timestamp": "2026-08-23T16:26:19.423190",
+    "query": "find Red Tape Casual Sneakers White under 1000 in size 7",
+    "reason": "No products found matching criteria",
+    "missing_field": "product",
+    "catalog_entry_id": null,
+    "status": "no_match_unfixable",
+    "details": {
+      "filters": {
+        "max_price": 1000.0,
+        "min_price": null,
+        "size": 7,
+        "color": "white",
+        "keyword": "Tape Casual Sneakers"
+      }
+    },
+    "resolution_notes": "No matching catalog entry exists to satisfy this query; query is unfixable via catalog patching.",
+    "resolved_at": "2026-08-23T16:26:20.679549"
+  },
+  {
+    "failure_id": "FAIL-1787482588685",
+    "timestamp": "2026-08-23T16:26:28.685647",
+    "query": "find Nike Running Shoes Mens in size XX-LARGE",
+    "reason": "No products found matching criteria",
+    "missing_field": "product",
+    "catalog_entry_id": null,
+    "status": "unresolved",
+    "details": {
+      "filters": {
+        "max_price": null,
+        "min_price": null,
+        "size": "XX",
+        "color": null,
+        "keyword": "Nike Running Mens -LARGE"
+      }
+    },
+    "resolution_notes": null,
+    "resolved_at": null
+  },
+  {
+    "failure_id": "FAIL-1787482588808",
+    "timestamp": "2026-08-23T16:26:28.808906",
+    "query": "find Levi's Slim Fit Jeans Blue under 1500",
+    "reason": "No products found matching criteria",
+    "missing_field": "product",
+    "catalog_entry_id": null,
+    "status": "unresolved",
+    "details": {
+      "filters": {
+        "max_price": 1500.0,
+        "min_price": null,
+        "size": null,
+        "color": "blue",
+        "keyword": "Levi's Slim Fit Jeans"
+      }
+    },
+    "resolution_notes": null,
+    "resolved_at": null
+  },
+  {
+    "failure_id": "FAIL-1787482588924",
+    "timestamp": "2026-08-23T16:26:28.924167",
+    "query": "find Puma Speed Runner - Special Edition in red",
+    "reason": "No products found matching criteria",
+    "missing_field": "product",
+    "catalog_entry_id": null,
+    "status": "unresolved",
+    "details": {
+      "filters": {
+        "max_price": null,
+        "min_price": null,
+        "size": null,
+        "color": "red",
+        "keyword": "Puma Speed Runner - Special Edition"
+      }
+    },
+    "resolution_notes": null,
+    "resolved_at": null
+  },
+  {
+    "failure_id": "FAIL-1787482589017",
+    "timestamp": "2026-08-23T16:26:29.017713",
+    "query": "find Adidas Ultraboost Sneaker Black under 2000 in size 10",
+    "reason": "No products found matching criteria",
+    "missing_field": "product",
+    "catalog_entry_id": null,
+    "status": "unresolved",
+    "details": {
+      "filters": {
+        "max_price": 2000.0,
+        "min_price": null,
+        "size": 10,
+        "color": "black",
+        "keyword": "Adidas Ultraboost Sneaker"
+      }
+    },
+    "resolution_notes": null,
+    "resolved_at": null
+  },
+  {
+    "failure_id": "FAIL-1787482589200",
+    "timestamp": "2026-08-23T16:26:29.200821",
+    "query": "find Van Heusen Formal Shirt White in size 42",
+    "reason": "No products found matching criteria",
+    "missing_field": "product",
+    "catalog_entry_id": null,
+    "status": "unresolved",
+    "details": {
+      "filters": {
+        "max_price": null,
+        "min_price": null,
+        "size": 42,
+        "color": "white",
+        "keyword": "Van Heusen Formal Shirt"
+      }
+    },
+    "resolution_notes": null,
+    "resolved_at": null
+  },
+  {
+    "failure_id": "FAIL-1787482589292",
+    "timestamp": "2026-08-23T16:26:29.292446",
+    "query": "find Superdry Puffer Jacket Red under 4000",
+    "reason": "No products found matching criteria",
+    "missing_field": "product",
+    "catalog_entry_id": null,
+    "status": "unresolved",
+    "details": {
+      "filters": {
+        "max_price": 4000.0,
+        "min_price": null,
+        "size": null,
+        "color": "red",
+        "keyword": "Superdry Puffer Jacket"
+      }
+    },
+    "resolution_notes": null,
+    "resolved_at": null
+  },
+  {
+    "failure_id": "FAIL-1787482589383",
+    "timestamp": "2026-08-23T16:26:29.383721",
+    "query": "find Woodland Leather Boots Brown in size 9",
+    "reason": "No products found matching criteria",
+    "missing_field": "product",
+    "catalog_entry_id": null,
+    "status": "unresolved",
+    "details": {
+      "filters": {
+        "max_price": null,
+        "min_price": null,
+        "size": 9,
+        "color": "brown",
+        "keyword": "Woodland Leather Boots"
+      }
+    },
+    "resolution_notes": null,
+    "resolved_at": null
+  },
+  {
+    "failure_id": "FAIL-1787482589505",
+    "timestamp": "2026-08-23T16:26:29.505612",
+    "query": "find Red Tape Casual Sneakers White under 1000 in size 7",
+    "reason": "No products found matching criteria",
+    "missing_field": "product",
+    "catalog_entry_id": null,
+    "status": "unresolved",
+    "details": {
+      "filters": {
+        "max_price": 1000.0,
+        "min_price": null,
+        "size": 7,
+        "color": "white",
+        "keyword": "Tape Casual Sneakers"
+      }
+    },
+    "resolution_notes": null,
+    "resolved_at": null
   }
 ]

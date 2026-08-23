@@ -1,0 +1,47 @@
+[
+  {
+    "timestamp": "2026-08-23T10:53:09.891372Z",
+    "score": 78.8,
+    "breakdown": {
+      "cleanliness_score": 88.6,
+      "clean_products": 886,
+      "total_products": 1000,
+      "healing_score": 54.5,
+      "resolved_failures": 6,
+      "total_failures": 20,
+      "fitness_score": 90.0,
+      "outliers_detected": 100,
+      "scanned_products": 1000
+    }
+  },
+  {
+    "timestamp": "2026-08-23T10:54:31.336778Z",
+    "score": 78.8,
+    "breakdown": {
+      "cleanliness_score": 88.6,
+      "clean_products": 886,
+      "total_products": 1000,
+      "healing_score": 54.5,
+      "resolved_failures": 6,
+      "total_failures": 20,
+      "fitness_score": 90.0,
+      "outliers_detected": 100,
+      "scanned_products": 1000
+    }
+  },
+  {
+    "timestamp": "2026-08-23T10:56:36.390336+00:00",
+    "score": 70.8,
+    "breakdown": {
+      "cleanliness_score": 88.7,
+      "clean_products": 887,
+      "total_products": 1000,
+      "healing_score": 27.6,
+      "resolved_failures": 8,
+      "total_failures": 37,
+      "fitness_score": 90.0,
+      "outliers_detected": 100,
+      "scanned_products": 1000
+    }
+  }
+]

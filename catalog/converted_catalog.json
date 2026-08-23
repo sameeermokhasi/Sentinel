@@ -19,21 +19,20 @@
       "stock_qty": 12,
       "category": "footwear",
       "details": "Lightweight speed runner."
-    }
+    },
+    "flagged_outlier": true
   },
   {
     "product_id": "RAW-0002",
     "name": "Jack & Jones Graphic Tee White",
-    "price": null,
+    "price": 2499.0,
     "category": "Apparel",
     "size": "M",
     "color": "White",
     "stock": 15,
     "description": "Printed casual cotton t-shirt.",
-    "needs_review": true,
-    "review_reasons": [
-      "price_unparseable"
-    ],
+    "needs_review": false,
+    "review_reasons": [],
     "original_raw": {
       "raw_id": "RAW-0002",
       "item_title": "Jack & Jones Graphic Tee White",
@@ -43,7 +42,16 @@
       "stock_qty": 15,
       "category": "apparel",
       "details": "Printed casual cotton t-shirt."
-    }
+    },
+    "flagged_outlier": true,
+    "resolved_reasons": [
+      "price_unparseable",
+      "price_unparseable",
+      "size_missing",
+      "stock_missing"
+    ],
+    "notes": "Inferred price_unparseable from raw entry heuristics",
+    "flagged_duplicate": false
   },
   {
     "product_id": "RAW-0003",
@@ -264,7 +272,8 @@
       "category": "apparel",
       "details": "High quality HRX Gym Shorts available in standard sizes in black color for everyday style.",
       "color": "Black"
-    }
+    },
+    "flagged_outlier": true
   },
   {
     "product_id": "RAW-0013",
@@ -286,7 +295,8 @@
       "size": 9,
       "color": "Olive",
       "stock_qty": 28
-    }
+    },
+    "flagged_outlier": true
   },
   {
     "product_id": "RAW-0014",
@@ -330,7 +340,8 @@
       "size": 12,
       "color": "Grey",
       "stock_qty": 1
-    }
+    },
+    "flagged_outlier": true
   },
   {
     "product_id": "RAW-0016",
@@ -418,7 +429,8 @@
       "size": 7,
       "color": "Black",
       "stock_qty": 35
-    }
+    },
+    "flagged_outlier": true
   },
   {
     "product_id": "RAW-0020",
@@ -507,7 +519,8 @@
       "details": "High quality Skechers Canvas Sneakers available in standard sizes in white color for everyday style.",
       "color": "White",
       "stock_qty": 7
-    }
+    },
+    "flagged_outlier": true
   },
   {
     "product_id": "RAW-0024",
@@ -751,7 +764,8 @@
       "size": "XXL",
       "color": "Black",
       "stock_qty": 22
-    }
+    },
+    "flagged_outlier": true
   },
   {
     "product_id": "RAW-0035",
@@ -1126,7 +1140,8 @@
       "size": 6,
       "color": "Navy",
       "stock_qty": 34
-    }
+    },
+    "flagged_outlier": true
   },
   {
     "product_id": "RAW-0052",
@@ -1237,7 +1252,8 @@
       "details": "High quality Zara Slim Fit Jeans available in standard sizes in green color for everyday style.",
       "color": "Green",
       "stock_qty": 35
-    }
+    },
+    "flagged_outlier": true
   },
   {
     "product_id": "RAW-0057",
@@ -1479,7 +1495,8 @@
       "size": 12,
       "color": "White",
       "stock_qty": 25
-    }
+    },
+    "flagged_outlier": true
   },
   {
     "product_id": "RAW-0068",
@@ -1567,7 +1584,8 @@
       "size": 10,
       "color": "Navy",
       "stock_qty": 30
-    }
+    },
+    "flagged_outlier": true
   },
   {
     "product_id": "RAW-0072",
@@ -1590,7 +1608,8 @@
       "details": "High quality Allen Solly Polo Shirt available in standard sizes in grey color for everyday style.",
       "color": "Grey",
       "stock_qty": 12
-    }
+    },
+    "flagged_outlier": true
   },
   {
     "product_id": "RAW-0073",
@@ -1745,7 +1764,8 @@
       "details": "High quality Red Tape Walking Shoes size 11 in grey color for everyday style.",
       "size": 11,
       "color": "Grey"
-    }
+    },
+    "flagged_outlier": true
   },
   {
     "product_id": "RAW-0080",
@@ -1768,7 +1788,8 @@
       "details": "High quality US Polo Assn Denim Jacket available in standard sizes in navy color for everyday style.",
       "color": "Navy",
       "stock_qty": 5
-    }
+    },
+    "flagged_outlier": true
   },
   {
     "product_id": "RAW-0081",
@@ -1813,7 +1834,8 @@
       "details": "High quality Van Heusen Graphic Tee available in standard sizes in grey color for everyday style.",
       "color": "Grey",
       "stock_qty": 37
-    }
+    },
+    "flagged_outlier": true
   },
   {
     "product_id": "RAW-0083",
@@ -1991,7 +2013,8 @@
       "details": "High quality Tommy Hilfiger Slim Fit Jeans available in standard sizes in olive color for everyday style.",
       "color": "Olive",
       "stock_qty": 32
-    }
+    },
+    "flagged_outlier": true
   },
   {
     "product_id": "RAW-0091",
@@ -2123,7 +2146,8 @@
       "size": "S",
       "color": "Navy",
       "stock_qty": 30
-    }
+    },
+    "flagged_outlier": true
   },
   {
     "product_id": "RAW-0097",
@@ -2434,7 +2458,8 @@
       "category": "apparel",
       "details": "High quality Tommy Hilfiger Formal Shirt available in standard sizes in blue color for everyday style.",
       "color": "Blue"
-    }
+    },
+    "flagged_outlier": true
   },
   {
     "product_id": "RAW-0111",
@@ -2500,7 +2525,8 @@
       "size": 7,
       "color": "Blue",
       "stock_qty": 35
-    }
+    },
+    "flagged_outlier": true
   },
   {
     "product_id": "RAW-0114",
@@ -2831,7 +2857,8 @@
       "size": "38",
       "color": "Brown",
       "stock_qty": 40
-    }
+    },
+    "flagged_outlier": true
   },
   {
     "product_id": "RAW-0129",
@@ -2853,7 +2880,8 @@
       "size": 10,
       "color": "Red",
       "stock_qty": 20
-    }
+    },
+    "flagged_outlier": true
   },
   {
     "product_id": "RAW-0130",
@@ -2897,7 +2925,8 @@
       "size": 9,
       "color": "White",
       "stock_qty": 37
-    }
+    },
+    "flagged_outlier": true
   },
   {
     "product_id": "RAW-0132",
@@ -3562,7 +3591,8 @@
       "size": 11,
       "color": "Red",
       "stock_qty": 23
-    }
+    },
+    "flagged_outlier": true
   },
   {
     "product_id": "RAW-0162",
@@ -4049,7 +4079,8 @@
       "size": 10,
       "color": "Blue",
       "stock_qty": 39
-    }
+    },
+    "flagged_outlier": true
   },
   {
     "product_id": "RAW-0184",
@@ -4228,7 +4259,8 @@
       "category": "footwear",
       "details": "High quality Under Armour Loafers available in standard sizes in red color for everyday style.",
       "color": "Red"
-    }
+    },
+    "flagged_outlier": true
   },
   {
     "product_id": "RAW-0192",
@@ -4251,7 +4283,8 @@
       "category": "apparel",
       "details": "High quality HRX Formal Shirt available in standard sizes in red color for everyday style.",
       "color": "Red"
-    }
+    },
+    "flagged_outlier": true
   },
   {
     "product_id": "RAW-0193",
@@ -4805,7 +4838,8 @@
       "size": 12,
       "color": "White",
       "stock_qty": 34
-    }
+    },
+    "flagged_outlier": true
   },
   {
     "product_id": "RAW-0218",
@@ -5227,7 +5261,8 @@
       "size": "30",
       "color": "Olive",
       "stock_qty": 31
-    }
+    },
+    "flagged_outlier": true
   },
   {
     "product_id": "RAW-0237",
@@ -5381,7 +5416,8 @@
       "size": 12,
       "color": "Green",
       "stock_qty": 16
-    }
+    },
+    "flagged_outlier": true
   },
   {
     "product_id": "RAW-0244",
@@ -6175,7 +6211,8 @@
       "size": 8,
       "color": "White",
       "stock_qty": 37
-    }
+    },
+    "flagged_outlier": true
   },
   {
     "product_id": "RAW-0280",
@@ -6198,7 +6235,8 @@
       "details": "High quality Wrangler Gym Shorts available in standard sizes in olive color for everyday style.",
       "color": "Olive",
       "stock_qty": 3
-    }
+    },
+    "flagged_outlier": true
   },
   {
     "product_id": "RAW-0281",
@@ -6264,7 +6302,8 @@
       "size": 7,
       "color": "Green",
       "stock_qty": 35
-    }
+    },
+    "flagged_outlier": true
   },
   {
     "product_id": "RAW-0284",
@@ -7238,7 +7277,8 @@
       "category": "footwear",
       "details": "High quality Under Armour Basketball Shoes available in standard sizes in navy color for everyday style.",
       "color": "Navy"
-    }
+    },
+    "flagged_outlier": true
   },
   {
     "product_id": "RAW-0328",
@@ -7528,7 +7568,8 @@
       "size": "34",
       "color": "Brown",
       "stock_qty": 1
-    }
+    },
+    "flagged_outlier": true
   },
   {
     "product_id": "RAW-0341",
@@ -7640,7 +7681,8 @@
       "size": 6,
       "color": "Black",
       "stock_qty": 35
-    }
+    },
+    "flagged_outlier": true
   },
   {
     "product_id": "RAW-0346",
@@ -7687,7 +7729,8 @@
       "details": "High quality Under Armour Training Shoes size 6 in white color for everyday style.",
       "size": 6,
       "color": "White"
-    }
+    },
+    "flagged_outlier": true
   },
   {
     "product_id": "RAW-0348",
@@ -7929,7 +7972,8 @@
       "size": "32",
       "color": "Red",
       "stock_qty": 24
-    }
+    },
+    "flagged_outlier": true
   },
   {
     "product_id": "RAW-0359",
@@ -8150,7 +8194,8 @@
       "size": "34",
       "color": "Brown",
       "stock_qty": 1
-    }
+    },
+    "flagged_outlier": true
   },
   {
     "product_id": "RAW-0369",
@@ -8440,7 +8485,8 @@
       "size": 7,
       "color": "Grey",
       "stock_qty": 34
-    }
+    },
+    "flagged_outlier": true
   },
   {
     "product_id": "RAW-0382",
@@ -8528,7 +8574,8 @@
       "size": 9,
       "color": "Green",
       "stock_qty": 1
-    }
+    },
+    "flagged_outlier": true
   },
   {
     "product_id": "RAW-0386",
@@ -8664,7 +8711,8 @@
       "details": "High quality Asics Formal Leather Shoes available in standard sizes in green color for everyday style.",
       "color": "Green",
       "stock_qty": 22
-    }
+    },
+    "flagged_outlier": true
   },
   {
     "product_id": "RAW-0392",
@@ -8730,7 +8778,8 @@
       "size": "40",
       "color": "Green",
       "stock_qty": 40
-    }
+    },
+    "flagged_outlier": true
   },
   {
     "product_id": "RAW-0395",
@@ -8820,7 +8869,8 @@
       "category": "apparel",
       "details": "High quality Tommy Hilfiger Gym Shorts available in standard sizes in navy color for everyday style.",
       "color": "Navy"
-    }
+    },
+    "flagged_outlier": true
   },
   {
     "product_id": "RAW-0399",
@@ -9107,7 +9157,8 @@
       "details": "High quality Sparx Loafers available in standard sizes in brown color for everyday style.",
       "color": "Brown",
       "stock_qty": 35
-    }
+    },
+    "flagged_outlier": true
   },
   {
     "product_id": "RAW-0412",
@@ -9218,7 +9269,8 @@
       "size": "S",
       "color": "Olive",
       "stock_qty": 24
-    }
+    },
+    "flagged_outlier": true
   },
   {
     "product_id": "RAW-0417",
@@ -9417,7 +9469,8 @@
       "category": "footwear",
       "details": "High quality Red Tape Walking Shoes available in standard sizes in brown color for everyday style.",
       "color": "Brown"
-    }
+    },
+    "flagged_outlier": true
   },
   {
     "product_id": "RAW-0426",
@@ -10149,7 +10202,8 @@
       "size": "XXL",
       "color": "Blue",
       "stock_qty": 1
-    }
+    },
+    "flagged_outlier": true
   },
   {
     "product_id": "RAW-0459",
@@ -10392,7 +10446,8 @@
       "size": 11,
       "color": "Grey",
       "stock_qty": 13
-    }
+    },
+    "flagged_outlier": true
   },
   {
     "product_id": "RAW-0470",
@@ -10590,7 +10645,8 @@
       "size": "38",
       "color": "Red",
       "stock_qty": 12
-    }
+    },
+    "flagged_outlier": true
   },
   {
     "product_id": "RAW-0479",
@@ -10724,7 +10780,8 @@
       "size": "32",
       "color": "Red",
       "stock_qty": 7
-    }
+    },
+    "flagged_outlier": true
   },
   {
     "product_id": "RAW-0485",
@@ -11012,7 +11069,8 @@
       "category": "footwear",
       "details": "High quality Wildcraft Training Shoes available in standard sizes in navy color for everyday style.",
       "color": "Navy"
-    }
+    },
+    "flagged_outlier": true
   },
   {
     "product_id": "RAW-0498",
@@ -11388,7 +11446,8 @@
       "size": "40",
       "color": "Red",
       "stock_qty": 35
-    }
+    },
+    "flagged_outlier": true
   },
   {
     "product_id": "RAW-0515",
@@ -11522,7 +11581,8 @@
       "details": "High quality Allen Solly Dri-Fit T-Shirt available in standard sizes in white color for everyday style.",
       "color": "White",
       "stock_qty": 12
-    }
+    },
+    "flagged_outlier": true
   },
   {
     "product_id": "RAW-0521",
@@ -11611,7 +11671,8 @@
       "size": "30",
       "color": "Grey",
       "stock_qty": 39
-    }
+    },
+    "flagged_outlier": true
   },
   {
     "product_id": "RAW-0525",
@@ -11634,7 +11695,8 @@
       "details": "High quality Puma Loafers available in standard sizes in black color for everyday style.",
       "color": "Black",
       "stock_qty": 37
-    }
+    },
+    "flagged_outlier": true
   },
   {
     "product_id": "RAW-0526",
@@ -11745,7 +11807,8 @@
       "details": "High quality Wrangler Denim Jacket available in standard sizes in red color for everyday style.",
       "color": "Red",
       "stock_qty": 10
-    }
+    },
+    "flagged_outlier": true
   },
   {
     "product_id": "RAW-0531",
@@ -11812,7 +11875,8 @@
       "details": "High quality Sparx Canvas Sneakers available in standard sizes in black color for everyday style.",
       "color": "Black",
       "stock_qty": 34
-    }
+    },
+    "flagged_outlier": true
   },
   {
     "product_id": "RAW-0534",
@@ -12233,7 +12297,8 @@
       "size": "34",
       "color": "Navy",
       "stock_qty": 27
-    }
+    },
+    "flagged_outlier": true
   },
   {
     "product_id": "RAW-0553",
@@ -12299,7 +12364,8 @@
       "size": 11,
       "color": "Olive",
       "stock_qty": 3
-    }
+    },
+    "flagged_outlier": true
   },
   {
     "product_id": "RAW-0556",
@@ -12410,7 +12476,8 @@
       "details": "High quality Allen Solly Formal Shirt available in standard sizes in black color for everyday style.",
       "color": "Black",
       "stock_qty": 33
-    }
+    },
+    "flagged_outlier": true
   },
   {
     "product_id": "RAW-0561",
@@ -12608,7 +12675,8 @@
       "size": 10,
       "color": "Green",
       "stock_qty": 39
-    }
+    },
+    "flagged_outlier": true
   },
   {
     "product_id": "RAW-0570",
@@ -12873,7 +12941,8 @@
       "size": 7,
       "color": "Black",
       "stock_qty": 10
-    }
+    },
+    "flagged_outlier": true
   },
   {
     "product_id": "RAW-0582",
@@ -13162,7 +13231,8 @@
       "size": "XL",
       "color": "Olive",
       "stock_qty": 39
-    }
+    },
+    "flagged_outlier": true
   },
   {
     "product_id": "RAW-0595",
@@ -13869,7 +13939,8 @@
       "size": "S",
       "color": "Navy",
       "stock_qty": 25
-    }
+    },
+    "flagged_outlier": true
   },
   {
     "product_id": "RAW-0627",
@@ -14532,7 +14603,8 @@
       "details": "High quality Peter England Polo Shirt available in standard sizes in white color for everyday style.",
       "color": "White",
       "stock_qty": 2
-    }
+    },
+    "flagged_outlier": true
   },
   {
     "product_id": "RAW-0657",
@@ -15107,7 +15179,8 @@
       "size": "XL",
       "color": "Navy",
       "stock_qty": 31
-    }
+    },
+    "flagged_outlier": true
   },
   {
     "product_id": "RAW-0683",
@@ -15173,7 +15246,8 @@
       "size": 12,
       "color": "Red",
       "stock_qty": 9
-    }
+    },
+    "flagged_outlier": true
   },
   {
     "product_id": "RAW-0686",
@@ -15328,7 +15402,8 @@
       "category": "apparel",
       "details": "High quality Tommy Hilfiger Formal Shirt available in standard sizes in black color for everyday style.",
       "color": "Black"
-    }
+    },
+    "flagged_outlier": true
   },
   {
     "product_id": "RAW-0693",
@@ -15395,7 +15470,8 @@
       "details": "High quality Nike Basketball Shoes available in standard sizes in red color for everyday style.",
       "color": "Red",
       "stock_qty": 12
-    }
+    },
+    "flagged_outlier": true
   },
   {
     "product_id": "RAW-0696",
@@ -15817,7 +15893,8 @@
       "category": "apparel",
       "details": "High quality Peter England Formal Shirt available in standard sizes in green color for everyday style.",
       "color": "Green"
-    }
+    },
+    "flagged_outlier": true
   },
   {
     "product_id": "RAW-0715",
@@ -16084,7 +16161,8 @@
       "category": "apparel",
       "details": "High quality Van Heusen Graphic Tee available in standard sizes in grey color for everyday style.",
       "color": "Grey"
-    }
+    },
+    "flagged_outlier": true
   },
   {
     "product_id": "RAW-0727",
@@ -16814,7 +16892,8 @@
       "details": "High quality Asics Casual Sneakers available in standard sizes in white color for everyday style.",
       "color": "White",
       "stock_qty": 25
-    }
+    },
+    "flagged_outlier": true
   },
   {
     "product_id": "RAW-0760",
@@ -16990,7 +17069,8 @@
       "size": 10,
       "color": "Grey",
       "stock_qty": 26
-    }
+    },
+    "flagged_outlier": true
   },
   {
     "product_id": "RAW-0768",
@@ -17057,7 +17137,8 @@
       "size": "L",
       "color": "Red",
       "stock_qty": 40
-    }
+    },
+    "flagged_outlier": true
   },
   {
     "product_id": "RAW-0771",
@@ -17079,7 +17160,8 @@
       "size": 6,
       "color": "Grey",
       "stock_qty": 13
-    }
+    },
+    "flagged_outlier": true
   },
   {
     "product_id": "RAW-0772",
@@ -17192,7 +17274,8 @@
       "details": "High quality Levi's Track Pants available in standard sizes in brown color for everyday style.",
       "color": "Brown",
       "stock_qty": 23
-    }
+    },
+    "flagged_outlier": true
   },
   {
     "product_id": "RAW-0777",
@@ -17304,7 +17387,8 @@
       "details": "High quality Under Armour Walking Shoes size 10 in white color for everyday style.",
       "size": 10,
       "color": "White"
-    }
+    },
+    "flagged_outlier": true
   },
   {
     "product_id": "RAW-0782",
@@ -17415,7 +17499,8 @@
       "details": "High quality Jack & Jones Formal Shirt size L in brown color for everyday style.",
       "size": "L",
       "color": "Brown"
-    }
+    },
+    "flagged_outlier": true
   },
   {
     "product_id": "RAW-0787",
@@ -17482,7 +17567,8 @@
       "details": "High quality Sparx Formal Leather Shoes size 9 in red color for everyday style.",
       "size": 9,
       "color": "Red"
-    }
+    },
+    "flagged_outlier": true
   },
   {
     "product_id": "RAW-0790",
@@ -17812,7 +17898,8 @@
       "size": "38",
       "color": "Red",
       "stock_qty": 2
-    }
+    },
+    "flagged_outlier": true
   },
   {
     "product_id": "RAW-0805",
@@ -18367,7 +18454,8 @@
       "size": 7,
       "color": "White",
       "stock_qty": 39
-    }
+    },
+    "flagged_outlier": true
   },
   {
     "product_id": "RAW-0830",
@@ -18391,7 +18479,8 @@
       "size": "32",
       "color": "White",
       "stock_qty": 37
-    }
+    },
+    "flagged_outlier": true
   },
   {
     "product_id": "RAW-0831",
@@ -18414,7 +18503,8 @@
       "details": "High quality Red Tape Casual Sneakers available in standard sizes in blue color for everyday style.",
       "color": "Blue",
       "stock_qty": 34
-    }
+    },
+    "flagged_outlier": true
   },
   {
     "product_id": "RAW-0832",
@@ -18988,7 +19078,8 @@
       "size": 7,
       "color": "Navy",
       "stock_qty": 25
-    }
+    },
+    "flagged_outlier": true
   },
   {
     "product_id": "RAW-0858",
@@ -19143,7 +19234,8 @@
       "category": "apparel",
       "details": "High quality Superdry Dri-Fit T-Shirt available in standard sizes in blue color for everyday style.",
       "color": "Blue"
-    }
+    },
+    "flagged_outlier": true
   },
   {
     "product_id": "RAW-0865",
@@ -19495,7 +19587,8 @@
       "size": "32",
       "color": "Navy",
       "stock_qty": 3
-    }
+    },
+    "flagged_outlier": true
   },
   {
     "product_id": "RAW-0881",
@@ -19562,7 +19655,8 @@
       "category": "footwear",
       "details": "High quality Reebok Loafers available in standard sizes in red color for everyday style.",
       "color": "Red"
-    }
+    },
+    "flagged_outlier": true
   },
   {
     "product_id": "RAW-0884",
@@ -19695,7 +19789,8 @@
       "details": "High quality Reebok Formal Leather Shoes available in standard sizes in white color for everyday style.",
       "color": "White",
       "stock_qty": 15
-    }
+    },
+    "flagged_outlier": true
   },
   {
     "product_id": "RAW-0890",
@@ -19761,7 +19856,8 @@
       "size": "30",
       "color": "Green",
       "stock_qty": 18
-    }
+    },
+    "flagged_outlier": true
   },
   {
     "product_id": "RAW-0893",
@@ -20338,7 +20434,8 @@
       "size": "XXL",
       "color": "Blue",
       "stock_qty": 31
-    }
+    },
+    "flagged_outlier": true
   },
   {
     "product_id": "RAW-0919",
@@ -20360,7 +20457,8 @@
       "size": 6,
       "color": "Red",
       "stock_qty": 34
-    }
+    },
+    "flagged_outlier": true
   },
   {
     "product_id": "RAW-0920",
@@ -20603,7 +20701,8 @@
       "category": "apparel",
       "details": "High quality Allen Solly Dri-Fit T-Shirt available in standard sizes in grey color for everyday style.",
       "color": "Grey"
-    }
+    },
+    "flagged_outlier": true
   },
   {
     "product_id": "RAW-0931",
@@ -20759,7 +20858,8 @@
       "size": 8,
       "color": "Grey",
       "stock_qty": 21
-    }
+    },
+    "flagged_outlier": true
   },
   {
     "product_id": "RAW-0938",
@@ -20825,7 +20925,8 @@
       "size": "S",
       "color": "Black",
       "stock_qty": 22
-    }
+    },
+    "flagged_outlier": true
   },
   {
     "product_id": "RAW-0941",
@@ -20935,7 +21036,8 @@
       "size": 9,
       "color": "Black",
       "stock_qty": 38
-    }
+    },
+    "flagged_outlier": true
   },
   {
     "product_id": "RAW-0946",
@@ -21024,7 +21126,8 @@
       "details": "High quality Skechers Basketball Shoes available in standard sizes in olive color for everyday style.",
       "color": "Olive",
       "stock_qty": 14
-    }
+    },
+    "flagged_outlier": true
   },
   {
     "product_id": "RAW-0950",
@@ -21046,7 +21149,8 @@
       "size": "XL",
       "color": "Red",
       "stock_qty": 14
-    }
+    },
+    "flagged_outlier": true
   },
   {
     "product_id": "RAW-0951",
@@ -21289,7 +21393,8 @@
       "details": "High quality Under Armour Canvas Sneakers size 12 in brown color for everyday style.",
       "size": 12,
       "color": "Brown"
-    }
+    },
+    "flagged_outlier": true
   },
   {
     "product_id": "RAW-0962",
@@ -21756,7 +21861,8 @@
       "size": "M",
       "color": "Grey",
       "stock_qty": 24
-    }
+    },
+    "flagged_outlier": true
   },
   {
     "product_id": "RAW-0983",
@@ -21866,7 +21972,8 @@
       "size": 7,
       "color": "Red",
       "stock_qty": 4
-    }
+    },
+    "flagged_outlier": true
   },
   {
     "product_id": "RAW-0988",
