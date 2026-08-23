@@ -4151,5 +4151,89 @@
       "queries_fixed_count": 1,
       "final_readiness_score": 70.8
     }
+  },
+  {
+    "id": "audit_1787489192713",
+    "timestamp": "2026-08-23T18:16:32.713348",
+    "agent_name": "BuyerAgent",
+    "action": "extract_filters",
+    "reasoning": "Parsed query 'find red speed runner shoes under 3000 in size 8' into filters",
+    "result": "success",
+    "details": {
+      "filters": {
+        "max_price": 3000.0,
+        "min_price": null,
+        "size": 8,
+        "color": "red",
+        "keyword": "speed runner"
+      }
+    }
+  },
+  {
+    "id": "audit_1787489192762",
+    "timestamp": "2026-08-23T18:16:32.762540",
+    "agent_name": "BuyerAgent",
+    "action": "query_catalog",
+    "reasoning": "Queried catalog with filters",
+    "result": "success",
+    "details": {
+      "match_count": 1,
+      "filters": {
+        "max_price": 3000.0,
+        "min_price": null,
+        "size": 8,
+        "color": "red",
+        "keyword": "speed runner"
+      }
+    }
+  },
+  {
+    "id": "audit_1787489193364",
+    "timestamp": "2026-08-23T18:16:33.364598",
+    "agent_name": "BuyerAgent",
+    "action": "create_order",
+    "reasoning": "Found confident product match 'Puma Speed Runner Red' (ID: RAW-0001) at price INR 2890.0.",
+    "result": "success",
+    "details": {
+      "product_id": "RAW-0001",
+      "product_name": "Puma Speed Runner Red",
+      "price": 2890.0,
+      "order_id": "order_test_6adc8831c2ce",
+      "payment_details": {
+        "status": "success",
+        "order_id": "order_test_6adc8831c2ce",
+        "amount": 2890.0,
+        "currency": "INR",
+        "receipt": "order_RAW-0001",
+        "checkout_config": {
+          "key": "rzp_test_TT51dTL52PVtiZ",
+          "amount": 289000,
+          "currency": "INR",
+          "order_id": "order_test_6adc8831c2ce",
+          "name": "Sentinel AI Commerce",
+          "description": "Purchase of Puma Speed Runner Red",
+          "prefill": {
+            "name": "Sentinel Buyer",
+            "email": "buyer@sentinel.ai",
+            "contact": "9999999999"
+          },
+          "theme": {
+            "color": "#c9a15a"
+          }
+        },
+        "razorpay_raw": {
+          "id": "order_test_6adc8831c2ce",
+          "entity": "order",
+          "amount": 289000,
+          "amount_paid": 0,
+          "amount_due": 289000,
+          "currency": "INR",
+          "receipt": "order_RAW-0001",
+          "status": "created",
+          "created_at": 1700000000
+        },
+        "is_mock": true
+      }
+    }
   }
 ]

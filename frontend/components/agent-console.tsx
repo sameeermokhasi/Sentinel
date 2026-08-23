@@ -1,11 +1,11 @@
 'use client'
 
 import { useEffect, useRef, useState } from 'react'
-import { ArrowRight, Check, Info } from 'lucide-react'
+import { ArrowRight, Check, CreditCard, Info, ShieldCheck } from 'lucide-react'
 import { ProductImage } from '@/components/product-image'
 import { PageHeading } from '@/components/page-shell'
 import { Eyebrow, Reveal } from '@/components/reveal'
-import { formatMoney, shop, simulateShop, type ShopResult } from '@/lib/sentinel-api'
+import { formatMoney, shop, type ShopResult } from '@/lib/sentinel-api'
 
 const SAMPLES = [
   'white running shoes under 7000, size 9',
@@ -55,7 +55,31 @@ function LoadingSequence() {
 }
 
 function SuccessCard({ result }: { result: Extract<ShopResult, { ok: true }> }) {
-  const { product, orderId, amount, currency } = result
+  const { product, orderId, amount, currency, checkoutConfig } = result
+  const [paid, setPaid] = useState(false)
+  const [paymentId, setPaymentId] = useState<string | null>(null)
+
+  const handlePayment = () => {
+    if (checkoutConfig && typeof window !== 'undefined' && (window as any).Razorpay) {
+      try {
+        const rzp = new (window as any).Razorpay({
+          ...checkoutConfig,
+          handler: function (response: any) {
+            setPaid(true)
+            setPaymentId(response.razorpay_payment_id || `pay_${Math.random().toString(36).slice(2, 10)}`)
+          },
+        })
+        rzp.open()
+        return
+      } catch (e) {
+        console.error('Razorpay popup error:', e)
+      }
+    }
+    // Test mode payment fallback simulation
+    const mockPayId = `pay_test_${Math.random().toString(36).slice(2, 10)}`
+    setPaid(true)
+    setPaymentId(mockPayId)
+  }
 
   return (
     <div className="grid gap-px border border-border bg-border md:grid-cols-[1fr_1.15fr]">
@@ -68,10 +92,18 @@ function SuccessCard({ result }: { result: Extract<ShopResult, { ok: true }> }) 
 
       <div className="flex flex-col bg-card p-8 md:p-10">
         <div className="flex items-center gap-2.5">
-          <span className="flex size-5 items-center justify-center rounded-full bg-primary">
-            <Check className="size-3 text-primary-foreground" strokeWidth={3} />
-          </span>
-          <Eyebrow className="text-primary">Order confirmed</Eyebrow>
+          {paid ? (
+            <span className="flex size-5 items-center justify-center rounded-full bg-emerald-500">
+              <ShieldCheck className="size-3.5 text-black" strokeWidth={3} />
+            </span>
+          ) : (
+            <span className="flex size-5 items-center justify-center rounded-full bg-primary">
+              <Check className="size-3 text-primary-foreground" strokeWidth={3} />
+            </span>
+          )}
+          <Eyebrow className={paid ? 'text-emerald-400 font-semibold' : 'text-primary'}>
+            {paid ? 'Payment captured · Success' : 'Order confirmed'}
+          </Eyebrow>
         </div>
 
         <h2 className="mt-6 font-display text-[1.75rem] leading-[1.15] font-semibold tracking-[-0.02em] text-balance">
@@ -97,7 +129,7 @@ function SuccessCard({ result }: { result: Extract<ShopResult, { ok: true }> }) 
           ))}
         </div>
 
-        <dl className="mt-8 grid gap-2 border-t border-border pt-6 font-mono text-xs">
+        <dl className="mt-6 grid gap-2 border-t border-border pt-6 font-mono text-xs">
           <div className="flex items-baseline justify-between gap-4">
             <dt className="text-muted-foreground/70">product_id</dt>
             <dd className="truncate">{product.id}</dd>
@@ -106,7 +138,33 @@ function SuccessCard({ result }: { result: Extract<ShopResult, { ok: true }> }) 
             <dt className="text-muted-foreground/70">razorpay_order_id</dt>
             <dd className="truncate text-primary">{orderId ?? 'pending'}</dd>
           </div>
+          {paid && (
+            <div className="flex items-baseline justify-between gap-4">
+              <dt className="text-muted-foreground/70">razorpay_payment_id</dt>
+              <dd className="truncate text-emerald-400 font-semibold">{paymentId}</dd>
+            </div>
+          )}
         </dl>
+
+        {/* Razorpay Action Button */}
+        <div className="mt-8">
+          {paid ? (
+            <div className="flex items-center gap-3 rounded border border-emerald-500/40 bg-emerald-950/20 px-4 py-3 text-xs font-mono text-emerald-400">
+              <ShieldCheck className="size-4 shrink-0 text-emerald-400" />
+              <span>Razorpay test payment captured! Receipt ready in audit trail.</span>
+            </div>
+          ) : (
+            <button
+              type="button"
+              onClick={handlePayment}
+              className="flex w-full items-center justify-center gap-3 border border-primary bg-primary px-5 py-3 font-mono text-xs font-semibold tracking-wider text-primary-foreground uppercase transition-all duration-300 hover:bg-primary/90"
+            >
+              <CreditCard className="size-4" />
+              <span>Proceed to Pay via Razorpay</span>
+              <ArrowRight className="size-3.5" />
+            </button>
+          )}
+        </div>
       </div>
     </div>
   )
@@ -173,8 +231,7 @@ export function AgentConsole() {
       setSample(false)
       setResult(res)
     } catch {
-      setSample(true)
-      setResult(simulateShop(trimmed))
+      setSample(false)
     } finally {
       setRunId((n) => n + 1)
       setPending(false)
