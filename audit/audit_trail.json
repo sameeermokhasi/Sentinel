@@ -1,0 +1,1603 @@
+[
+  {
+    "id": "audit_1787412126283",
+    "timestamp": "2026-08-22T20:52:06.283494",
+    "agent_name": "BuyerAgent",
+    "action": "extract_filters",
+    "reasoning": "Parsed query 'find red speed runner shoes under 3000 in size 8' into filters",
+    "result": "success",
+    "details": {
+      "filters": {
+        "max_price": 3000.0,
+        "min_price": null,
+        "size": 8,
+        "color": "red",
+        "keyword": "speed runner"
+      }
+    }
+  },
+  {
+    "id": "audit_1787412126303",
+    "timestamp": "2026-08-22T20:52:06.303223",
+    "agent_name": "BuyerAgent",
+    "action": "query_catalog",
+    "reasoning": "Queried catalog with filters",
+    "result": "success",
+    "details": {
+      "match_count": 2,
+      "filters": {
+        "max_price": 3000.0,
+        "min_price": null,
+        "size": 8,
+        "color": "red",
+        "keyword": "speed runner"
+      }
+    }
+  },
+  {
+    "id": "audit_1787412126318",
+    "timestamp": "2026-08-22T20:52:06.318803",
+    "agent_name": "BuyerAgent",
+    "action": "create_order",
+    "reasoning": "Found confident product match 'Puma Speed Runner Red' (ID: RAW-004) at price INR 2890.0.",
+    "result": "success",
+    "details": {
+      "product_id": "RAW-004",
+      "product_name": "Puma Speed Runner Red",
+      "price": 2890.0,
+      "order_id": "order_test_c05b6f1f97e0",
+      "payment_details": {
+        "status": "success",
+        "order_id": "order_test_c05b6f1f97e0",
+        "amount": 2890.0,
+        "currency": "INR",
+        "receipt": "order_RAW-004",
+        "razorpay_raw": {
+          "id": "order_test_c05b6f1f97e0",
+          "entity": "order",
+          "amount": 289000,
+          "amount_paid": 0,
+          "amount_due": 289000,
+          "currency": "INR",
+          "receipt": "order_RAW-004",
+          "status": "created",
+          "attempts": 0,
+          "notes": [],
+          "created_at": 1700000000
+        },
+        "is_mock": true
+      }
+    }
+  },
+  {
+    "id": "audit_1787412126337",
+    "timestamp": "2026-08-22T20:52:06.337142",
+    "agent_name": "BuyerAgent",
+    "action": "extract_filters",
+    "reasoning": "Parsed query 'find NIKE RUNNING SHOES - MENS under 3000' into filters",
+    "result": "success",
+    "details": {
+      "filters": {
+        "max_price": 3000.0,
+        "min_price": null,
+        "size": null,
+        "color": null,
+        "keyword": "NIKE RUNNING - MENS"
+      }
+    }
+  },
+  {
+    "id": "audit_1787412126353",
+    "timestamp": "2026-08-22T20:52:06.353640",
+    "agent_name": "BuyerAgent",
+    "action": "query_catalog",
+    "reasoning": "Queried catalog with filters",
+    "result": "success",
+    "details": {
+      "match_count": 0,
+      "filters": {
+        "max_price": 3000.0,
+        "min_price": null,
+        "size": null,
+        "color": null,
+        "keyword": "NIKE RUNNING - MENS"
+      }
+    }
+  },
+  {
+    "id": "audit_1787412126374",
+    "timestamp": "2026-08-22T20:52:06.374522",
+    "agent_name": "BuyerAgent",
+    "action": "match_failed",
+    "reasoning": "No products matched query filters",
+    "result": "failed",
+    "details": {
+      "failure_id": "FAIL-1787412126373"
+    }
+  },
+  {
+    "id": "audit_1787412126608",
+    "timestamp": "2026-08-22T20:52:06.608844",
+    "agent_name": "AnomalyModel",
+    "action": "run_anomaly_scan",
+    "reasoning": "Ran IsolationForest outlier detection over 30 products",
+    "result": "success",
+    "details": {
+      "scanned": 30,
+      "outliers_detected": 3,
+      "outlier_ids": [
+        "RAW-007",
+        "RAW-025",
+        "RAW-030"
+      ]
+    }
+  },
+  {
+    "id": "audit_1787412126621",
+    "timestamp": "2026-08-22T20:52:06.621299",
+    "agent_name": "BuyerAgent",
+    "action": "extract_filters",
+    "reasoning": "Parsed query 'find NIKE RUNNING SHOES - MENS under 3000' into filters",
+    "result": "success",
+    "details": {
+      "filters": {
+        "max_price": 3000.0,
+        "min_price": null,
+        "size": null,
+        "color": null,
+        "keyword": "NIKE RUNNING - MENS"
+      }
+    }
+  },
+  {
+    "id": "audit_1787412126653",
+    "timestamp": "2026-08-22T20:52:06.653322",
+    "agent_name": "BuyerAgent",
+    "action": "query_catalog",
+    "reasoning": "Queried catalog with filters",
+    "result": "success",
+    "details": {
+      "match_count": 0,
+      "filters": {
+        "max_price": 3000.0,
+        "min_price": null,
+        "size": null,
+        "color": null,
+        "keyword": "NIKE RUNNING - MENS"
+      }
+    }
+  },
+  {
+    "id": "audit_1787412126679",
+    "timestamp": "2026-08-22T20:52:06.679789",
+    "agent_name": "BuyerAgent",
+    "action": "match_failed",
+    "reasoning": "No products matched query filters",
+    "result": "failed",
+    "details": {
+      "failure_id": "FAIL-1787412126668"
+    }
+  },
+  {
+    "id": "audit_1787412126729",
+    "timestamp": "2026-08-22T20:52:06.729155",
+    "agent_name": "BuyerAgent",
+    "action": "extract_filters",
+    "reasoning": "Parsed query 'find canvas sneakers under 1000 in size 9' into filters",
+    "result": "success",
+    "details": {
+      "filters": {
+        "max_price": 1000.0,
+        "min_price": null,
+        "size": 9,
+        "color": null,
+        "keyword": "canvas sneakers"
+      }
+    }
+  },
+  {
+    "id": "audit_1787412126743",
+    "timestamp": "2026-08-22T20:52:06.743662",
+    "agent_name": "BuyerAgent",
+    "action": "query_catalog",
+    "reasoning": "Queried catalog with filters",
+    "result": "success",
+    "details": {
+      "match_count": 1,
+      "filters": {
+        "max_price": 1000.0,
+        "min_price": null,
+        "size": 9,
+        "color": null,
+        "keyword": "canvas sneakers"
+      }
+    }
+  },
+  {
+    "id": "audit_1787412126759",
+    "timestamp": "2026-08-22T20:52:06.759484",
+    "agent_name": "BuyerAgent",
+    "action": "create_order",
+    "reasoning": "Found confident product match 'Sparx Canvas Sneakers Grey' (ID: RAW-011) at price INR 899.0.",
+    "result": "success",
+    "details": {
+      "product_id": "RAW-011",
+      "product_name": "Sparx Canvas Sneakers Grey",
+      "price": 899.0,
+      "order_id": "order_test_f326dba9b42a",
+      "payment_details": {
+        "status": "success",
+        "order_id": "order_test_f326dba9b42a",
+        "amount": 899.0,
+        "currency": "INR",
+        "receipt": "order_RAW-011",
+        "razorpay_raw": {
+          "id": "order_test_f326dba9b42a",
+          "entity": "order",
+          "amount": 89900,
+          "amount_paid": 0,
+          "amount_due": 89900,
+          "currency": "INR",
+          "receipt": "order_RAW-011",
+          "status": "created",
+          "attempts": 0,
+          "notes": [],
+          "created_at": 1700000000
+        },
+        "is_mock": true
+      }
+    }
+  },
+  {
+    "id": "audit_1787412127037",
+    "timestamp": "2026-08-22T20:52:07.037197",
+    "agent_name": "AnomalyModel",
+    "action": "run_anomaly_scan",
+    "reasoning": "Ran IsolationForest outlier detection over 30 products",
+    "result": "success",
+    "details": {
+      "scanned": 30,
+      "outliers_detected": 3,
+      "outlier_ids": [
+        "RAW-007",
+        "RAW-025",
+        "RAW-030"
+      ]
+    }
+  },
+  {
+    "id": "audit_1787412131639",
+    "timestamp": "2026-08-22T20:52:11.639379",
+    "agent_name": "BuyerAgent",
+    "action": "extract_filters",
+    "reasoning": "Parsed query 'find red speed runner shoes under 3000 in size 8' into filters",
+    "result": "success",
+    "details": {
+      "filters": {
+        "max_price": 3000.0,
+        "min_price": null,
+        "size": 8,
+        "color": "red",
+        "keyword": "speed runner"
+      }
+    }
+  },
+  {
+    "id": "audit_1787412131658",
+    "timestamp": "2026-08-22T20:52:11.658026",
+    "agent_name": "BuyerAgent",
+    "action": "query_catalog",
+    "reasoning": "Queried catalog with filters",
+    "result": "success",
+    "details": {
+      "match_count": 2,
+      "filters": {
+        "max_price": 3000.0,
+        "min_price": null,
+        "size": 8,
+        "color": "red",
+        "keyword": "speed runner"
+      }
+    }
+  },
+  {
+    "id": "audit_1787412131672",
+    "timestamp": "2026-08-22T20:52:11.672766",
+    "agent_name": "BuyerAgent",
+    "action": "create_order",
+    "reasoning": "Found confident product match 'Puma Speed Runner Red' (ID: RAW-004) at price INR 2890.0.",
+    "result": "success",
+    "details": {
+      "product_id": "RAW-004",
+      "product_name": "Puma Speed Runner Red",
+      "price": 2890.0,
+      "order_id": "order_test_69033566d0c4",
+      "payment_details": {
+        "status": "success",
+        "order_id": "order_test_69033566d0c4",
+        "amount": 2890.0,
+        "currency": "INR",
+        "receipt": "order_RAW-004",
+        "razorpay_raw": {
+          "id": "order_test_69033566d0c4",
+          "entity": "order",
+          "amount": 289000,
+          "amount_paid": 0,
+          "amount_due": 289000,
+          "currency": "INR",
+          "receipt": "order_RAW-004",
+          "status": "created",
+          "attempts": 0,
+          "notes": [],
+          "created_at": 1700000000
+        },
+        "is_mock": true
+      }
+    }
+  },
+  {
+    "id": "audit_1787412131690",
+    "timestamp": "2026-08-22T20:52:11.690129",
+    "agent_name": "BuyerAgent",
+    "action": "extract_filters",
+    "reasoning": "Parsed query 'find NIKE RUNNING SHOES - MENS under 3000' into filters",
+    "result": "success",
+    "details": {
+      "filters": {
+        "max_price": 3000.0,
+        "min_price": null,
+        "size": null,
+        "color": null,
+        "keyword": "NIKE RUNNING - MENS"
+      }
+    }
+  },
+  {
+    "id": "audit_1787412131706",
+    "timestamp": "2026-08-22T20:52:11.706208",
+    "agent_name": "BuyerAgent",
+    "action": "query_catalog",
+    "reasoning": "Queried catalog with filters",
+    "result": "success",
+    "details": {
+      "match_count": 0,
+      "filters": {
+        "max_price": 3000.0,
+        "min_price": null,
+        "size": null,
+        "color": null,
+        "keyword": "NIKE RUNNING - MENS"
+      }
+    }
+  },
+  {
+    "id": "audit_1787412131720",
+    "timestamp": "2026-08-22T20:52:11.720197",
+    "agent_name": "BuyerAgent",
+    "action": "match_failed",
+    "reasoning": "No products matched query filters",
+    "result": "failed",
+    "details": {
+      "failure_id": "FAIL-1787412131718"
+    }
+  },
+  {
+    "id": "audit_1787412132109",
+    "timestamp": "2026-08-22T20:52:12.109662",
+    "agent_name": "AnomalyModel",
+    "action": "run_anomaly_scan",
+    "reasoning": "Ran IsolationForest outlier detection over 30 products",
+    "result": "success",
+    "details": {
+      "scanned": 30,
+      "outliers_detected": 3,
+      "outlier_ids": [
+        "RAW-007",
+        "RAW-025",
+        "RAW-030"
+      ]
+    }
+  },
+  {
+    "id": "audit_1787412132198",
+    "timestamp": "2026-08-22T20:52:12.198737",
+    "agent_name": "BuyerAgent",
+    "action": "extract_filters",
+    "reasoning": "Parsed query 'find NIKE RUNNING SHOES - MENS under 3000' into filters",
+    "result": "success",
+    "details": {
+      "filters": {
+        "max_price": 3000.0,
+        "min_price": null,
+        "size": null,
+        "color": null,
+        "keyword": "NIKE RUNNING - MENS"
+      }
+    }
+  },
+  {
+    "id": "audit_1787412132257",
+    "timestamp": "2026-08-22T20:52:12.257861",
+    "agent_name": "BuyerAgent",
+    "action": "query_catalog",
+    "reasoning": "Queried catalog with filters",
+    "result": "success",
+    "details": {
+      "match_count": 0,
+      "filters": {
+        "max_price": 3000.0,
+        "min_price": null,
+        "size": null,
+        "color": null,
+        "keyword": "NIKE RUNNING - MENS"
+      }
+    }
+  },
+  {
+    "id": "audit_1787412132280",
+    "timestamp": "2026-08-22T20:52:12.280114",
+    "agent_name": "BuyerAgent",
+    "action": "match_failed",
+    "reasoning": "No products matched query filters",
+    "result": "failed",
+    "details": {
+      "failure_id": "FAIL-1787412132278"
+    }
+  },
+  {
+    "id": "audit_1787412132335",
+    "timestamp": "2026-08-22T20:52:12.335053",
+    "agent_name": "BuyerAgent",
+    "action": "extract_filters",
+    "reasoning": "Parsed query 'find canvas sneakers under 1000 in size 9' into filters",
+    "result": "success",
+    "details": {
+      "filters": {
+        "max_price": 1000.0,
+        "min_price": null,
+        "size": 9,
+        "color": null,
+        "keyword": "canvas sneakers"
+      }
+    }
+  },
+  {
+    "id": "audit_1787412132349",
+    "timestamp": "2026-08-22T20:52:12.349851",
+    "agent_name": "BuyerAgent",
+    "action": "query_catalog",
+    "reasoning": "Queried catalog with filters",
+    "result": "success",
+    "details": {
+      "match_count": 1,
+      "filters": {
+        "max_price": 1000.0,
+        "min_price": null,
+        "size": 9,
+        "color": null,
+        "keyword": "canvas sneakers"
+      }
+    }
+  },
+  {
+    "id": "audit_1787412132368",
+    "timestamp": "2026-08-22T20:52:12.368893",
+    "agent_name": "BuyerAgent",
+    "action": "create_order",
+    "reasoning": "Found confident product match 'Sparx Canvas Sneakers Grey' (ID: RAW-011) at price INR 899.0.",
+    "result": "success",
+    "details": {
+      "product_id": "RAW-011",
+      "product_name": "Sparx Canvas Sneakers Grey",
+      "price": 899.0,
+      "order_id": "order_test_d940ceed890c",
+      "payment_details": {
+        "status": "success",
+        "order_id": "order_test_d940ceed890c",
+        "amount": 899.0,
+        "currency": "INR",
+        "receipt": "order_RAW-011",
+        "razorpay_raw": {
+          "id": "order_test_d940ceed890c",
+          "entity": "order",
+          "amount": 89900,
+          "amount_paid": 0,
+          "amount_due": 89900,
+          "currency": "INR",
+          "receipt": "order_RAW-011",
+          "status": "created",
+          "attempts": 0,
+          "notes": [],
+          "created_at": 1700000000
+        },
+        "is_mock": true
+      }
+    }
+  },
+  {
+    "id": "audit_1787412132868",
+    "timestamp": "2026-08-22T20:52:12.868203",
+    "agent_name": "AnomalyModel",
+    "action": "run_anomaly_scan",
+    "reasoning": "Ran IsolationForest outlier detection over 30 products",
+    "result": "success",
+    "details": {
+      "scanned": 30,
+      "outliers_detected": 3,
+      "outlier_ids": [
+        "RAW-007",
+        "RAW-025",
+        "RAW-030"
+      ]
+    }
+  },
+  {
+    "id": "audit_1787458800403",
+    "timestamp": "2026-08-23T09:50:00.403753",
+    "agent_name": "AnomalyModel",
+    "action": "run_anomaly_scan",
+    "reasoning": "Ran IsolationForest outlier detection over 30 products",
+    "result": "success",
+    "details": {
+      "scanned": 30,
+      "outliers_detected": 3,
+      "outlier_ids": [
+        "RAW-007",
+        "RAW-025",
+        "RAW-030"
+      ]
+    }
+  },
+  {
+    "id": "audit_1787459065776",
+    "timestamp": "2026-08-23T09:54:25.776504",
+    "agent_name": "AnomalyModel",
+    "action": "run_anomaly_scan",
+    "reasoning": "Ran IsolationForest outlier detection over 30 products",
+    "result": "success",
+    "details": {
+      "scanned": 30,
+      "outliers_detected": 3,
+      "outlier_ids": [
+        "RAW-007",
+        "RAW-025",
+        "RAW-030"
+      ]
+    }
+  },
+  {
+    "id": "audit_1787459480382",
+    "timestamp": "2026-08-23T10:01:20.383006",
+    "agent_name": "BuyerAgent",
+    "action": "extract_filters",
+    "reasoning": "Parsed query 'find NIKE RUNNING SHOES - MENS under 3000' into filters",
+    "result": "success",
+    "details": {
+      "filters": {
+        "max_price": 3000.0,
+        "min_price": null,
+        "size": null,
+        "color": null,
+        "keyword": "NIKE RUNNING - MENS"
+      }
+    }
+  },
+  {
+    "id": "audit_1787459480386",
+    "timestamp": "2026-08-23T10:01:20.386435",
+    "agent_name": "BuyerAgent",
+    "action": "query_catalog",
+    "reasoning": "Queried catalog with filters",
+    "result": "success",
+    "details": {
+      "match_count": 0,
+      "filters": {
+        "max_price": 3000.0,
+        "min_price": null,
+        "size": null,
+        "color": null,
+        "keyword": "NIKE RUNNING - MENS"
+      }
+    }
+  },
+  {
+    "id": "audit_1787459480404",
+    "timestamp": "2026-08-23T10:01:20.404801",
+    "agent_name": "BuyerAgent",
+    "action": "match_failed",
+    "reasoning": "No products matched query filters",
+    "result": "failed",
+    "details": {
+      "failure_id": "FAIL-1787459480402"
+    }
+  },
+  {
+    "id": "audit_1787459489931",
+    "timestamp": "2026-08-23T10:01:29.931860",
+    "agent_name": "AnomalyModel",
+    "action": "run_anomaly_scan",
+    "reasoning": "Ran IsolationForest outlier detection over 30 products",
+    "result": "success",
+    "details": {
+      "scanned": 30,
+      "outliers_detected": 3,
+      "outlier_ids": [
+        "RAW-007",
+        "RAW-025",
+        "RAW-030"
+      ]
+    }
+  },
+  {
+    "id": "audit_1787459683738",
+    "timestamp": "2026-08-23T10:04:43.738143",
+    "agent_name": "AnomalyModel",
+    "action": "run_anomaly_scan",
+    "reasoning": "Ran IsolationForest outlier detection over 30 products",
+    "result": "success",
+    "details": {
+      "scanned": 30,
+      "outliers_detected": 3,
+      "outlier_ids": [
+        "RAW-007",
+        "RAW-025",
+        "RAW-030"
+      ]
+    }
+  },
+  {
+    "id": "audit_1787459750396",
+    "timestamp": "2026-08-23T10:05:50.396221",
+    "agent_name": "BuyerAgent",
+    "action": "extract_filters",
+    "reasoning": "Parsed query 'find red speed runner shoes under 3000 in size 8' into filters",
+    "result": "success",
+    "details": {
+      "filters": {
+        "max_price": 3000.0,
+        "min_price": null,
+        "size": 8,
+        "color": "red",
+        "keyword": "speed runner"
+      }
+    }
+  },
+  {
+    "id": "audit_1787459750398",
+    "timestamp": "2026-08-23T10:05:50.398485",
+    "agent_name": "BuyerAgent",
+    "action": "query_catalog",
+    "reasoning": "Queried catalog with filters",
+    "result": "success",
+    "details": {
+      "match_count": 2,
+      "filters": {
+        "max_price": 3000.0,
+        "min_price": null,
+        "size": 8,
+        "color": "red",
+        "keyword": "speed runner"
+      }
+    }
+  },
+  {
+    "id": "audit_1787459750994",
+    "timestamp": "2026-08-23T10:05:50.994246",
+    "agent_name": "BuyerAgent",
+    "action": "create_order",
+    "reasoning": "Found confident product match 'Puma Speed Runner Red' (ID: RAW-004) at price INR 2890.0.",
+    "result": "success",
+    "details": {
+      "product_id": "RAW-004",
+      "product_name": "Puma Speed Runner Red",
+      "price": 2890.0,
+      "order_id": "order_test_d26f3f1be30d",
+      "payment_details": {
+        "status": "success",
+        "order_id": "order_test_d26f3f1be30d",
+        "amount": 2890.0,
+        "currency": "INR",
+        "receipt": "order_RAW-004",
+        "razorpay_raw": {
+          "id": "order_test_d26f3f1be30d",
+          "entity": "order",
+          "amount": 289000,
+          "amount_paid": 0,
+          "amount_due": 289000,
+          "currency": "INR",
+          "receipt": "order_RAW-004",
+          "status": "created",
+          "attempts": 0,
+          "notes": [],
+          "created_at": 1700000000
+        },
+        "is_mock": true
+      }
+    }
+  },
+  {
+    "id": "audit_1787459780458",
+    "timestamp": "2026-08-23T10:06:20.458295",
+    "agent_name": "BuyerAgent",
+    "action": "extract_filters",
+    "reasoning": "Parsed query 'find red speed runner shoes under 3000 in size 8' into filters",
+    "result": "success",
+    "details": {
+      "filters": {
+        "max_price": 3000.0,
+        "min_price": null,
+        "size": 8,
+        "color": "red",
+        "keyword": "speed runner"
+      }
+    }
+  },
+  {
+    "id": "audit_1787459780460",
+    "timestamp": "2026-08-23T10:06:20.460659",
+    "agent_name": "BuyerAgent",
+    "action": "query_catalog",
+    "reasoning": "Queried catalog with filters",
+    "result": "success",
+    "details": {
+      "match_count": 2,
+      "filters": {
+        "max_price": 3000.0,
+        "min_price": null,
+        "size": 8,
+        "color": "red",
+        "keyword": "speed runner"
+      }
+    }
+  },
+  {
+    "id": "audit_1787459781091",
+    "timestamp": "2026-08-23T10:06:21.091500",
+    "agent_name": "BuyerAgent",
+    "action": "create_order",
+    "reasoning": "Found confident product match 'Puma Speed Runner Red' (ID: RAW-004) at price INR 2890.0.",
+    "result": "success",
+    "details": {
+      "product_id": "RAW-004",
+      "product_name": "Puma Speed Runner Red",
+      "price": 2890.0,
+      "order_id": "order_test_cef9344c68eb",
+      "payment_details": {
+        "status": "success",
+        "order_id": "order_test_cef9344c68eb",
+        "amount": 2890.0,
+        "currency": "INR",
+        "receipt": "order_RAW-004",
+        "razorpay_raw": {
+          "id": "order_test_cef9344c68eb",
+          "entity": "order",
+          "amount": 289000,
+          "amount_paid": 0,
+          "amount_due": 289000,
+          "currency": "INR",
+          "receipt": "order_RAW-004",
+          "status": "created",
+          "attempts": 0,
+          "notes": [],
+          "created_at": 1700000000
+        },
+        "is_mock": true
+      }
+    }
+  },
+  {
+    "id": "audit_1787459781820",
+    "timestamp": "2026-08-23T10:06:21.820436",
+    "agent_name": "BuyerAgent",
+    "action": "extract_filters",
+    "reasoning": "Parsed query 'find NIKE RUNNING SHOES - MENS' into filters",
+    "result": "success",
+    "details": {
+      "filters": {
+        "max_price": null,
+        "min_price": null,
+        "size": null,
+        "color": null,
+        "keyword": "NIKE RUNNING - MENS"
+      }
+    }
+  },
+  {
+    "id": "audit_1787459781824",
+    "timestamp": "2026-08-23T10:06:21.824079",
+    "agent_name": "BuyerAgent",
+    "action": "query_catalog",
+    "reasoning": "Queried catalog with filters",
+    "result": "success",
+    "details": {
+      "match_count": 0,
+      "filters": {
+        "max_price": null,
+        "min_price": null,
+        "size": null,
+        "color": null,
+        "keyword": "NIKE RUNNING - MENS"
+      }
+    }
+  },
+  {
+    "id": "audit_1787459781841",
+    "timestamp": "2026-08-23T10:06:21.841067",
+    "agent_name": "BuyerAgent",
+    "action": "match_failed",
+    "reasoning": "No products matched query filters",
+    "result": "failed",
+    "details": {
+      "failure_id": "FAIL-1787459781839"
+    }
+  },
+  {
+    "id": "audit_1787459792304",
+    "timestamp": "2026-08-23T10:06:32.304690",
+    "agent_name": "BuyerAgent",
+    "action": "extract_filters",
+    "reasoning": "Parsed query 'find red speed runner shoes under 3000 in size 8' into filters",
+    "result": "success",
+    "details": {
+      "filters": {
+        "max_price": 3000.0,
+        "min_price": null,
+        "size": 8,
+        "color": "red",
+        "keyword": "speed runner"
+      }
+    }
+  },
+  {
+    "id": "audit_1787459792309",
+    "timestamp": "2026-08-23T10:06:32.309490",
+    "agent_name": "BuyerAgent",
+    "action": "query_catalog",
+    "reasoning": "Queried catalog with filters",
+    "result": "success",
+    "details": {
+      "match_count": 2,
+      "filters": {
+        "max_price": 3000.0,
+        "min_price": null,
+        "size": 8,
+        "color": "red",
+        "keyword": "speed runner"
+      }
+    }
+  },
+  {
+    "id": "audit_1787459793166",
+    "timestamp": "2026-08-23T10:06:33.166414",
+    "agent_name": "BuyerAgent",
+    "action": "create_order",
+    "reasoning": "Found confident product match 'Puma Speed Runner Red' (ID: RAW-004) at price INR 2890.0.",
+    "result": "success",
+    "details": {
+      "product_id": "RAW-004",
+      "product_name": "Puma Speed Runner Red",
+      "price": 2890.0,
+      "order_id": "order_test_3f816c4a97c2",
+      "payment_details": {
+        "status": "success",
+        "order_id": "order_test_3f816c4a97c2",
+        "amount": 2890.0,
+        "currency": "INR",
+        "receipt": "order_RAW-004",
+        "razorpay_raw": {
+          "id": "order_test_3f816c4a97c2",
+          "entity": "order",
+          "amount": 289000,
+          "amount_paid": 0,
+          "amount_due": 289000,
+          "currency": "INR",
+          "receipt": "order_RAW-004",
+          "status": "created",
+          "attempts": 0,
+          "notes": [],
+          "created_at": 1700000000
+        },
+        "is_mock": true
+      }
+    }
+  },
+  {
+    "id": "audit_1787459799255",
+    "timestamp": "2026-08-23T10:06:39.255686",
+    "agent_name": "BuyerAgent",
+    "action": "extract_filters",
+    "reasoning": "Parsed query 'find NIKE RUNNING SHOES - MENS' into filters",
+    "result": "success",
+    "details": {
+      "filters": {
+        "max_price": null,
+        "min_price": null,
+        "size": null,
+        "color": null,
+        "keyword": "NIKE RUNNING - MENS"
+      }
+    }
+  },
+  {
+    "id": "audit_1787459799259",
+    "timestamp": "2026-08-23T10:06:39.259455",
+    "agent_name": "BuyerAgent",
+    "action": "query_catalog",
+    "reasoning": "Queried catalog with filters",
+    "result": "success",
+    "details": {
+      "match_count": 0,
+      "filters": {
+        "max_price": null,
+        "min_price": null,
+        "size": null,
+        "color": null,
+        "keyword": "NIKE RUNNING - MENS"
+      }
+    }
+  },
+  {
+    "id": "audit_1787459799279",
+    "timestamp": "2026-08-23T10:06:39.279787",
+    "agent_name": "BuyerAgent",
+    "action": "match_failed",
+    "reasoning": "No products matched query filters",
+    "result": "failed",
+    "details": {
+      "failure_id": "FAIL-1787459799277"
+    }
+  },
+  {
+    "id": "audit_1787459951332",
+    "timestamp": "2026-08-23T10:09:11.332862",
+    "agent_name": "CatalogHealer",
+    "action": "flag_unfixable_failure",
+    "reasoning": "Failure 'FAIL-1787459781839' has no associated catalog entry (query: 'find NIKE RUNNING SHOES - MENS'). Marked as no_match_unfixable.",
+    "result": "unfixable",
+    "details": {
+      "failure_id": "FAIL-1787459781839",
+      "query": "find NIKE RUNNING SHOES - MENS",
+      "reason": "No products found matching criteria",
+      "status": "no_match_unfixable",
+      "notes": "No matching catalog entry exists to satisfy this query; query is unfixable via catalog patching."
+    }
+  },
+  {
+    "id": "audit_1787459951355",
+    "timestamp": "2026-08-23T10:09:11.355210",
+    "agent_name": "CatalogHealer",
+    "action": "flag_unfixable_failure",
+    "reasoning": "Failure 'FAIL-1787459799277' has no associated catalog entry (query: 'find NIKE RUNNING SHOES - MENS'). Marked as no_match_unfixable.",
+    "result": "unfixable",
+    "details": {
+      "failure_id": "FAIL-1787459799277",
+      "query": "find NIKE RUNNING SHOES - MENS",
+      "reason": "No products found matching criteria",
+      "status": "no_match_unfixable",
+      "notes": "No matching catalog entry exists to satisfy this query; query is unfixable via catalog patching."
+    }
+  },
+  {
+    "id": "audit_1787459951566",
+    "timestamp": "2026-08-23T10:09:11.566406",
+    "agent_name": "AnomalyModel",
+    "action": "run_anomaly_scan",
+    "reasoning": "Ran IsolationForest outlier detection over 30 products",
+    "result": "success",
+    "details": {
+      "scanned": 30,
+      "outliers_detected": 3,
+      "outlier_ids": [
+        "RAW-007",
+        "RAW-025",
+        "RAW-030"
+      ]
+    }
+  },
+  {
+    "id": "audit_1787459966289",
+    "timestamp": "2026-08-23T10:09:26.289813",
+    "agent_name": "BuyerAgent",
+    "action": "extract_filters",
+    "reasoning": "Parsed query 'find Jack & Jones Graphic Tee White under 1000 in size M' into filters",
+    "result": "success",
+    "details": {
+      "filters": {
+        "max_price": 1000.0,
+        "min_price": null,
+        "size": "M",
+        "color": "white",
+        "keyword": "Jack & Jones Graphic Tee"
+      }
+    }
+  },
+  {
+    "id": "audit_1787459966294",
+    "timestamp": "2026-08-23T10:09:26.294641",
+    "agent_name": "BuyerAgent",
+    "action": "query_catalog",
+    "reasoning": "Queried catalog with filters",
+    "result": "success",
+    "details": {
+      "match_count": 1,
+      "filters": {
+        "max_price": 1000.0,
+        "min_price": null,
+        "size": "M",
+        "color": "white",
+        "keyword": "Jack & Jones Graphic Tee"
+      }
+    }
+  },
+  {
+    "id": "audit_1787459966313",
+    "timestamp": "2026-08-23T10:09:26.313689",
+    "agent_name": "BuyerAgent",
+    "action": "match_flagged_for_review",
+    "reasoning": "Candidate RAW-026 requires review (price_unparseable)",
+    "result": "failed",
+    "details": {
+      "failure_id": "FAIL-1787459966312"
+    }
+  },
+  {
+    "id": "audit_1787459974966",
+    "timestamp": "2026-08-23T10:09:34.966668",
+    "agent_name": "CatalogHealer",
+    "action": "heal_catalog_entry",
+    "reasoning": "Resolved failure 'FAIL-1787459966312' for product 'RAW-026' by patching missing/invalid fields.",
+    "result": "success",
+    "details": {
+      "failure_id": "FAIL-1787459966312",
+      "product_id": "RAW-026",
+      "product_name": "Jack & Jones Graphic Tee White",
+      "fixed_fields": {
+        "needs_review": false,
+        "resolved_reasons": [
+          "price_unparseable",
+          "price_unparseable",
+          "size_missing",
+          "stock_missing"
+        ],
+        "notes": "Inferred price_unparseable from raw entry heuristics",
+        "price": 2499.0,
+        "size": "M",
+        "color": "White",
+        "stock": 15,
+        "flagged_duplicate": false
+      },
+      "resolution": "Fixed fields: ['needs_review', 'resolved_reasons', 'notes', 'price', 'size', 'color', 'stock', 'flagged_duplicate']. Updated price=2499.0, size=M. Notes: Inferred price_unparseable from raw entry heuristics"
+    }
+  },
+  {
+    "id": "audit_1787459975196",
+    "timestamp": "2026-08-23T10:09:35.196746",
+    "agent_name": "AnomalyModel",
+    "action": "run_anomaly_scan",
+    "reasoning": "Ran IsolationForest outlier detection over 30 products",
+    "result": "success",
+    "details": {
+      "scanned": 30,
+      "outliers_detected": 3,
+      "outlier_ids": [
+        "RAW-007",
+        "RAW-025",
+        "RAW-030"
+      ]
+    }
+  },
+  {
+    "id": "audit_1787459980948",
+    "timestamp": "2026-08-23T10:09:40.948435",
+    "agent_name": "BuyerAgent",
+    "action": "extract_filters",
+    "reasoning": "Parsed query 'find Jack & Jones Graphic Tee White under 1000 in size M' into filters",
+    "result": "success",
+    "details": {
+      "filters": {
+        "max_price": 1000.0,
+        "min_price": null,
+        "size": "M",
+        "color": "white",
+        "keyword": "Jack & Jones Graphic Tee"
+      }
+    }
+  },
+  {
+    "id": "audit_1787459980953",
+    "timestamp": "2026-08-23T10:09:40.953324",
+    "agent_name": "BuyerAgent",
+    "action": "query_catalog",
+    "reasoning": "Queried catalog with filters",
+    "result": "success",
+    "details": {
+      "match_count": 0,
+      "filters": {
+        "max_price": 1000.0,
+        "min_price": null,
+        "size": "M",
+        "color": "white",
+        "keyword": "Jack & Jones Graphic Tee"
+      }
+    }
+  },
+  {
+    "id": "audit_1787459980979",
+    "timestamp": "2026-08-23T10:09:40.979783",
+    "agent_name": "BuyerAgent",
+    "action": "match_failed",
+    "reasoning": "No products matched query filters",
+    "result": "failed",
+    "details": {
+      "failure_id": "FAIL-1787459980977"
+    }
+  },
+  {
+    "id": "audit_1787459994000",
+    "timestamp": "2026-08-23T10:09:54.000934",
+    "agent_name": "BuyerAgent",
+    "action": "extract_filters",
+    "reasoning": "Parsed query 'find Jack & Jones Graphic Tee White under 3000 in size M' into filters",
+    "result": "success",
+    "details": {
+      "filters": {
+        "max_price": 3000.0,
+        "min_price": null,
+        "size": "M",
+        "color": "white",
+        "keyword": "Jack & Jones Graphic Tee"
+      }
+    }
+  },
+  {
+    "id": "audit_1787459994006",
+    "timestamp": "2026-08-23T10:09:54.006807",
+    "agent_name": "BuyerAgent",
+    "action": "query_catalog",
+    "reasoning": "Queried catalog with filters",
+    "result": "success",
+    "details": {
+      "match_count": 1,
+      "filters": {
+        "max_price": 3000.0,
+        "min_price": null,
+        "size": "M",
+        "color": "white",
+        "keyword": "Jack & Jones Graphic Tee"
+      }
+    }
+  },
+  {
+    "id": "audit_1787459994816",
+    "timestamp": "2026-08-23T10:09:54.816160",
+    "agent_name": "BuyerAgent",
+    "action": "create_order",
+    "reasoning": "Found confident product match 'Jack & Jones Graphic Tee White' (ID: RAW-026) at price INR 2499.0.",
+    "result": "success",
+    "details": {
+      "product_id": "RAW-026",
+      "product_name": "Jack & Jones Graphic Tee White",
+      "price": 2499.0,
+      "order_id": "order_test_af69ad0f935a",
+      "payment_details": {
+        "status": "success",
+        "order_id": "order_test_af69ad0f935a",
+        "amount": 2499.0,
+        "currency": "INR",
+        "receipt": "order_RAW-026",
+        "razorpay_raw": {
+          "id": "order_test_af69ad0f935a",
+          "entity": "order",
+          "amount": 249900,
+          "amount_paid": 0,
+          "amount_due": 249900,
+          "currency": "INR",
+          "receipt": "order_RAW-026",
+          "status": "created",
+          "attempts": 0,
+          "notes": [],
+          "created_at": 1700000000
+        },
+        "is_mock": true
+      }
+    }
+  },
+  {
+    "id": "audit_1787460008422",
+    "timestamp": "2026-08-23T10:10:08.422762",
+    "agent_name": "BuyerAgent",
+    "action": "extract_filters",
+    "reasoning": "Parsed query 'find NIKE RUNNING SHOES - MENS' into filters",
+    "result": "success",
+    "details": {
+      "filters": {
+        "max_price": null,
+        "min_price": null,
+        "size": null,
+        "color": null,
+        "keyword": "NIKE RUNNING - MENS"
+      }
+    }
+  },
+  {
+    "id": "audit_1787460008426",
+    "timestamp": "2026-08-23T10:10:08.426124",
+    "agent_name": "BuyerAgent",
+    "action": "query_catalog",
+    "reasoning": "Queried catalog with filters",
+    "result": "success",
+    "details": {
+      "match_count": 0,
+      "filters": {
+        "max_price": null,
+        "min_price": null,
+        "size": null,
+        "color": null,
+        "keyword": "NIKE RUNNING - MENS"
+      }
+    }
+  },
+  {
+    "id": "audit_1787460008441",
+    "timestamp": "2026-08-23T10:10:08.441636",
+    "agent_name": "BuyerAgent",
+    "action": "match_failed",
+    "reasoning": "No products matched query filters",
+    "result": "failed",
+    "details": {
+      "failure_id": "FAIL-1787460008440"
+    }
+  },
+  {
+    "id": "audit_1787460023958",
+    "timestamp": "2026-08-23T10:10:23.958211",
+    "agent_name": "BuyerAgent",
+    "action": "extract_filters",
+    "reasoning": "Parsed query 'find Jack & Jones Graphic Tee White under 3000 in size M' into filters",
+    "result": "success",
+    "details": {
+      "filters": {
+        "max_price": 3000.0,
+        "min_price": null,
+        "size": "M",
+        "color": "white",
+        "keyword": "Jack & Jones Graphic Tee"
+      }
+    }
+  },
+  {
+    "id": "audit_1787460023962",
+    "timestamp": "2026-08-23T10:10:23.962478",
+    "agent_name": "BuyerAgent",
+    "action": "query_catalog",
+    "reasoning": "Queried catalog with filters",
+    "result": "success",
+    "details": {
+      "match_count": 1,
+      "filters": {
+        "max_price": 3000.0,
+        "min_price": null,
+        "size": "M",
+        "color": "white",
+        "keyword": "Jack & Jones Graphic Tee"
+      }
+    }
+  },
+  {
+    "id": "audit_1787460024563",
+    "timestamp": "2026-08-23T10:10:24.563855",
+    "agent_name": "BuyerAgent",
+    "action": "create_order",
+    "reasoning": "Found confident product match 'Jack & Jones Graphic Tee White' (ID: RAW-026) at price INR 2499.0.",
+    "result": "success",
+    "details": {
+      "product_id": "RAW-026",
+      "product_name": "Jack & Jones Graphic Tee White",
+      "price": 2499.0,
+      "order_id": "order_test_986c218add4a",
+      "payment_details": {
+        "status": "success",
+        "order_id": "order_test_986c218add4a",
+        "amount": 2499.0,
+        "currency": "INR",
+        "receipt": "order_RAW-026",
+        "razorpay_raw": {
+          "id": "order_test_986c218add4a",
+          "entity": "order",
+          "amount": 249900,
+          "amount_paid": 0,
+          "amount_due": 249900,
+          "currency": "INR",
+          "receipt": "order_RAW-026",
+          "status": "created",
+          "attempts": 0,
+          "notes": [],
+          "created_at": 1700000000
+        },
+        "is_mock": true
+      }
+    }
+  },
+  {
+    "id": "audit_1787460035067",
+    "timestamp": "2026-08-23T10:10:35.067987",
+    "agent_name": "CatalogHealer",
+    "action": "flag_unfixable_failure",
+    "reasoning": "Failure 'FAIL-1787459980977' has no associated catalog entry (query: 'find Jack & Jones Graphic Tee White under 1000 in size M'). Marked as no_match_unfixable.",
+    "result": "unfixable",
+    "details": {
+      "failure_id": "FAIL-1787459980977",
+      "query": "find Jack & Jones Graphic Tee White under 1000 in size M",
+      "reason": "No products found matching criteria",
+      "status": "no_match_unfixable",
+      "notes": "No matching catalog entry exists to satisfy this query; query is unfixable via catalog patching."
+    }
+  },
+  {
+    "id": "audit_1787460035093",
+    "timestamp": "2026-08-23T10:10:35.093960",
+    "agent_name": "CatalogHealer",
+    "action": "flag_unfixable_failure",
+    "reasoning": "Failure 'FAIL-1787460008440' has no associated catalog entry (query: 'find NIKE RUNNING SHOES - MENS'). Marked as no_match_unfixable.",
+    "result": "unfixable",
+    "details": {
+      "failure_id": "FAIL-1787460008440",
+      "query": "find NIKE RUNNING SHOES - MENS",
+      "reason": "No products found matching criteria",
+      "status": "no_match_unfixable",
+      "notes": "No matching catalog entry exists to satisfy this query; query is unfixable via catalog patching."
+    }
+  },
+  {
+    "id": "audit_1787460035429",
+    "timestamp": "2026-08-23T10:10:35.429872",
+    "agent_name": "AnomalyModel",
+    "action": "run_anomaly_scan",
+    "reasoning": "Ran IsolationForest outlier detection over 30 products",
+    "result": "success",
+    "details": {
+      "scanned": 30,
+      "outliers_detected": 3,
+      "outlier_ids": [
+        "RAW-007",
+        "RAW-025",
+        "RAW-030"
+      ]
+    }
+  },
+  {
+    "id": "audit_1787460043182",
+    "timestamp": "2026-08-23T10:10:43.182365",
+    "agent_name": "BuyerAgent",
+    "action": "extract_filters",
+    "reasoning": "Parsed query 'find Jack & Jones Graphic Tee White under 3000 in size M' into filters",
+    "result": "success",
+    "details": {
+      "filters": {
+        "max_price": 3000.0,
+        "min_price": null,
+        "size": "M",
+        "color": "white",
+        "keyword": "Jack & Jones Graphic Tee"
+      }
+    }
+  },
+  {
+    "id": "audit_1787460043186",
+    "timestamp": "2026-08-23T10:10:43.186843",
+    "agent_name": "BuyerAgent",
+    "action": "query_catalog",
+    "reasoning": "Queried catalog with filters",
+    "result": "success",
+    "details": {
+      "match_count": 1,
+      "filters": {
+        "max_price": 3000.0,
+        "min_price": null,
+        "size": "M",
+        "color": "white",
+        "keyword": "Jack & Jones Graphic Tee"
+      }
+    }
+  },
+  {
+    "id": "audit_1787460043757",
+    "timestamp": "2026-08-23T10:10:43.757746",
+    "agent_name": "BuyerAgent",
+    "action": "create_order",
+    "reasoning": "Found confident product match 'Jack & Jones Graphic Tee White' (ID: RAW-026) at price INR 2499.0.",
+    "result": "success",
+    "details": {
+      "product_id": "RAW-026",
+      "product_name": "Jack & Jones Graphic Tee White",
+      "price": 2499.0,
+      "order_id": "order_test_fb361406b6eb",
+      "payment_details": {
+        "status": "success",
+        "order_id": "order_test_fb361406b6eb",
+        "amount": 2499.0,
+        "currency": "INR",
+        "receipt": "order_RAW-026",
+        "razorpay_raw": {
+          "id": "order_test_fb361406b6eb",
+          "entity": "order",
+          "amount": 249900,
+          "amount_paid": 0,
+          "amount_due": 249900,
+          "currency": "INR",
+          "receipt": "order_RAW-026",
+          "status": "created",
+          "attempts": 0,
+          "notes": [],
+          "created_at": 1700000000
+        },
+        "is_mock": true
+      }
+    }
+  },
+  {
+    "id": "audit_1787460133241",
+    "timestamp": "2026-08-23T10:12:13.241484",
+    "agent_name": "BuyerAgent",
+    "action": "extract_filters",
+    "reasoning": "Parsed query 'find [that product name] under [price] in size [X]' into filters",
+    "result": "success",
+    "details": {
+      "filters": {
+        "max_price": null,
+        "min_price": null,
+        "size": null,
+        "color": null,
+        "keyword": "[that product name] [price] size [X]"
+      }
+    }
+  },
+  {
+    "id": "audit_1787460133245",
+    "timestamp": "2026-08-23T10:12:13.245174",
+    "agent_name": "BuyerAgent",
+    "action": "query_catalog",
+    "reasoning": "Queried catalog with filters",
+    "result": "success",
+    "details": {
+      "match_count": 0,
+      "filters": {
+        "max_price": null,
+        "min_price": null,
+        "size": null,
+        "color": null,
+        "keyword": "[that product name] [price] size [X]"
+      }
+    }
+  },
+  {
+    "id": "audit_1787460133262",
+    "timestamp": "2026-08-23T10:12:13.262623",
+    "agent_name": "BuyerAgent",
+    "action": "match_failed",
+    "reasoning": "No products matched query filters",
+    "result": "failed",
+    "details": {
+      "failure_id": "FAIL-1787460133261"
+    }
+  },
+  {
+    "id": "audit_1787460154708",
+    "timestamp": "2026-08-23T10:12:34.708289",
+    "agent_name": "CatalogHealer",
+    "action": "flag_unfixable_failure",
+    "reasoning": "Failure 'FAIL-1787460133261' has no associated catalog entry (query: 'find [that product name] under [price] in size [X]'). Marked as no_match_unfixable.",
+    "result": "unfixable",
+    "details": {
+      "failure_id": "FAIL-1787460133261",
+      "query": "find [that product name] under [price] in size [X]",
+      "reason": "No products found matching criteria",
+      "status": "no_match_unfixable",
+      "notes": "No matching catalog entry exists to satisfy this query; query is unfixable via catalog patching."
+    }
+  },
+  {
+    "id": "audit_1787460154872",
+    "timestamp": "2026-08-23T10:12:34.872673",
+    "agent_name": "AnomalyModel",
+    "action": "run_anomaly_scan",
+    "reasoning": "Ran IsolationForest outlier detection over 30 products",
+    "result": "success",
+    "details": {
+      "scanned": 30,
+      "outliers_detected": 3,
+      "outlier_ids": [
+        "RAW-007",
+        "RAW-025",
+        "RAW-030"
+      ]
+    }
+  },
+  {
+    "id": "audit_1787460214413",
+    "timestamp": "2026-08-23T10:13:34.413346",
+    "agent_name": "BuyerAgent",
+    "action": "extract_filters",
+    "reasoning": "Parsed query 'find Jack & Jones Graphic Tee White under 3000 in size M' into filters",
+    "result": "success",
+    "details": {
+      "filters": {
+        "max_price": 3000.0,
+        "min_price": null,
+        "size": "M",
+        "color": "white",
+        "keyword": "Jack & Jones Graphic Tee"
+      }
+    }
+  },
+  {
+    "id": "audit_1787460214418",
+    "timestamp": "2026-08-23T10:13:34.418608",
+    "agent_name": "BuyerAgent",
+    "action": "query_catalog",
+    "reasoning": "Queried catalog with filters",
+    "result": "success",
+    "details": {
+      "match_count": 1,
+      "filters": {
+        "max_price": 3000.0,
+        "min_price": null,
+        "size": "M",
+        "color": "white",
+        "keyword": "Jack & Jones Graphic Tee"
+      }
+    }
+  },
+  {
+    "id": "audit_1787460215065",
+    "timestamp": "2026-08-23T10:13:35.065854",
+    "agent_name": "BuyerAgent",
+    "action": "create_order",
+    "reasoning": "Found confident product match 'Jack & Jones Graphic Tee White' (ID: RAW-026) at price INR 2499.0.",
+    "result": "success",
+    "details": {
+      "product_id": "RAW-026",
+      "product_name": "Jack & Jones Graphic Tee White",
+      "price": 2499.0,
+      "order_id": "order_test_66a7f972287f",
+      "payment_details": {
+        "status": "success",
+        "order_id": "order_test_66a7f972287f",
+        "amount": 2499.0,
+        "currency": "INR",
+        "receipt": "order_RAW-026",
+        "razorpay_raw": {
+          "id": "order_test_66a7f972287f",
+          "entity": "order",
+          "amount": 249900,
+          "amount_paid": 0,
+          "amount_due": 249900,
+          "currency": "INR",
+          "receipt": "order_RAW-026",
+          "status": "created",
+          "attempts": 0,
+          "notes": [],
+          "created_at": 1700000000
+        },
+        "is_mock": true
+      }
+    }
+  },
+  {
+    "id": "audit_1787460228216",
+    "timestamp": "2026-08-23T10:13:48.216433",
+    "agent_name": "AnomalyModel",
+    "action": "run_anomaly_scan",
+    "reasoning": "Ran IsolationForest outlier detection over 30 products",
+    "result": "success",
+    "details": {
+      "scanned": 30,
+      "outliers_detected": 3,
+      "outlier_ids": [
+        "RAW-007",
+        "RAW-025",
+        "RAW-030"
+      ]
+    }
+  }
+]

@@ -1,0 +1,645 @@
+[
+  {
+    "product_id": "RAW-001",
+    "name": "Nike Running Shoes - Mens",
+    "price": 2499.0,
+    "category": "Footwear",
+    "size": 9,
+    "color": "Blue",
+    "stock": null,
+    "description": "Premium quality running shoes in size 9 blue color with breathable mesh upper.",
+    "needs_review": true,
+    "review_reasons": [
+      "stock_missing"
+    ],
+    "original_raw": {
+      "raw_id": "RAW-001",
+      "item_title": "NIKE RUNNING SHOES - MENS",
+      "raw_price": "Rs. 2499/-",
+      "category": "footwear",
+      "details": "Premium quality running shoes in size 9 blue color with breathable mesh upper."
+    }
+  },
+  {
+    "product_id": "RAW-002",
+    "name": "Nike Running Shoe Blue",
+    "price": 2499.0,
+    "category": "Footwear",
+    "size": null,
+    "color": "Blue",
+    "stock": 5,
+    "description": "Blue athletic running shoe for everyday jogging.",
+    "needs_review": true,
+    "review_reasons": [
+      "size_missing"
+    ],
+    "original_raw": {
+      "raw_id": "RAW-002",
+      "item_title": "nike running shoe blue",
+      "raw_price": 2499,
+      "category": "Footwear",
+      "stock_qty": 5,
+      "details": "Blue athletic running shoe for everyday jogging."
+    }
+  },
+  {
+    "product_id": "RAW-003",
+    "name": "Adidas Ultraboost Sneaker",
+    "price": 4500.0,
+    "category": "General",
+    "size": 10,
+    "color": "White",
+    "stock": 10,
+    "description": "High performance cushioning shoes.",
+    "needs_review": false,
+    "review_reasons": [],
+    "original_raw": {
+      "raw_id": "RAW-003",
+      "item_title": "Adidas Ultraboost Sneaker",
+      "raw_price": "INR 4500",
+      "size": 10,
+      "color": "White",
+      "stock_qty": "In Stock",
+      "details": "High performance cushioning shoes."
+    }
+  },
+  {
+    "product_id": "RAW-004",
+    "name": "Puma Speed Runner Red",
+    "price": 2890.0,
+    "category": "General",
+    "size": 8,
+    "color": "Red",
+    "stock": 12,
+    "description": "Lightweight speed runner.",
+    "needs_review": false,
+    "review_reasons": [],
+    "original_raw": {
+      "raw_id": "RAW-004",
+      "item_title": "PUMA SPEED RUNNER RED",
+      "raw_price": 2890.0,
+      "size": 8,
+      "color": "Red",
+      "stock_qty": 12,
+      "details": "Lightweight speed runner."
+    }
+  },
+  {
+    "product_id": "RAW-005",
+    "name": "Puma Speed Runner - Red Edition",
+    "price": 2890.0,
+    "category": "Footwear",
+    "size": null,
+    "color": "Red",
+    "stock": null,
+    "description": "Fast track puma shoes.",
+    "needs_review": true,
+    "review_reasons": [
+      "size_missing",
+      "stock_missing"
+    ],
+    "original_raw": {
+      "raw_id": "RAW-005",
+      "item_title": "Puma Speed Runner - Red Edition",
+      "raw_price": "Rs. 2890/-",
+      "category": "footwear",
+      "details": "Fast track puma shoes."
+    }
+  },
+  {
+    "product_id": "RAW-006",
+    "name": "Reebok Classic Leather White",
+    "price": 3200.0,
+    "category": "General",
+    "size": 7,
+    "color": "White",
+    "stock": 0,
+    "description": "Classic leather sneakers for everyday style.",
+    "needs_review": false,
+    "review_reasons": [],
+    "original_raw": {
+      "raw_id": "RAW-006",
+      "item_title": "Reebok Classic Leather White",
+      "raw_price": "3200 INR",
+      "size": 7,
+      "color": "White",
+      "stock_qty": 0,
+      "details": "Classic leather sneakers for everyday style."
+    }
+  },
+  {
+    "product_id": "RAW-007",
+    "name": "Under Armour Charged Basketball Shoes",
+    "price": 5999.0,
+    "category": "General",
+    "size": 11,
+    "color": "Black",
+    "stock": 3,
+    "description": "High ankle support basketball performance shoe.",
+    "needs_review": false,
+    "review_reasons": [],
+    "original_raw": {
+      "raw_id": "RAW-007",
+      "item_title": "Under Armour Charged Basketball Shoes",
+      "raw_price": "Rs. 5999/-",
+      "size": 11,
+      "color": "Black",
+      "stock_qty": 3,
+      "details": "High ankle support basketball performance shoe."
+    },
+    "flagged_outlier": true
+  },
+  {
+    "product_id": "RAW-008",
+    "name": "Asics Gel Kayano 28",
+    "price": null,
+    "category": "General",
+    "size": 9,
+    "color": "Blue",
+    "stock": 2,
+    "description": "Stability running shoe.",
+    "needs_review": true,
+    "review_reasons": [
+      "price_unparseable"
+    ],
+    "original_raw": {
+      "raw_id": "RAW-008",
+      "item_title": "ASICS GEL KAYANO 28",
+      "raw_price": "FREE TRIAL",
+      "size": 9,
+      "color": "Blue",
+      "stock_qty": 2,
+      "details": "Stability running shoe."
+    }
+  },
+  {
+    "product_id": "RAW-009",
+    "name": "Woodland Leather Boots Brown",
+    "price": 4995.0,
+    "category": "General",
+    "size": 9,
+    "color": "Brown",
+    "stock": 8,
+    "description": "Rugged outdoor leather boots.",
+    "needs_review": false,
+    "review_reasons": [],
+    "original_raw": {
+      "raw_id": "RAW-009",
+      "item_title": "WOODLAND LEATHER BOOTS BROWN",
+      "raw_price": "4995 INR",
+      "size": 9,
+      "color": "Brown",
+      "stock_qty": 8,
+      "details": "Rugged outdoor leather boots."
+    }
+  },
+  {
+    "product_id": "RAW-010",
+    "name": "Bata Men Formal Leather Shoe Black",
+    "price": 1499.0,
+    "category": "General",
+    "size": 8,
+    "color": "Black",
+    "stock": null,
+    "description": "Formal office lace-up footwear.",
+    "needs_review": true,
+    "review_reasons": [
+      "stock_missing"
+    ],
+    "original_raw": {
+      "raw_id": "RAW-010",
+      "item_title": "Bata Men Formal Leather Shoe Black",
+      "raw_price": 1499,
+      "size": 8,
+      "color": "Black",
+      "details": "Formal office lace-up footwear."
+    }
+  },
+  {
+    "product_id": "RAW-011",
+    "name": "Sparx Canvas Sneakers Grey",
+    "price": 899.0,
+    "category": "General",
+    "size": 9,
+    "color": "Grey",
+    "stock": 20,
+    "description": "Casual lightweight canvas sneakers.",
+    "needs_review": false,
+    "review_reasons": [],
+    "original_raw": {
+      "raw_id": "RAW-011",
+      "item_title": "Sparx Canvas Sneakers Grey",
+      "raw_price": "Rs 899/-",
+      "size": 9,
+      "color": "Grey",
+      "stock_qty": 20,
+      "details": "Casual lightweight canvas sneakers."
+    }
+  },
+  {
+    "product_id": "RAW-012",
+    "name": "Campus Running Shoes Black",
+    "price": 1199.0,
+    "category": "General",
+    "size": 10,
+    "color": "Black",
+    "stock": 15,
+    "description": "Men's lightweight walking and running shoes size 10 black mesh upper.",
+    "needs_review": false,
+    "review_reasons": [],
+    "original_raw": {
+      "raw_id": "RAW-012",
+      "item_title": "Campus Running Shoes Black",
+      "raw_price": 1199,
+      "stock_qty": 15,
+      "details": "Men's lightweight walking and running shoes size 10 black mesh upper."
+    }
+  },
+  {
+    "product_id": "RAW-013",
+    "name": "Lancer Mesh Sports Shoes",
+    "price": 650.0,
+    "category": "General",
+    "size": 6,
+    "color": "Blue",
+    "stock": 4,
+    "description": "Budget friendly training sports shoes.",
+    "needs_review": false,
+    "review_reasons": [],
+    "original_raw": {
+      "raw_id": "RAW-013",
+      "item_title": "Lancer Mesh Sports Shoes",
+      "raw_price": "Rs 650/-",
+      "size": 6,
+      "color": "Blue",
+      "stock_qty": 4,
+      "details": "Budget friendly training sports shoes."
+    }
+  },
+  {
+    "product_id": "RAW-014",
+    "name": "Red Tape Casual Sneakers White",
+    "price": 1999.0,
+    "category": "General",
+    "size": 9,
+    "color": "White",
+    "stock": 10,
+    "description": "Synthetic leather stylish sneakers.",
+    "needs_review": false,
+    "review_reasons": [],
+    "original_raw": {
+      "raw_id": "RAW-014",
+      "item_title": "Red Tape Casual Sneakers White",
+      "raw_price": "Rs. 1999/-",
+      "size": 9,
+      "color": "White",
+      "stock_qty": 10,
+      "details": "Synthetic leather stylish sneakers."
+    }
+  },
+  {
+    "product_id": "RAW-015",
+    "name": "Red Tape Casual White Sneaker",
+    "price": 1999.0,
+    "category": "General",
+    "size": 9,
+    "color": "White",
+    "stock": 2,
+    "description": "Low top casual white sneaker for men.",
+    "needs_review": false,
+    "review_reasons": [],
+    "original_raw": {
+      "raw_id": "RAW-015",
+      "item_title": "Red Tape Casual White Sneaker",
+      "raw_price": 1999,
+      "size": 9,
+      "color": "White",
+      "stock_qty": 2,
+      "details": "Low top casual white sneaker for men."
+    }
+  },
+  {
+    "product_id": "RAW-016",
+    "name": "Denim Jacket Blue Men",
+    "price": 2100.0,
+    "category": "General",
+    "size": "L",
+    "color": "Blue",
+    "stock": 5,
+    "description": "Classic trucker denim jacket.",
+    "needs_review": false,
+    "review_reasons": [],
+    "original_raw": {
+      "raw_id": "RAW-016",
+      "item_title": "DENIM JACKET BLUE MEN",
+      "raw_price": "Rs. 2100/-",
+      "size": "L",
+      "color": "Blue",
+      "stock_qty": 5,
+      "details": "Classic trucker denim jacket."
+    }
+  },
+  {
+    "product_id": "RAW-017",
+    "name": "Levi'S Slim Fit Jeans",
+    "price": 2999.0,
+    "category": "General",
+    "size": 32,
+    "color": "Dark Blue",
+    "stock": 12,
+    "description": "Stretch denim slim fit jeans.",
+    "needs_review": false,
+    "review_reasons": [],
+    "original_raw": {
+      "raw_id": "RAW-017",
+      "item_title": "LEVI'S SLIM FIT JEANS",
+      "raw_price": "2999 INR",
+      "size": "32",
+      "color": "Dark Blue",
+      "stock_qty": 12,
+      "details": "Stretch denim slim fit jeans."
+    }
+  },
+  {
+    "product_id": "RAW-018",
+    "name": "Nike Dry Fit T-Shirt Black",
+    "price": 999.0,
+    "category": "General",
+    "size": "M",
+    "color": "Black",
+    "stock": 25,
+    "description": "Sweat wicking athletic top.",
+    "needs_review": false,
+    "review_reasons": [],
+    "original_raw": {
+      "raw_id": "RAW-018",
+      "item_title": "nike dry fit t-shirt black",
+      "raw_price": "Rs 999/-",
+      "size": "M",
+      "color": "Black",
+      "stock_qty": 25,
+      "details": "Sweat wicking athletic top."
+    }
+  },
+  {
+    "product_id": "RAW-019",
+    "name": "Nike Dri-Fit T-Shirt (Black)",
+    "price": 999.0,
+    "category": "General",
+    "size": "Medium",
+    "color": "Black",
+    "stock": 10,
+    "description": "Standard fit dry workout t-shirt.",
+    "needs_review": false,
+    "review_reasons": [],
+    "original_raw": {
+      "raw_id": "RAW-019",
+      "item_title": "Nike Dri-Fit T-Shirt (Black)",
+      "raw_price": 999,
+      "size": "Medium",
+      "color": "Black",
+      "stock_qty": 10,
+      "details": "Standard fit dry workout t-shirt."
+    }
+  },
+  {
+    "product_id": "RAW-020",
+    "name": "Adidas Essentials Hoodie Grey",
+    "price": 3499.0,
+    "category": "General",
+    "size": "XL",
+    "color": "Grey",
+    "stock": 7,
+    "description": "Fleece lined warm pullover hoodie.",
+    "needs_review": false,
+    "review_reasons": [],
+    "original_raw": {
+      "raw_id": "RAW-020",
+      "item_title": "Adidas Essentials Hoodie Grey",
+      "raw_price": "Rs 3499/-",
+      "size": "XL",
+      "color": "Grey",
+      "stock_qty": 7,
+      "details": "Fleece lined warm pullover hoodie."
+    }
+  },
+  {
+    "product_id": "RAW-021",
+    "name": "Puma Track Pants Navy",
+    "price": 1799.0,
+    "category": "General",
+    "size": "L",
+    "color": "Navy",
+    "stock": 14,
+    "description": "Elastic waistband sports track pants.",
+    "needs_review": false,
+    "review_reasons": [],
+    "original_raw": {
+      "raw_id": "RAW-021",
+      "item_title": "Puma Track Pants Navy",
+      "raw_price": "1799",
+      "size": "L",
+      "color": "Navy",
+      "stock_qty": 14,
+      "details": "Elastic waistband sports track pants."
+    }
+  },
+  {
+    "product_id": "RAW-022",
+    "name": "Puma Track Pants - Navy Blue",
+    "price": 1799.0,
+    "category": "General",
+    "size": null,
+    "color": "Blue",
+    "stock": null,
+    "description": "Track pants for gym and lounge wear.",
+    "needs_review": true,
+    "review_reasons": [
+      "size_missing",
+      "stock_missing"
+    ],
+    "original_raw": {
+      "raw_id": "RAW-022",
+      "item_title": "Puma Track Pants - Navy Blue",
+      "raw_price": "Rs 1799/-",
+      "details": "Track pants for gym and lounge wear."
+    }
+  },
+  {
+    "product_id": "RAW-023",
+    "name": "Hrx Cotton Gym Shorts",
+    "price": 699.0,
+    "category": "General",
+    "size": "M",
+    "color": "Black",
+    "stock": 30,
+    "description": "Breathable cotton training shorts.",
+    "needs_review": false,
+    "review_reasons": [],
+    "original_raw": {
+      "raw_id": "RAW-023",
+      "item_title": "HRX Cotton Gym Shorts",
+      "raw_price": "Rs 699/-",
+      "size": "M",
+      "color": "Black",
+      "stock_qty": 30,
+      "details": "Breathable cotton training shorts."
+    }
+  },
+  {
+    "product_id": "RAW-024",
+    "name": "Us Polo Assn Mens Polo Shirt Red",
+    "price": 1599.0,
+    "category": "General",
+    "size": "L",
+    "color": "Red",
+    "stock": null,
+    "description": "Collared pique polo shirt.",
+    "needs_review": true,
+    "review_reasons": [
+      "stock_missing"
+    ],
+    "original_raw": {
+      "raw_id": "RAW-024",
+      "item_title": "US Polo Assn Mens Polo Shirt Red",
+      "raw_price": 1599,
+      "size": "L",
+      "color": "Red",
+      "details": "Collared pique polo shirt."
+    }
+  },
+  {
+    "product_id": "RAW-025",
+    "name": "Superdry Winter Puffer Jacket",
+    "price": 8999.0,
+    "category": "General",
+    "size": "XL",
+    "color": "Olive",
+    "stock": 2,
+    "description": "Heavy insulated winter jacket.",
+    "needs_review": false,
+    "review_reasons": [],
+    "original_raw": {
+      "raw_id": "RAW-025",
+      "item_title": "Superdry Winter Puffer Jacket",
+      "raw_price": "Rs 8999/-",
+      "size": "XL",
+      "color": "Olive",
+      "stock_qty": 2,
+      "details": "Heavy insulated winter jacket."
+    },
+    "flagged_outlier": true
+  },
+  {
+    "product_id": "RAW-026",
+    "name": "Jack & Jones Graphic Tee White",
+    "price": 2499.0,
+    "category": "General",
+    "size": "M",
+    "color": "White",
+    "stock": 15,
+    "description": "Printed casual cotton t-shirt.",
+    "needs_review": false,
+    "review_reasons": [],
+    "original_raw": {
+      "raw_id": "RAW-026",
+      "item_title": "Jack & Jones Graphic Tee White",
+      "raw_price": "Price on Request",
+      "size": "M",
+      "color": "White",
+      "stock_qty": 15,
+      "details": "Printed casual cotton t-shirt."
+    },
+    "resolved_reasons": [
+      "price_unparseable",
+      "price_unparseable",
+      "size_missing",
+      "stock_missing"
+    ],
+    "notes": "Inferred price_unparseable from raw entry heuristics",
+    "flagged_duplicate": false
+  },
+  {
+    "product_id": "RAW-027",
+    "name": "Van Heusen Formal Shirt White",
+    "price": 1899.0,
+    "category": "General",
+    "size": 40,
+    "color": "White",
+    "stock": 6,
+    "description": "Cotton blend slim formal shirt.",
+    "needs_review": false,
+    "review_reasons": [],
+    "original_raw": {
+      "raw_id": "RAW-027",
+      "item_title": "VAN HEUSEN FORMAL SHIRT WHITE",
+      "raw_price": "1899 INR",
+      "size": "40",
+      "color": "White",
+      "stock_qty": 6,
+      "details": "Cotton blend slim formal shirt."
+    }
+  },
+  {
+    "product_id": "RAW-028",
+    "name": "Allen Solly Casual Shirt Blue",
+    "price": 1699.0,
+    "category": "General",
+    "size": 39,
+    "color": "Blue",
+    "stock": 8,
+    "description": "Textured casual button down shirt.",
+    "needs_review": false,
+    "review_reasons": [],
+    "original_raw": {
+      "raw_id": "RAW-028",
+      "item_title": "Allen Solly Casual Shirt Blue",
+      "raw_price": "Rs. 1699/-",
+      "size": "39",
+      "color": "Blue",
+      "stock_qty": 8,
+      "details": "Textured casual button down shirt."
+    }
+  },
+  {
+    "product_id": "RAW-029",
+    "name": "Peter England Slim Fit Trouser Grey",
+    "price": 1599.0,
+    "category": "General",
+    "size": 32,
+    "color": "Grey",
+    "stock": 9,
+    "description": "Formal flat front trousers.",
+    "needs_review": false,
+    "review_reasons": [],
+    "original_raw": {
+      "raw_id": "RAW-029",
+      "item_title": "Peter England Slim Fit Trouser Grey",
+      "raw_price": "1599/-",
+      "size": "32",
+      "color": "Grey",
+      "stock_qty": 9,
+      "details": "Formal flat front trousers."
+    }
+  },
+  {
+    "product_id": "RAW-030",
+    "name": "Wildcraft Waterproof Trekking Jacket",
+    "price": 3999.0,
+    "category": "General",
+    "size": "XL",
+    "color": "Green",
+    "stock": 4,
+    "description": "Heavy duty waterproof jacket size XL green color for mountain hiking.",
+    "needs_review": false,
+    "review_reasons": [],
+    "original_raw": {
+      "raw_id": "RAW-030",
+      "item_title": "Wildcraft Waterproof Trekking Jacket",
+      "raw_price": "Rs 3999/-",
+      "stock_qty": 4,
+      "details": "Heavy duty waterproof jacket size XL green color for mountain hiking."
+    },
+    "flagged_outlier": true
+  }
+]

@@ -1,0 +1,245 @@
+[
+  {
+    "failure_id": "FAIL-1787412126373",
+    "timestamp": "2026-08-22T20:52:06.373214",
+    "query": "find NIKE RUNNING SHOES - MENS under 3000",
+    "reason": "No products found matching criteria",
+    "missing_field": "product",
+    "catalog_entry_id": null,
+    "status": "resolved",
+    "details": {
+      "filters": {
+        "max_price": 3000.0,
+        "min_price": null,
+        "size": null,
+        "color": null,
+        "keyword": "NIKE RUNNING - MENS"
+      }
+    },
+    "resolution_notes": "No catalog entry ID associated with this query failure.",
+    "resolved_at": "2026-08-22T20:52:06.404311"
+  },
+  {
+    "failure_id": "FAIL-1787412126668",
+    "timestamp": "2026-08-22T20:52:06.668778",
+    "query": "find NIKE RUNNING SHOES - MENS under 3000",
+    "reason": "No products found matching criteria",
+    "missing_field": "product",
+    "catalog_entry_id": null,
+    "status": "resolved",
+    "details": {
+      "filters": {
+        "max_price": 3000.0,
+        "min_price": null,
+        "size": null,
+        "color": null,
+        "keyword": "NIKE RUNNING - MENS"
+      }
+    },
+    "resolution_notes": "No catalog entry ID associated with this query failure.",
+    "resolved_at": "2026-08-22T20:52:06.795994"
+  },
+  {
+    "failure_id": "FAIL-1787412131718",
+    "timestamp": "2026-08-22T20:52:11.718949",
+    "query": "find NIKE RUNNING SHOES - MENS under 3000",
+    "reason": "No products found matching criteria",
+    "missing_field": "product",
+    "catalog_entry_id": null,
+    "status": "resolved",
+    "details": {
+      "filters": {
+        "max_price": 3000.0,
+        "min_price": null,
+        "size": null,
+        "color": null,
+        "keyword": "NIKE RUNNING - MENS"
+      }
+    },
+    "resolution_notes": "No catalog entry ID associated with this query failure.",
+    "resolved_at": "2026-08-22T20:52:11.747359"
+  },
+  {
+    "failure_id": "FAIL-1787412132278",
+    "timestamp": "2026-08-22T20:52:12.278320",
+    "query": "find NIKE RUNNING SHOES - MENS under 3000",
+    "reason": "No products found matching criteria",
+    "missing_field": "product",
+    "catalog_entry_id": null,
+    "status": "resolved",
+    "details": {
+      "filters": {
+        "max_price": 3000.0,
+        "min_price": null,
+        "size": null,
+        "color": null,
+        "keyword": "NIKE RUNNING - MENS"
+      }
+    },
+    "resolution_notes": "No catalog entry ID associated with this query failure.",
+    "resolved_at": "2026-08-22T20:52:12.422733"
+  },
+  {
+    "failure_id": "FAIL-1787459480402",
+    "timestamp": "2026-08-23T10:01:20.402513",
+    "query": "find NIKE RUNNING SHOES - MENS under 3000",
+    "reason": "No products found matching criteria",
+    "missing_field": "product",
+    "catalog_entry_id": null,
+    "status": "resolved",
+    "details": {
+      "filters": {
+        "max_price": 3000.0,
+        "min_price": null,
+        "size": null,
+        "color": null,
+        "keyword": "NIKE RUNNING - MENS"
+      }
+    },
+    "resolution_notes": "No catalog entry ID associated with this query failure.",
+    "resolved_at": "2026-08-23T10:01:29.609890"
+  },
+  {
+    "failure_id": "FAIL-1787459781839",
+    "timestamp": "2026-08-23T10:06:21.839500",
+    "query": "find NIKE RUNNING SHOES - MENS",
+    "reason": "No products found matching criteria",
+    "missing_field": "product",
+    "catalog_entry_id": null,
+    "status": "no_match_unfixable",
+    "details": {
+      "filters": {
+        "max_price": null,
+        "min_price": null,
+        "size": null,
+        "color": null,
+        "keyword": "NIKE RUNNING - MENS"
+      }
+    },
+    "resolution_notes": "No matching catalog entry exists to satisfy this query; query is unfixable via catalog patching.",
+    "resolved_at": "2026-08-23T10:09:11.331665"
+  },
+  {
+    "failure_id": "FAIL-1787459799277",
+    "timestamp": "2026-08-23T10:06:39.277947",
+    "query": "find NIKE RUNNING SHOES - MENS",
+    "reason": "No products found matching criteria",
+    "missing_field": "product",
+    "catalog_entry_id": null,
+    "status": "no_match_unfixable",
+    "details": {
+      "filters": {
+        "max_price": null,
+        "min_price": null,
+        "size": null,
+        "color": null,
+        "keyword": "NIKE RUNNING - MENS"
+      }
+    },
+    "resolution_notes": "No matching catalog entry exists to satisfy this query; query is unfixable via catalog patching.",
+    "resolved_at": "2026-08-23T10:09:11.354086"
+  },
+  {
+    "failure_id": "FAIL-1787459966312",
+    "timestamp": "2026-08-23T10:09:26.312095",
+    "query": "find Jack & Jones Graphic Tee White under 1000 in size M",
+    "reason": "Candidate product RAW-026 has incomplete or ambiguous data (price_unparseable)",
+    "missing_field": "price_unparseable",
+    "catalog_entry_id": "RAW-026",
+    "status": "resolved",
+    "details": {
+      "candidate": {
+        "product_id": "RAW-026",
+        "name": "Jack & Jones Graphic Tee White",
+        "price": null,
+        "category": "General",
+        "size": "M",
+        "color": "White",
+        "stock": 15,
+        "description": "Printed casual cotton t-shirt.",
+        "needs_review": true,
+        "review_reasons": [
+          "price_unparseable"
+        ],
+        "original_raw": {
+          "raw_id": "RAW-026",
+          "item_title": "Jack & Jones Graphic Tee White",
+          "raw_price": "Price on Request",
+          "size": "M",
+          "color": "White",
+          "stock_qty": 15,
+          "details": "Printed casual cotton t-shirt."
+        }
+      },
+      "filters": {
+        "max_price": 1000.0,
+        "min_price": null,
+        "size": "M",
+        "color": "white",
+        "keyword": "Jack & Jones Graphic Tee"
+      }
+    },
+    "resolution_notes": "Fixed fields: ['needs_review', 'resolved_reasons', 'notes', 'price', 'size', 'color', 'stock', 'flagged_duplicate']. Updated price=2499.0, size=M. Notes: Inferred price_unparseable from raw entry heuristics",
+    "resolved_at": "2026-08-23T10:09:34.965597"
+  },
+  {
+    "failure_id": "FAIL-1787459980977",
+    "timestamp": "2026-08-23T10:09:40.977728",
+    "query": "find Jack & Jones Graphic Tee White under 1000 in size M",
+    "reason": "No products found matching criteria",
+    "missing_field": "product",
+    "catalog_entry_id": null,
+    "status": "no_match_unfixable",
+    "details": {
+      "filters": {
+        "max_price": 1000.0,
+        "min_price": null,
+        "size": "M",
+        "color": "white",
+        "keyword": "Jack & Jones Graphic Tee"
+      }
+    },
+    "resolution_notes": "No matching catalog entry exists to satisfy this query; query is unfixable via catalog patching.",
+    "resolved_at": "2026-08-23T10:10:35.066934"
+  },
+  {
+    "failure_id": "FAIL-1787460008440",
+    "timestamp": "2026-08-23T10:10:08.440510",
+    "query": "find NIKE RUNNING SHOES - MENS",
+    "reason": "No products found matching criteria",
+    "missing_field": "product",
+    "catalog_entry_id": null,
+    "status": "no_match_unfixable",
+    "details": {
+      "filters": {
+        "max_price": null,
+        "min_price": null,
+        "size": null,
+        "color": null,
+        "keyword": "NIKE RUNNING - MENS"
+      }
+    },
+    "resolution_notes": "No matching catalog entry exists to satisfy this query; query is unfixable via catalog patching.",
+    "resolved_at": "2026-08-23T10:10:35.092440"
+  },
+  {
+    "failure_id": "FAIL-1787460133261",
+    "timestamp": "2026-08-23T10:12:13.261433",
+    "query": "find [that product name] under [price] in size [X]",
+    "reason": "No products found matching criteria",
+    "missing_field": "product",
+    "catalog_entry_id": null,
+    "status": "no_match_unfixable",
+    "details": {
+      "filters": {
+        "max_price": null,
+        "min_price": null,
+        "size": null,
+        "color": null,
+        "keyword": "[that product name] [price] size [X]"
+      }
+    },
+    "resolution_notes": "No matching catalog entry exists to satisfy this query; query is unfixable via catalog patching.",
+    "resolved_at": "2026-08-23T10:12:34.706712"
+  }
+]
